@@ -1,6 +1,6 @@
 # 🍽️ 今天吃什么 - AI美食推荐助手
 
-本项目是基于 [Datawhale/all-in-rag](https://github.com/datawhalechina/all-in-rag) 教程的完整实战案例，展示了如何使用图RAG技术构建智能烹饪助手，为您推荐个性化美食和详细烹饪指导。
+本项目是基于图RAG技术构建的智能烹饪助手，为您推荐个性化美食和详细烹饪指导。
 
 ![界面](./view.png)
 
@@ -24,7 +24,7 @@
 **Windows 用户（推荐）:**
 ```bash
 # 1. 克隆项目
-git clone https://github.com/FutureUnreal/What-to-eat-today.git
+git clone https://github.com/channingLuocl/what-to-eat-today.git
 cd What-to-eat-today
 
 # 2. 双击运行或命令行启动
@@ -34,7 +34,7 @@ start.bat
 **Linux/macOS 用户:**
 ```bash
 # 1. 克隆项目
-git clone https://github.com/FutureUnreal/What-to-eat-today.git
+git clone https://github.com/channingLuocl/what-to-eat-today.git
 cd What-to-eat-today
 
 # 2. 给脚本执行权限并启动
@@ -168,12 +168,6 @@ npm run dev
 
 本项目的开发得益于以下开源项目和教程：
 
-### 📚 教程项目
-- **[Datawhale/all-in-rag](https://github.com/datawhalechina/all-in-rag)** - 大模型应用开发实战：RAG技术全栈指南
-  - 本项目是该教程的完整实战案例，展示了RAG技术的实际应用
-  - 涵盖数据处理、索引构建、检索优化、生成集成等完整技术栈
-  - 通过实际的美食推荐场景，帮助学习者理解图RAG技术的实现细节
-
 ### 🍳 菜谱数据
 - **[Anduin2017/HowToCook](https://github.com/Anduin2017/HowToCook)** - 程序员在家做饭方法指南
   - 本项目的菜谱数据主要来源于这个优秀的开源项目
@@ -211,4 +205,4 @@ npm run dev
 
 ---
 
-Copyright (c) 2025 FutureUnreal. All rights reserved.
+Copyright (c) 2025 channingLuocl. All rights reserved.
