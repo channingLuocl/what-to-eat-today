@@ -1,0 +1,915 @@
+[
+  {
+    "id": "M001",
+    "query": "宝宝多大可以开始吃辅食？",
+    "category": "health_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [],
+    "reference_answer": "一般建议宝宝6个月左右开始添加辅食，最初可以从米粉、蔬菜泥等开始。",
+    "should_answer": true,
+    "tags": ["health", "baby"]
+  },
+  {
+    "id": "M002",
+    "query": "怀孕初期吃什么对胎儿好？",
+    "category": "health_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [],
+    "reference_answer": "怀孕初期应多吃富含叶酸的食物，如绿叶蔬菜、水果、全谷物等，同时保证优质蛋白质的摄入。",
+    "should_answer": true,
+    "tags": ["health", "pregnancy"]
+  },
+  {
+    "id": "M003",
+    "query": "糖尿病患者适合吃什么？",
+    "category": "health_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [],
+    "reference_answer": "糖尿病患者适合吃低GI食物，如绿叶蔬菜、粗粮、豆腐、鱼肉等。",
+    "should_answer": true,
+    "tags": ["health", "diabetes"]
+  },
+  {
+    "id": "M004",
+    "query": "三高人群饮食要注意什么？",
+    "category": "health_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [],
+    "reference_answer": "三高人群应少油少盐低糖，多吃蔬菜水果、粗粮、深海鱼等。",
+    "should_answer": true,
+    "tags": ["health", "chronic"]
+  },
+  {
+    "id": "M005",
+    "query": "坐月子期间吃什么好？",
+    "category": "health_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [],
+    "reference_answer": "坐月子宜吃乌鸡汤、猪蹄汤、鲫鱼汤、红糖小米粥等滋补食物。",
+    "should_answer": true,
+    "tags": ["health", "postpartum"]
+  },
+  {
+    "id": "M006",
+    "query": "老年人吃什么容易消化？",
+    "category": "health_query",
+    "difficulty": "medium",
+    "expected_doc_paths": ["data/dishes/soup/小米粥.md"],
+    "reference_answer": "老年人宜吃小米粥、南瓜、红薯、蒸蛋、豆腐等易消化的食物。",
+    "should_answer": true,
+    "tags": ["health", "elderly"]
+  },
+  {
+    "id": "M007",
+    "query": "减肥期间晚餐吃什么好？",
+    "category": "health_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [],
+    "reference_answer": "减肥晚餐推荐鸡胸肉沙拉、蒸南瓜、凉拌黄瓜、番茄蛋汤等低热量食物。",
+    "should_answer": true,
+    "tags": ["health", "weight_loss"]
+  },
+  {
+    "id": "M008",
+    "query": "有没有适合素食者的菜谱？",
+    "category": "diet_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/vegetable_dish/凉拌黄瓜.md",
+      "data/dishes/vegetable_dish/酸辣土豆丝.md",
+      "data/dishes/vegetable_dish/炒青菜.md",
+      "data/dishes/vegetable_dish/清炒花菜.md"
+    ],
+    "reference_answer": "素食推荐：凉拌黄瓜、酸辣土豆丝、炒青菜、清炒花菜等。",
+    "should_answer": true,
+    "tags": ["diet", "vegetarian"]
+  },
+  {
+    "id": "M009",
+    "query": "高蛋白低脂的菜谱有哪些？",
+    "category": "diet_query",
+    "difficulty": "hard",
+    "expected_doc_paths": [],
+    "reference_answer": "高蛋白低脂可以选择白灼虾、蒸鱼、鸡胸肉、蛋清等。",
+    "should_answer": true,
+    "tags": ["diet", "high_protein"]
+  },
+  {
+    "id": "M010",
+    "query": "无麸质的食物有哪些？",
+    "category": "diet_query",
+    "difficulty": "hard",
+    "expected_doc_paths": [],
+    "reference_answer": "无麸质食物包括米饭、玉米、土豆等不含小麦/大麦/黑麦的食物。",
+    "should_answer": true,
+    "tags": ["diet", "gluten_free"]
+  },
+  {
+    "id": "M011",
+    "query": "如何去除鱼的腥味？",
+    "category": "cooking_tip_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/aquatic/清蒸鲈鱼/清蒸鲈鱼.md"
+    ],
+    "reference_answer": "去腥方法：用料酒腌制、葱姜水浸泡、烹饪时烹入白酒、清洗鱼腹内的黑膜。",
+    "should_answer": true,
+    "tags": ["cooking_tip", "fish"]
+  },
+  {
+    "id": "M012",
+    "query": "牛肉怎么做才嫩？",
+    "category": "cooking_tip_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/meat_dish/小炒黄牛肉/小炒黄牛肉.md",
+      "data/dishes/meat_dish/孜然牛肉.md"
+    ],
+    "reference_answer": "切逆纹、用淀粉抓捏、加少量油拌匀、大火快炒可以让牛肉变嫩。",
+    "should_answer": true,
+    "tags": ["cooking_tip", "beef"]
+  },
+  {
+    "id": "M013",
+    "query": "如何判断油温？",
+    "category": "cooking_tip_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [],
+    "reference_answer": "筷子冒小泡5-6成；周围密集小泡7成；剧烈大泡8成以上。",
+    "should_answer": true,
+    "tags": ["cooking_tip", "oil_temp"]
+  },
+  {
+    "id": "M014",
+    "query": "腌肉是用淀粉还是面粉？",
+    "category": "cooking_tip_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [],
+    "reference_answer": "腌肉用淀粉更好，吸水性好且能形成酥脆外壳。",
+    "should_answer": true,
+    "tags": ["cooking_tip", "marinate"]
+  },
+  {
+    "id": "M015",
+    "query": "海参怎么泡发？",
+    "category": "cooking_tip_query",
+    "difficulty": "hard",
+    "expected_doc_paths": [
+      "data/dishes/aquatic/葱烧海参/葱烧海参.md"
+    ],
+    "reference_answer": "无油容器加纯净水冷藏泡发48小时换水，煮软后再泡发24小时。",
+    "should_answer": true,
+    "tags": ["cooking_tip", "seafood"]
+  },
+  {
+    "id": "M016",
+    "query": "做馒头需要多长时间？",
+    "category": "cooking_tip_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/breakfast/蒸花卷.md"
+    ],
+    "reference_answer": "和面30分钟+发酵1-2小时+成型醒发20分钟+蒸20分钟，共约3小时。",
+    "should_answer": true,
+    "tags": ["cooking_tip", "fermentation"]
+  },
+  {
+    "id": "M017",
+    "query": "怎么炒鸡蛋才嫩滑？",
+    "category": "cooking_tip_query",
+    "difficulty": "easy",
+    "expected_doc_paths": [
+      "data/dishes/breakfast/美式炒蛋.md",
+      "data/dishes/vegetable_dish/炒滑蛋/炒滑蛋.md"
+    ],
+    "reference_answer": "鸡蛋打散加少许水或牛奶，小火慢炒，离火借余温熟成。",
+    "should_answer": true,
+    "tags": ["cooking_tip", "egg"]
+  },
+  {
+    "id": "M018",
+    "query": "切菜时怎么不切到手？",
+    "category": "cooking_tip_query",
+    "difficulty": "easy",
+    "expected_doc_paths": [],
+    "reference_answer": "用'猫爪'手势按住食材，刀贴着指关节走，刀不要超过指尖高度。",
+    "should_answer": true,
+    "tags": ["cooking_tip", "knife_skill"]
+  },
+  {
+    "id": "M019",
+    "query": "上班族带饭，有什么菜适合？",
+    "category": "scenario_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/meat_dish/红烧肉/简易红烧肉.md",
+      "data/dishes/meat_dish/宫保鸡丁/宫保鸡丁.md"
+    ],
+    "reference_answer": "适合带饭的菜：红烧肉、宫保鸡丁、卤味、炒饭等，凉了也好吃。",
+    "should_answer": true,
+    "tags": ["scenario", "lunchbox"]
+  },
+  {
+    "id": "M020",
+    "query": "想给女朋友做顿浪漫晚餐，推荐什么？",
+    "category": "scenario_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/meat_dish/牛排/牛排.md",
+      "data/dishes/dessert/提拉米苏/提拉米苏.md"
+    ],
+    "reference_answer": "推荐：牛排作主菜+蔬菜沙拉+提拉米苏甜点，搭配红酒。",
+    "should_answer": true,
+    "tags": ["scenario", "romantic"]
+  },
+  {
+    "id": "M021",
+    "query": "宿舍只有微波炉能做什么？",
+    "category": "scenario_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/breakfast/微波炉荷包蛋.md",
+      "data/dishes/breakfast/微波炉蛋糕.md",
+      "data/dishes/staple/微波炉腊肠煲仔饭/微波炉腊肠煲仔饭.md"
+    ],
+    "reference_answer": "微波炉可以做：荷包蛋、蛋糕、腊肠煲仔饭、蒸蛋羹等。",
+    "should_answer": true,
+    "tags": ["scenario", "dorm"]
+  },
+  {
+    "id": "M022",
+    "query": "新手第一次下厨做什么菜不容易翻车？",
+    "category": "scenario_query",
+    "difficulty": "easy",
+    "expected_doc_paths": [
+      "data/dishes/vegetable_dish/西红柿炒鸡蛋.md",
+      "data/dishes/vegetable_dish/凉拌黄瓜.md",
+      "data/dishes/meat_dish/可乐鸡翅.md"
+    ],
+    "reference_answer": "新手推荐：西红柿炒鸡蛋、凉拌黄瓜、可乐鸡翅，步骤简单不易失败。",
+    "should_answer": true,
+    "tags": ["scenario", "beginner"]
+  },
+  {
+    "id": "M023",
+    "query": "家里来客人了快做几个硬菜",
+    "category": "scenario_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/aquatic/清蒸鲈鱼/清蒸鲈鱼.md",
+      "data/dishes/meat_dish/红烧肉/南派红烧肉.md",
+      "data/dishes/meat_dish/糖醋排骨/糖醋排骨.md"
+    ],
+    "reference_answer": "硬菜推荐：清蒸鲈鱼、红烧肉、糖醋排骨、糖醋里脊。",
+    "should_answer": true,
+    "tags": ["scenario", "guest"]
+  },
+  {
+    "id": "M024",
+    "query": "夏天没胃口想吃点开胃的",
+    "category": "scenario_query",
+    "difficulty": "easy",
+    "expected_doc_paths": [
+      "data/dishes/vegetable_dish/凉拌黄瓜.md",
+      "data/dishes/vegetable_dish/酸辣土豆丝.md",
+      "data/dishes/drink/酸梅汤/酸梅汤.md"
+    ],
+    "reference_answer": "夏天开胃推荐：凉拌黄瓜、酸辣土豆丝、酸梅汤等。",
+    "should_answer": true,
+    "tags": ["scenario", "summer"]
+  },
+  {
+    "id": "M025",
+    "query": "夏天适合喝什么汤？",
+    "category": "seasonal_query",
+    "difficulty": "easy",
+    "expected_doc_paths": [
+      "data/dishes/soup/西红柿鸡蛋汤.md",
+      "data/dishes/soup/紫菜蛋花汤.md",
+      "data/dishes/soup/排骨苦瓜汤/排骨苦瓜汤.md"
+    ],
+    "reference_answer": "夏天适合喝清淡的汤：紫菜蛋花汤、西红柿鸡蛋汤、排骨苦瓜汤等。",
+    "should_answer": true,
+    "tags": ["seasonal", "summer"]
+  },
+  {
+    "id": "M026",
+    "query": "冬天吃什么暖身体？",
+    "category": "seasonal_query",
+    "difficulty": "easy",
+    "expected_doc_paths": [
+      "data/dishes/soup/羊肉汤/羊肉汤.md",
+      "data/dishes/meat_dish/枝竹羊腩煲/枝竹羊腩煲.md"
+    ],
+    "reference_answer": "冬天暖身推荐：羊肉汤、羊腩煲、姜母鸭等温补食物。",
+    "should_answer": true,
+    "tags": ["seasonal", "winter"]
+  },
+  {
+    "id": "M027",
+    "query": "春天吃什么应季？",
+    "category": "seasonal_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [],
+    "reference_answer": "春天宜吃春笋、香椿、菠菜、韭菜等时令蔬菜。",
+    "should_answer": true,
+    "tags": ["seasonal", "spring"]
+  },
+  {
+    "id": "M028",
+    "query": "秋天养肺吃什么？",
+    "category": "seasonal_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/soup/银耳莲子粥/银耳莲子粥.md"
+    ],
+    "reference_answer": "秋天养肺：银耳、百合、雪梨、银耳莲子粥等。",
+    "should_answer": true,
+    "tags": ["seasonal", "autumn"]
+  },
+  {
+    "id": "M029",
+    "query": "中秋节做什么菜应景？",
+    "category": "seasonal_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [],
+    "reference_answer": "中秋节传统吃月饼、桂花糕、糖醋鱼等团圆寓意的菜。",
+    "should_answer": true,
+    "tags": ["seasonal", "festival"]
+  },
+  {
+    "id": "M030",
+    "query": "端午节除了粽子还有什么传统吃的？",
+    "category": "seasonal_query",
+    "difficulty": "hard",
+    "expected_doc_paths": [],
+    "reference_answer": "端午传统食物：粽子、咸鸭蛋、五黄、雄黄酒等。",
+    "should_answer": true,
+    "tags": ["seasonal", "festival"]
+  },
+  {
+    "id": "M031",
+    "query": "用鸡蛋和西红柿可以做什么？",
+    "category": "multi_hop_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/vegetable_dish/西红柿炒鸡蛋.md",
+      "data/dishes/soup/西红柿鸡蛋汤.md",
+      "data/dishes/staple/西红柿鸡蛋挂面/西红柿鸡蛋挂面.md"
+    ],
+    "reference_answer": "西红柿+鸡蛋可以做：西红柿炒鸡蛋、西红柿鸡蛋汤、西红柿鸡蛋挂面等。",
+    "should_answer": true,
+    "tags": ["multi_hop", "ingredient_combo"]
+  },
+  {
+    "id": "M032",
+    "query": "想吃辣但不要太辣的川菜",
+    "category": "multi_hop_query",
+    "difficulty": "hard",
+    "expected_doc_paths": [
+      "data/dishes/meat_dish/宫保鸡丁/宫保鸡丁.md",
+      "data/dishes/meat_dish/回锅肉/回锅肉.md"
+    ],
+    "reference_answer": "宫保鸡丁、回锅肉这类川菜辣度适中可调节。",
+    "should_answer": true,
+    "tags": ["multi_hop", "constraint"]
+  },
+  {
+    "id": "M033",
+    "query": "30 分钟内能做好的下饭菜",
+    "category": "multi_hop_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/meat_dish/西红柿土豆炖牛肉/西红柿土豆炖牛肉.md",
+      "data/dishes/meat_dish/可乐鸡翅.md",
+      "data/dishes/vegetable_dish/酸辣土豆丝.md"
+    ],
+    "reference_answer": "30分钟可做：西红柿炒鸡蛋、酸辣土豆丝、可乐鸡翅等。",
+    "should_answer": true,
+    "tags": ["multi_hop", "time_constraint"]
+  },
+  {
+    "id": "M034",
+    "query": "高血压能吃的低盐菜推荐",
+    "category": "multi_hop_query",
+    "difficulty": "hard",
+    "expected_doc_paths": [
+      "data/dishes/aquatic/清蒸鲈鱼/清蒸鲈鱼.md",
+      "data/dishes/vegetable_dish/清蒸南瓜.md"
+    ],
+    "reference_answer": "清蒸做法少盐，推荐清蒸鲈鱼、清蒸南瓜、白灼蔬菜等。",
+    "should_answer": true,
+    "tags": ["multi_hop", "health_constraint"]
+  },
+  {
+    "id": "M035",
+    "query": "孩子不爱吃蔬菜，怎么把蔬菜混进菜里？",
+    "category": "multi_hop_query",
+    "difficulty": "hard",
+    "expected_doc_paths": [
+      "data/dishes/breakfast/燕麦鸡蛋饼.md",
+      "data/dishes/staple/茄子肉煎饼/茄子肉煎饼.md"
+    ],
+    "reference_answer": "可以做蔬菜煎饼、蔬菜饺子、蔬菜炒饭等把蔬菜剁碎混进主食。",
+    "should_answer": true,
+    "tags": ["multi_hop", "kids"]
+  },
+  {
+    "id": "M036",
+    "query": "怀孕能吃辣吗，有没有微辣的菜推荐？",
+    "category": "multi_hop_query",
+    "difficulty": "hard",
+    "expected_doc_paths": [],
+    "reference_answer": "怀孕期间可以适量吃微辣食物，但避免过辣。建议咨询医生。",
+    "should_answer": true,
+    "tags": ["multi_hop", "pregnancy"]
+  },
+  {
+    "id": "M037",
+    "query": "今天天气怎么样？",
+    "category": "rejection_case",
+    "difficulty": "easy",
+    "expected_doc_paths": [],
+    "reference_answer": "抱歉，我是菜谱推荐助手，无法回答天气问题。",
+    "should_answer": false,
+    "tags": ["rejection", "out_of_scope"]
+  },
+  {
+    "id": "M038",
+    "query": "帮我写一首关于爱情的诗",
+    "category": "rejection_case",
+    "difficulty": "easy",
+    "expected_doc_paths": [],
+    "reference_answer": "抱歉，我是菜谱推荐助手，无法创作诗歌。",
+    "should_answer": false,
+    "tags": ["rejection", "out_of_scope"]
+  },
+  {
+    "id": "M039",
+    "query": "推荐几只值得买的股票",
+    "category": "rejection_case",
+    "difficulty": "easy",
+    "expected_doc_paths": [],
+    "reference_answer": "抱歉，我是菜谱推荐助手，无法提供投资建议。",
+    "should_answer": false,
+    "tags": ["rejection", "out_of_scope"]
+  },
+  {
+    "id": "M040",
+    "query": "Python 怎么写一个 for 循环？",
+    "category": "rejection_case",
+    "difficulty": "easy",
+    "expected_doc_paths": [],
+    "reference_answer": "抱歉，我是菜谱推荐助手，无法回答编程问题。",
+    "should_answer": false,
+    "tags": ["rejection", "out_of_scope"]
+  },
+  {
+    "id": "M041",
+    "query": "我心情不好该怎么办",
+    "category": "rejection_case",
+    "difficulty": "medium",
+    "expected_doc_paths": [],
+    "reference_answer": "抱歉，我是菜谱推荐助手，建议你和朋友聊聊或寻求专业帮助。",
+    "should_answer": false,
+    "tags": ["rejection", "out_of_scope"]
+  },
+  {
+    "id": "M042",
+    "query": "明天的会议安排是什么？",
+    "category": "rejection_case",
+    "difficulty": "easy",
+    "expected_doc_paths": [],
+    "reference_answer": "抱歉，我没有访问你日程的权限，无法回答。",
+    "should_answer": false,
+    "tags": ["rejection", "out_of_scope"]
+  },
+  {
+    "id": "M043",
+    "query": "翻译一下 'The quick brown fox' 这句话",
+    "category": "rejection_case",
+    "difficulty": "easy",
+    "expected_doc_paths": [],
+    "reference_answer": "抱歉，我是菜谱推荐助手，不提供翻译服务。",
+    "should_answer": false,
+    "tags": ["rejection", "out_of_scope"]
+  },
+  {
+    "id": "M044",
+    "query": "如何注册一家公司？",
+    "category": "rejection_case",
+    "difficulty": "easy",
+    "expected_doc_paths": [],
+    "reference_answer": "抱歉，我是菜谱推荐助手，无法回答工商注册问题。",
+    "should_answer": false,
+    "tags": ["rejection", "out_of_scope"]
+  },
+  {
+    "id": "M045",
+    "query": "鳄鱼肉怎么做？",
+    "category": "empty_kb_case",
+    "difficulty": "medium",
+    "expected_doc_paths": [],
+    "reference_answer": "抱歉，菜谱库中没有鳄鱼肉的相关菜谱。",
+    "should_answer": false,
+    "tags": ["empty_kb", "uncommon"]
+  },
+  {
+    "id": "M046",
+    "query": "佛跳墙的具体做法",
+    "category": "empty_kb_case",
+    "difficulty": "medium",
+    "expected_doc_paths": [],
+    "reference_answer": "抱歉，菜谱库中暂未收录佛跳墙的做法。",
+    "should_answer": false,
+    "tags": ["empty_kb", "missing_dish"]
+  },
+  {
+    "id": "M047",
+    "query": "蜗牛怎么烹饪？",
+    "category": "empty_kb_case",
+    "difficulty": "medium",
+    "expected_doc_paths": [],
+    "reference_answer": "抱歉，菜谱库中没有蜗牛烹饪的相关菜谱。",
+    "should_answer": false,
+    "tags": ["empty_kb", "uncommon"]
+  },
+  {
+    "id": "M048",
+    "query": "怎么做寿司？",
+    "category": "empty_kb_case",
+    "difficulty": "medium",
+    "expected_doc_paths": [],
+    "reference_answer": "抱歉，菜谱库中暂未收录寿司的做法。",
+    "should_answer": false,
+    "tags": ["empty_kb", "missing_dish"]
+  },
+  {
+    "id": "M049",
+    "query": "意大利千层面怎么做？",
+    "category": "empty_kb_case",
+    "difficulty": "medium",
+    "expected_doc_paths": [],
+    "reference_answer": "抱歉，菜谱库中暂未收录千层面的做法。",
+    "should_answer": false,
+    "tags": ["empty_kb", "missing_dish"]
+  },
+  {
+    "id": "M050",
+    "query": "鹿肉刺身的做法",
+    "category": "empty_kb_case",
+    "difficulty": "hard",
+    "expected_doc_paths": [],
+    "reference_answer": "抱歉，菜谱库中没有鹿肉刺身的相关菜谱。生食有食品安全风险。",
+    "should_answer": false,
+    "tags": ["empty_kb", "uncommon"]
+  },
+  {
+    "id": "M051",
+    "query": "那个菜怎么做",
+    "category": "ambiguous_query",
+    "difficulty": "hard",
+    "expected_doc_paths": [],
+    "reference_answer": "请问您指的是哪道菜？可以告诉我菜名或主要食材。",
+    "should_answer": false,
+    "tags": ["ambiguous", "no_referent"]
+  },
+  {
+    "id": "M052",
+    "query": "鱼",
+    "category": "ambiguous_query",
+    "difficulty": "hard",
+    "expected_doc_paths": [],
+    "reference_answer": "请问您想了解鱼的什么呢？做法、营养价值还是某道具体的鱼菜？",
+    "should_answer": false,
+    "tags": ["ambiguous", "too_short"]
+  },
+  {
+    "id": "M053",
+    "query": "推荐",
+    "category": "ambiguous_query",
+    "difficulty": "hard",
+    "expected_doc_paths": [],
+    "reference_answer": "请问您想要什么类型的推荐？菜品、食材还是烹饪场景？",
+    "should_answer": false,
+    "tags": ["ambiguous", "incomplete"]
+  },
+  {
+    "id": "M054",
+    "query": "好吃的",
+    "category": "ambiguous_query",
+    "difficulty": "hard",
+    "expected_doc_paths": [],
+    "reference_answer": "请问您偏好什么口味？甜的、咸的、辣的？",
+    "should_answer": false,
+    "tags": ["ambiguous", "incomplete"]
+  },
+  {
+    "id": "M055",
+    "query": "?",
+    "category": "ambiguous_query",
+    "difficulty": "hard",
+    "expected_doc_paths": [],
+    "reference_answer": "请问有什么可以帮您？您想了解哪种菜谱？",
+    "should_answer": false,
+    "tags": ["ambiguous", "empty"]
+  },
+  {
+    "id": "M056",
+    "query": "西虹市炒鸡蛋怎么做",
+    "category": "robustness_case",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/vegetable_dish/西红柿炒鸡蛋.md"
+    ],
+    "reference_answer": "您是说'西红柿炒鸡蛋'吗？做法是把鸡蛋打散炒散，番茄炒出汁加入鸡蛋翻炒。",
+    "should_answer": true,
+    "tags": ["robustness", "typo"]
+  },
+  {
+    "id": "M057",
+    "query": "红shao肉怎么做",
+    "category": "robustness_case",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/meat_dish/红烧肉/南派红烧肉.md",
+      "data/dishes/meat_dish/红烧肉/简易红烧肉.md"
+    ],
+    "reference_answer": "您是说红烧肉吗？详见红烧肉菜谱。",
+    "should_answer": true,
+    "tags": ["robustness", "mixed_pinyin"]
+  },
+  {
+    "id": "M058",
+    "query": "想做点酸辣土斗丝",
+    "category": "robustness_case",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/vegetable_dish/酸辣土豆丝.md"
+    ],
+    "reference_answer": "您是说酸辣土豆丝吗？详见菜谱。",
+    "should_answer": true,
+    "tags": ["robustness", "typo"]
+  },
+  {
+    "id": "M059",
+    "query": "GongBaoJiDing",
+    "category": "robustness_case",
+    "difficulty": "hard",
+    "expected_doc_paths": [
+      "data/dishes/meat_dish/宫保鸡丁/宫保鸡丁.md"
+    ],
+    "reference_answer": "您是说宫保鸡丁吗？详见菜谱。",
+    "should_answer": true,
+    "tags": ["robustness", "pinyin"]
+  },
+  {
+    "id": "M060",
+    "query": "做个简单的早餐",
+    "category": "scenario_query",
+    "difficulty": "easy",
+    "expected_doc_paths": [
+      "data/dishes/breakfast/太阳蛋.md",
+      "data/dishes/breakfast/吐司果酱.md",
+      "data/dishes/breakfast/牛奶燕麦.md"
+    ],
+    "reference_answer": "简单早餐：太阳蛋、吐司果酱、牛奶燕麦等。",
+    "should_answer": true,
+    "tags": ["scenario", "breakfast"]
+  },
+  {
+    "id": "M061",
+    "query": "吃海鲜不能和什么一起吃？",
+    "category": "cooking_tip_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [],
+    "reference_answer": "海鲜不宜与富含维生素C的水果（橙子、猕猴桃）、啤酒、大量肉类同食。",
+    "should_answer": true,
+    "tags": ["cooking_tip", "food_combination"]
+  },
+  {
+    "id": "M062",
+    "query": "怎么用空气炸锅做菜？",
+    "category": "scenario_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/breakfast/空气炸锅面包片.md",
+      "data/dishes/semi-finished/空气炸锅羊排/空气炸锅羊排.md",
+      "data/dishes/semi-finished/空气炸锅鸡翅中/空气炸锅鸡翅中.md"
+    ],
+    "reference_answer": "空气炸锅可做：面包片、羊排、鸡翅、薯条等。",
+    "should_answer": true,
+    "tags": ["scenario", "appliance"]
+  },
+  {
+    "id": "M063",
+    "query": "孩子辅食阶段可以吃哪些蔬菜？",
+    "category": "health_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [],
+    "reference_answer": "辅食初期可以吃南瓜泥、胡萝卜泥、菠菜泥等温和蔬菜。",
+    "should_answer": true,
+    "tags": ["health", "baby"]
+  },
+  {
+    "id": "M064",
+    "query": "肠胃不好吃什么养胃？",
+    "category": "health_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/soup/小米粥.md"
+    ],
+    "reference_answer": "养胃推荐：小米粥、山药、南瓜、面条等温和易消化食物。",
+    "should_answer": true,
+    "tags": ["health", "stomach"]
+  },
+  {
+    "id": "M065",
+    "query": "感冒了吃什么好得快？",
+    "category": "health_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [],
+    "reference_answer": "感冒宜吃清淡易消化食物，如粥、面汤、蒸蛋、温热水果等。",
+    "should_answer": true,
+    "tags": ["health", "cold"]
+  },
+  {
+    "id": "M066",
+    "query": "贫血吃什么补血？",
+    "category": "health_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [],
+    "reference_answer": "补血食物：红枣、猪肝、菠菜、瘦肉、动物血等富铁食物。",
+    "should_answer": true,
+    "tags": ["health", "anemia"]
+  },
+  {
+    "id": "M067",
+    "query": "晚上吃什么不容易胖？",
+    "category": "diet_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/vegetable_dish/凉拌黄瓜.md",
+      "data/dishes/soup/西红柿鸡蛋汤.md"
+    ],
+    "reference_answer": "晚上不易胖：凉拌黄瓜、清汤、蒸南瓜、蛋白等低热量食物。",
+    "should_answer": true,
+    "tags": ["diet", "weight_loss"]
+  },
+  {
+    "id": "M068",
+    "query": "生酮饮食可以吃什么？",
+    "category": "diet_query",
+    "difficulty": "hard",
+    "expected_doc_paths": [],
+    "reference_answer": "生酮饮食以高脂肪、低碳水为主：肉、鱼、鸡蛋、坚果、绿叶蔬菜。",
+    "should_answer": true,
+    "tags": ["diet", "keto"]
+  },
+  {
+    "id": "M069",
+    "query": "宫保鸡丁里的花生需要先炸吗？",
+    "category": "cooking_tip_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/meat_dish/宫保鸡丁/宫保鸡丁.md"
+    ],
+    "reference_answer": "宫保鸡丁的花生需要先用油炸至酥脆，再最后撒入翻匀，避免被汁泡软。",
+    "should_answer": true,
+    "tags": ["cooking_tip", "specific_dish"]
+  },
+  {
+    "id": "M070",
+    "query": "红烧肉到底要不要焯水？",
+    "category": "cooking_tip_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/meat_dish/红烧肉/南派红烧肉.md",
+      "data/dishes/meat_dish/红烧肉/简易红烧肉.md"
+    ],
+    "reference_answer": "红烧肉一般建议焯水去除血沫和腥味，但部分做法直接煸炒上色也可以。",
+    "should_answer": true,
+    "tags": ["cooking_tip", "controversial"]
+  },
+  {
+    "id": "M071",
+    "query": "炒糖色容易糊怎么办？",
+    "category": "cooking_tip_query",
+    "difficulty": "hard",
+    "expected_doc_paths": [
+      "data/dishes/condiment/简易版炒糖色.md"
+    ],
+    "reference_answer": "炒糖色用小火慢炒，糖完全融化变深红色立即关火加水或食材，不要等冒烟。",
+    "should_answer": true,
+    "tags": ["cooking_tip", "advanced"]
+  },
+  {
+    "id": "M072",
+    "query": "广式煲汤怎么做？",
+    "category": "cooking_method_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/soup/陈皮排骨汤.md",
+      "data/dishes/soup/玉米排骨汤/玉米排骨汤.md"
+    ],
+    "reference_answer": "广式煲汤讲究文火慢炖2-3小时，食材有陈皮排骨、玉米排骨等。",
+    "should_answer": true,
+    "tags": ["cooking_method", "regional"]
+  },
+  {
+    "id": "M073",
+    "query": "怎么做出酥脆的炸鸡？",
+    "category": "cooking_tip_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [],
+    "reference_answer": "炸鸡酥脆秘诀：腌制后裹淀粉静置返潮，复炸一次效果更好。",
+    "should_answer": true,
+    "tags": ["cooking_tip", "fried"]
+  },
+  {
+    "id": "M074",
+    "query": "蒸蛋羹怎么做才嫩滑无气孔？",
+    "category": "cooking_tip_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/breakfast/蒸水蛋.md",
+      "data/dishes/vegetable_dish/鸡蛋羹/鸡蛋羹.md"
+    ],
+    "reference_answer": "蒸蛋秘诀：蛋液加1.5倍温水，过筛去泡沫，盖盘子小火蒸8分钟。",
+    "should_answer": true,
+    "tags": ["cooking_tip", "egg"]
+  },
+  {
+    "id": "M075",
+    "query": "我想自己炼一点猪油怎么搞",
+    "category": "cooking_tip_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [],
+    "reference_answer": "炼猪油：肥肉切块小火慢炼，期间加少量水防糊，至油脂渗出渣呈金黄色即可。",
+    "should_answer": true,
+    "tags": ["cooking_tip", "fat"]
+  },
+  {
+    "id": "M076",
+    "query": "想用排骨炖个汤",
+    "category": "ingredient_query",
+    "difficulty": "easy",
+    "expected_doc_paths": [
+      "data/dishes/soup/排骨苦瓜汤/排骨苦瓜汤.md",
+      "data/dishes/soup/玉米排骨汤/玉米排骨汤.md",
+      "data/dishes/soup/陈皮排骨汤.md"
+    ],
+    "reference_answer": "排骨汤推荐：排骨苦瓜汤、玉米排骨汤、陈皮排骨汤。",
+    "should_answer": true,
+    "tags": ["ingredient", "ribs"]
+  },
+  {
+    "id": "M077",
+    "query": "豆腐除了麻婆豆腐还能怎么做？",
+    "category": "ingredient_query",
+    "difficulty": "easy",
+    "expected_doc_paths": [
+      "data/dishes/vegetable_dish/凉拌豆腐.md",
+      "data/dishes/vegetable_dish/葱煎豆腐.md",
+      "data/dishes/vegetable_dish/脆皮豆腐.md"
+    ],
+    "reference_answer": "豆腐做法多样：凉拌豆腐、葱煎豆腐、脆皮豆腐、鳊鱼炖豆腐等。",
+    "should_answer": true,
+    "tags": ["ingredient", "tofu"]
+  },
+  {
+    "id": "M078",
+    "query": "小米粥的做法",
+    "category": "entity_query",
+    "difficulty": "easy",
+    "expected_doc_paths": [
+      "data/dishes/soup/小米粥.md"
+    ],
+    "reference_answer": "小米粥：小米淘洗后冷水下锅，大火煮开转小火慢熬30-40分钟至粘稠。",
+    "should_answer": true,
+    "tags": ["entity", "porridge"]
+  },
+  {
+    "id": "M079",
+    "query": "汉堡包的做法",
+    "category": "empty_kb_case",
+    "difficulty": "medium",
+    "expected_doc_paths": [],
+    "reference_answer": "抱歉，菜谱库中暂未收录汉堡包的做法。",
+    "should_answer": false,
+    "tags": ["empty_kb", "missing_dish"]
+  },
+  {
+    "id": "M080",
+    "query": "我老婆怀孕6个月想吃辣但不能太辣，最好是清淡一点的家常川菜",
+    "category": "multi_hop_query",
+    "difficulty": "hard",
+    "expected_doc_paths": [
+      "data/dishes/meat_dish/宫保鸡丁/宫保鸡丁.md",
+      "data/dishes/meat_dish/回锅肉/回锅肉.md"
+    ],
+    "reference_answer": "孕期可以适量微辣，推荐辣度可调的川菜如宫保鸡丁、回锅肉（少辣版本）。具体仍建议遵医嘱。",
+    "should_answer": true,
+    "tags": ["multi_hop", "pregnancy", "constraint"]
+  }
+]

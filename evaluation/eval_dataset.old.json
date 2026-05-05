@@ -1,0 +1,212 @@
+[
+  {
+    "query": "红烧肉怎么做？",
+    "expected_context": ["红烧肉的相关菜谱", "红烧肉的食材列表", "红烧肉的烹饪步骤"],
+    "reference_answer": "红烧肉是一道经典的家常菜，主要食材是五花肉，需要的配料包括酱油、糖、料酒等。烹饪步骤包括：先将五花肉切块焯水，然后煸炒上色，加入调料炖煮至软烂。",
+    "category": "entity_query"
+  },
+  {
+    "query": "宝宝多大可以开始吃辅食？",
+    "expected_context": ["宝宝添加辅食的时间", "适合婴儿的菜谱", "辅食制作方法"],
+    "reference_answer": "一般建议宝宝6个月左右开始添加辅食，最初可以从米粉、蔬菜泥等开始。",
+    "category": "health_query"
+  },
+  {
+    "query": "鸡蛋可以做什么早餐？",
+    "expected_context": ["鸡蛋相关菜谱", "早餐类菜谱", "简单快手的做法"],
+    "reference_answer": "鸡蛋可以做很多早餐，比如蒸蛋、煎蛋、蛋饼、西红柿炒鸡蛋等。",
+    "category": "ingredient_recipe_query"
+  },
+  {
+    "query": "清淡的汤有哪些？",
+    "expected_context": ["汤类菜谱", "清淡口味的菜谱", "适合老人小孩的菜谱"],
+    "reference_answer": "清淡的汤包括紫菜蛋花汤、西红柿鸡蛋汤、冬瓜排骨汤等。",
+    "category": "category_query"
+  },
+  {
+    "query": "有没有适合素食者的菜谱？",
+    "expected_context": ["素菜分类", "素食菜谱", "植物性食材"],
+    "reference_answer": "有的，比如麻婆豆腐、炒时蔬、凉拌黄瓜等都是素食友好的菜肴。",
+    "category": "diet_query"
+  },
+  {
+    "query": "做清蒸鲈鱼需要注意什么？",
+    "expected_context": ["清蒸鲈鱼菜谱", "清蒸鱼的步骤", "鲈鱼的烹饪技巧"],
+    "reference_answer": "清蒸鲈鱼需要注意：鱼要新鲜，蒸的时间不要太长（大约10分钟），火候要控制好，蒸好后淋上热油和蒸鱼豉油。",
+    "category": "cooking_tip_query"
+  },
+  {
+    "query": "怀孕初期吃什么对胎儿好？",
+    "expected_context": ["孕期营养相关菜谱", "健康养生菜谱", "高蛋白食材"],
+    "reference_answer": "怀孕初期应多吃富含叶酸的食物，如绿叶蔬菜、水果、全谷物等，同时保证优质蛋白质的摄入，如鱼、肉、蛋、奶。",
+    "category": "health_query"
+  },
+  {
+    "query": "川菜中有哪些是不辣的？",
+    "expected_context": ["川菜分类", "不辣的川菜", "川菜烹饪方法"],
+    "reference_answer": "川菜不辣的菜包括回锅肉（可以选择不辣版本）、宫保鸡丁（可调节辣度）、开水白菜等。",
+    "category": "multi_hop_query"
+  },
+  {
+    "query": "简单易学的家常菜有哪些？",
+    "expected_context": ["简单标签的菜谱", "家常菜分类", "难度较低的菜谱"],
+    "reference_answer": "简单易学的家常菜包括西红柿炒鸡蛋、酸辣土豆丝、青椒肉丝等。",
+    "category": "tag_query"
+  },
+  {
+    "query": "怎么做蒜蓉虾？",
+    "expected_context": ["蒜蓉虾菜谱", "蒜蓉虾的食材", "蒜蓉虾的烹饪步骤"],
+    "reference_answer": "蒜蓉虾的做法：1. 处理虾 2. 炒蒜蓉 3. 加入虾翻炒 4. 调味出锅。",
+    "category": "entity_query"
+  },
+  {
+    "query": "糖尿病患者适合吃什么？",
+    "expected_context": ["健康养生菜谱", "低糖食材", "糖尿病饮食推荐"],
+    "reference_answer": "糖尿病患者适合吃低GI食物，如绿叶蔬菜、粗粮、豆腐、鱼肉等。",
+    "category": "health_query"
+  },
+  {
+    "query": "早餐时间紧张，有什么快手早餐推荐？",
+    "expected_context": ["早餐分类", "快手标签菜谱", "简单快速的菜谱"],
+    "reference_answer": "快手早餐推荐：煎蛋三明治、燕麦粥、豆浆油条、鸡蛋饼等。",
+    "category": "scenario_query"
+  },
+  {
+    "query": "鸡肉可以做成哪些菜？",
+    "expected_context": ["鸡肉相关菜谱", "荤菜分类", "肉类菜谱"],
+    "reference_answer": "鸡肉可以做成宫保鸡丁、大盘鸡、黄焖鸡、鸡汤等。",
+    "category": "ingredient_recipe_query"
+  },
+  {
+    "query": "如何去除鱼的腥味？",
+    "expected_context": ["去腥技巧", "水产的烹饪技巧", "食材处理方法"],
+    "reference_answer": "去腥方法：1. 用料酒腌制 2. 葱姜水浸泡 3. 烹饪时烹入白酒 4. 鱼腹内的黑膜要清洗干净。",
+    "category": "cooking_tip_query"
+  },
+  {
+    "query": "三高人群饮食要注意什么？",
+    "expected_context": ["三高饮食建议", "健康养生", "食材禁忌"],
+    "reference_answer": "三高人群应少油少盐低糖，多吃蔬菜水果、粗粮、深海鱼等。",
+    "category": "health_query"
+  },
+  {
+    "query": "有没有适合上班族带饭的菜谱？",
+    "expected_context": ["便当菜谱", "适合带饭的菜", "简单易做的菜谱"],
+    "reference_answer": "适合带饭的菜：红烧肉、卤味、炒饭、宫保鸡丁等，这些菜凉了也好吃。",
+    "category": "scenario_query"
+  },
+  {
+    "query": "怎么做糖醋排骨？",
+    "expected_context": ["糖醋排骨菜谱", "糖醋排骨的食材", "糖醋汁的调配"],
+    "reference_answer": "糖醋排骨做法：1. 排骨焯水 2. 炸至金黄 3. 调制糖醋汁 4. 翻炒收汁。",
+    "category": "entity_query"
+  },
+  {
+    "query": "夏天适合吃什么汤？",
+    "expected_context": ["汤类菜谱", "消暑食谱", "夏季养生"],
+    "reference_answer": "夏天适合喝冬瓜排骨汤、绿豆汤、丝瓜汤等清淡解暑的汤品。",
+    "category": "seasonal_query"
+  },
+  {
+    "query": "豆腐和什么搭配好吃？",
+    "expected_context": ["豆腐的搭配菜谱", "食材相克", "家常菜"],
+    "reference_answer": "豆腐可以与肉末一起做成麻婆豆腐，与鲫鱼一起做鱼头豆腐汤，与鸡蛋一起做豆腐蛋羹等。",
+    "category": "ingredient_recipe_query"
+  },
+  {
+    "query": "做馒头需要多长时间？",
+    "expected_context": ["主食制作方法", "馒头制作步骤", "发酵知识"],
+    "reference_answer": "制作馒头需要：和面（约30分钟）、发酵（1-2小时）、成型、醒发（20分钟）、蒸制（20分钟），总共约3小时左右。",
+    "category": "cooking_tip_query"
+  },
+  {
+    "query": "有没有不用油炸的鸡腿做法？",
+    "expected_context": ["鸡腿菜谱", "健康烹饪方法", "蒸煮类菜谱"],
+    "reference_answer": "可以用烤箱烤鸡腿，或者用可乐鸡腿的做法（少油），或者炖鸡腿。",
+    "category": "cooking_method_query"
+  },
+  {
+    "query": "坐月子期间吃什么好？",
+    "expected_context": ["月子餐", "滋补菜谱", "产后营养"],
+    "reference_answer": "坐月子宜吃：乌鸡汤、猪蹄汤、鲫鱼汤、红糖小米粥等滋补食物。",
+    "category": "health_query"
+  },
+  {
+    "query": "怎么做西红柿炒鸡蛋才好吃？",
+    "expected_context": ["西红柿炒鸡蛋菜谱", "烹饪技巧", "常见错误"],
+    "reference_answer": "好吃的西红柿炒鸡蛋：鸡蛋要打散加少许盐，番茄要炒出汁水，调味要适量，出锅前可加少许糖提鲜。",
+    "category": "entity_query"
+  },
+  {
+    "query": "海参怎么泡发？",
+    "expected_context": ["海参处理方法", "干货泡发技巧", "葱烧海参的前置步骤"],
+    "reference_answer": "海参泡发：1. 清洗 2. 放入无油容器加纯净水冷藏泡发48小时 3. 每12小时换水 4. 煮软 5. 继续泡发24小时。",
+    "category": "cooking_tip_query"
+  },
+  {
+    "query": "减肥期间晚餐吃什么好？",
+    "expected_context": ["低热量菜谱", "减肥餐", "健康饮食"],
+    "reference_answer": "减肥晚餐推荐：鸡胸肉沙拉、蒸南瓜、凉拌黄瓜、番茄蛋汤等。",
+    "category": "health_query"
+  },
+  {
+    "query": "牛肉怎么做才嫩？",
+    "expected_context": ["牛肉处理技巧", "嫩肉方法", "牛肉菜谱"],
+    "reference_answer": "让牛肉变嫩的方法：1. 切逆纹 2. 用淀粉抓捏 3. 加少量油拌匀 4. 炒制时大火快炒 5. 可以加小苏打腌制。",
+    "category": "cooking_tip_query"
+  },
+  {
+    "query": "面条有多少种做法？",
+    "expected_context": ["面条菜谱", "主食分类", "简单快手"],
+    "reference_answer": "面条做法多样：炸酱面、打卤面、牛肉面、凉面、热干面、阳春面等。",
+    "category": "category_query"
+  },
+  {
+    "query": "给宝宝做辅食有什么禁忌？",
+    "expected_context": ["婴儿饮食禁忌", "辅食制作注意事项", "食品安全"],
+    "reference_answer": "宝宝辅食禁忌：一岁前不放盐和糖，不吃蜂蜜，容易过敏的食物要逐样尝试，食物要做得细软。",
+    "category": "health_query"
+  },
+  {
+    "query": "如何判断油温？",
+    "expected_context": ["油温判断技巧", "烹饪技巧", "厨房经验"],
+    "reference_answer": "判断油温：1. 筷子冒泡说明油温5-6成 2. 插入筷子周围冒小泡说明7成 3. 插入筷子周围大量冒泡说明8成 4. 插入筷子周围剧烈冒泡说明9成以上。",
+    "category": "cooking_tip_query"
+  },
+  {
+    "query": "甜品有哪些简单做法？",
+    "expected_context": ["甜品分类", "简单甜品", "烘焙食谱"],
+    "reference_answer": "简单甜品：杨枝甘露、牛奶布丁、水果沙拉、红豆汤等。",
+    "category": "category_query"
+  },
+  {
+    "query": "虾仁怎么做辅食？",
+    "expected_context": ["虾仁菜谱", "婴儿辅食", "高蛋白食材做法"],
+    "reference_answer": "虾仁辅食：虾仁蒸蛋、虾仁蔬菜粥、虾仁面等，注意要挑掉虾线，煮熟煮透。",
+    "category": "health_query"
+  },
+  {
+    "query": "老年人吃什么容易消化？",
+    "expected_context": ["老年人饮食", "易消化菜谱", "养生食谱"],
+    "reference_answer": "老年人宜吃：小米粥、南瓜、红薯、蒸蛋、豆腐等易消化的食物。",
+    "category": "health_query"
+  },
+  {
+    "query": "腌肉是用淀粉还是面粉？",
+    "expected_context": ["腌制技巧", "淀粉和面粉的区别", "烹饪知识"],
+    "reference_answer": "腌肉用淀粉更好，因为淀粉吸水性更好，炸制时能形成更酥脆的外壳，面粉容易吸油。",
+    "category": "cooking_tip_query"
+  },
+  {
+    "query": "有哪些适合两人份的菜谱？",
+    "expected_context": ["菜谱分量", "家常菜", "适合小家庭"],
+    "reference_answer": "两人份菜谱：番茄炒蛋、酸辣土豆丝、青椒肉片、蛋花汤等。",
+    "category": "scenario_query"
+  },
+  {
+    "query": "吃海鲜不能和什么一起吃？",
+    "expected_context": ["食材相克", "海鲜禁忌", "饮食搭配"],
+    "reference_answer": "海鲜不宜与富含维生素C的水果（如橙子、猕猴桃）、啤酒、大量肉类同食。",
+    "category": "cooking_tip_query"
+  }
+]
