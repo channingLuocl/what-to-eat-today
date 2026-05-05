@@ -6,6 +6,9 @@ services:
   neo4j:
     image: neo4j:5.11-community
     container_name: what-to-eat-neo4j
+    hostname: neo4j
+    extra_hosts:
+      - "neo4j:127.0.0.1"
     environment:
       - NEO4J_AUTH=neo4j/all-in-rag
       - NEO4J_PLUGINS=["apoc", "graph-data-science"]
@@ -166,6 +169,8 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
       target: runner
+      args:
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:8000}
     container_name: what-to-eat-frontend
     environment:
       - NODE_ENV=production
@@ -178,7 +183,7 @@ services:
       backend:
         condition: service_healthy
     healthcheck:
-      test: ["CMD-SHELL", "curl -fsS http://127.0.0.1:3000/ || exit 1"]
+      test: ["CMD-SHELL", "wget -q --spider http://127.0.0.1:3000/ || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 3

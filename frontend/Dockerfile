@@ -4,6 +4,10 @@ FROM node:18-alpine AS builder
 # 设置工作目录
 WORKDIR /app
 
+# Next.js 会在构建阶段内联 NEXT_PUBLIC_* 环境变量
+ARG NEXT_PUBLIC_API_URL=http://localhost:8000
+ENV NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
+
 # 复制package文件
 COPY package*.json ./
 
