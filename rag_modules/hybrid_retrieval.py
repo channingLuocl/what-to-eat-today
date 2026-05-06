@@ -6,6 +6,7 @@
 
 import json
 import logging
+import re
 from typing import List, Dict, Tuple, Any
 from dataclasses import dataclass
 
@@ -15,6 +16,24 @@ from neo4j import GraphDatabase
 from .graph_indexing import GraphIndexingModule
 
 logger = logging.getLogger(__name__)
+
+
+def _extract_json(text: str) -> str:
+    """从 LLM 响应中提取 JSON，兼容思维链 <think> 标签和 Markdown 代码块"""
+    if not text or not text.strip():
+        raise ValueError("LLM 返回了空响应")
+    # 1. 剥掉 <think>...</think> 推理块（MiniMax-M2.7 思维链输出）
+    text = re.sub(r"<think>[\s\S]*?</think>", "", text).strip()
+    if not text:
+        raise ValueError("LLM 响应中 <think> 块之外没有内容（token 被截断）")
+    # 2. 剥除 ```json ... ``` 或 ``` ... ``` 围栏
+    match = re.search(r"```(?:json)?\s*([\s\S]+?)```", text)
+    if match:
+        extracted = match.group(1).strip()
+        if not extracted:
+            raise ValueError("LLM 返回了空代码块")
+        return extracted
+    return text.strip()
 
 @dataclass
 class RetrievalResult:
@@ -166,10 +185,13 @@ class HybridRetrievalModule:
                 model=self.config.llm_model,
                 messages=[{"role": "user", "content": prompt}],
                 temperature=0.1,
-                max_tokens=500
+                max_tokens=2000
             )
-            
-            result = json.loads(response.choices[0].message.content.strip())
+
+            raw_content = response.choices[0].message.content
+            finish_reason = response.choices[0].finish_reason
+            logger.debug(f"关键词提取 - finish_reason={finish_reason!r}")
+            result = json.loads(_extract_json(raw_content))
             entity_keywords = result.get("entity_keywords", [])
             topic_keywords = result.get("topic_keywords", [])
             

@@ -7,11 +7,30 @@
 
 import json
 import logging
+import re
 from typing import List, Dict, Tuple, Any, Optional
 from dataclasses import dataclass
 from enum import Enum
 
 from langchain_core.documents import Document
+
+
+def _extract_json(text: str) -> str:
+    """从 LLM 响应中提取 JSON，兼容思维链 <think> 标签和 Markdown 代码块"""
+    if not text or not text.strip():
+        raise ValueError("LLM 返回了空响应")
+    # 1. 剥掉 <think>...</think> 推理块（MiniMax-M2.7 思维链输出）
+    text = re.sub(r"<think>[\s\S]*?</think>", "", text).strip()
+    if not text:
+        raise ValueError("LLM 响应中 <think> 块之外没有内容（token 被截断）")
+    # 2. 剥除 ```json ... ``` 或 ``` ... ``` 围栏
+    match = re.search(r"```(?:json)?\s*([\s\S]+?)```", text)
+    if match:
+        extracted = match.group(1).strip()
+        if not extracted:
+            raise ValueError("LLM 返回了空代码块")
+        return extracted
+    return text.strip()
 
 logger = logging.getLogger(__name__)
 
@@ -116,11 +135,11 @@ class IntelligentQueryRouter:
                 model=self.config.llm_model,
                 messages=[{"role": "user", "content": analysis_prompt}],
                 temperature=0.1,
-                max_tokens=800
+                max_tokens=2000
             )
             
-            result = json.loads(response.choices[0].message.content.strip())
-            
+            result = json.loads(_extract_json(response.choices[0].message.content))
+
             analysis = QueryAnalysis(
                 query_complexity=result.get("query_complexity", 0.5),
                 relationship_intensity=result.get("relationship_intensity", 0.5),

@@ -35,6 +35,10 @@ from typing import Any, Dict, List, Optional, Tuple
 # 将项目根目录加入路径
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
+# 加载 .env（必须在导入任何业务模块之前）
+from dotenv import load_dotenv
+load_dotenv(Path(__file__).parent.parent / ".env")
+
 from evaluation.metrics_collector import MetricsCollector, compare_runs
 from evaluation.ragas_evaluator import EvaluationResult, RAGASEvaluator
 
@@ -86,23 +90,82 @@ class RealRAG:
 
     def __init__(self):
         from config import GraphRAGConfig
-        from rag_modules.generation_integration import GenerationIntegrationModule
+        from rag_modules import (
+            GraphDataPreparationModule,
+            MilvusIndexConstructionModule,
+            GenerationIntegrationModule,
+        )
         from rag_modules.graph_rag_retrieval import GraphRAGRetrieval
         from rag_modules.hybrid_retrieval import HybridRetrievalModule
         from rag_modules.intelligent_query_router import IntelligentQueryRouter
 
         self.config = GraphRAGConfig()
         logger.info("初始化检索组件...")
-        self.hybrid = HybridRetrievalModule(self.config)
-        self.hybrid.initialize()
-        self.graph = GraphRAGRetrieval(self.config, llm_client=None)
-        self.graph.initialize()
-        self.router = IntelligentQueryRouter(
-            config=self.config,
-            hybrid_retrieval=self.hybrid,
-            graph_rag=self.graph,
+
+        # 1. 数据准备模块
+        self.data_module = GraphDataPreparationModule(
+            uri=self.config.neo4j_uri,
+            user=self.config.neo4j_user,
+            password=self.config.neo4j_password,
+            database=self.config.neo4j_database,
         )
-        self.gen = GenerationIntegrationModule(model_name=self.config.llm_model)
+
+        # 2. 向量索引模块
+        self.index_module = MilvusIndexConstructionModule(
+            host=self.config.milvus_host,
+            port=self.config.milvus_port,
+            collection_name=self.config.milvus_collection_name,
+            dimension=self.config.milvus_dimension,
+            model_name=self.config.embedding_model,
+        )
+
+        # 3. 生成模块（同时提供 llm_client）
+        self.gen = GenerationIntegrationModule(
+            model_name=self.config.llm_model,
+            temperature=self.config.temperature,
+            max_tokens=self.config.max_tokens,
+        )
+        llm_client = self.gen.client
+
+        # 4. 传统混合检索（需要 milvus_module / data_module / llm_client）
+        self.hybrid = HybridRetrievalModule(
+            config=self.config,
+            milvus_module=self.index_module,
+            data_module=self.data_module,
+            llm_client=llm_client,
+        )
+
+        # 5. 图 RAG 检索
+        self.graph = GraphRAGRetrieval(
+            config=self.config,
+            llm_client=llm_client,
+        )
+
+        # 6. 智能路由器（参数名与实际签名对齐）
+        self.router = IntelligentQueryRouter(
+            traditional_retrieval=self.hybrid,
+            graph_rag_retrieval=self.graph,
+            llm_client=llm_client,
+            config=self.config,
+        )
+
+        # 7. 加载知识库并初始化检索器（需在路由器创建后执行）
+        logger.info("加载知识库数据...")
+        if self.index_module.has_collection() and self.index_module.load_collection():
+            logger.info("已有向量集合，直接加载")
+        else:
+            logger.info("未找到向量集合，重新构建索引")
+        self.data_module.load_graph_data()
+        self.data_module.build_recipe_documents()
+        chunks = self.data_module.chunk_documents(
+            chunk_size=self.config.chunk_size,
+            chunk_overlap=self.config.chunk_overlap,
+        )
+        if not self.index_module.has_collection():
+            self.index_module.build_vector_index(chunks)
+        self.hybrid.initialize(chunks)
+        self.graph.initialize()
+
         logger.info("检索组件初始化完成")
 
     def retrieve_and_generate(self, query: str, item: Dict[str, Any], top_k: int = 5) -> Tuple[List[str], List[str], str]:
@@ -165,8 +228,7 @@ def run_evaluation(
     responses: List[str] = []
 
     for i, item in enumerate(items):
-        if i % 10 == 0:
-            logger.info(f"  处理 {i+1}/{len(items)}: {item.get('query', '')[:30]}")
+        logger.info(f"  处理 {i+1}/{len(items)}: {item.get('query', '')[:30]}")
         rp, rc, resp = rag.retrieve_and_generate(
             item.get("query", ""),
             item,
