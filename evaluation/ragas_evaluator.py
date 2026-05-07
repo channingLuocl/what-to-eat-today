@@ -255,13 +255,24 @@ class RAGASEvaluator:
         sample_only = [s for _, s in samples]
         dataset = EvaluationDataset(samples=sample_only)
         logger.info(f"开始 RAGAS 评估 ({len(sample_only)} 条样本, {len(metric_objs)} 个指标)...")
-        eval_result = evaluate(
+
+        # MiniMax 并发能力差且响应慢，降并发 + 拉长超时，避免大量 TimeoutError
+        try:
+            from ragas.run_config import RunConfig
+            run_config = RunConfig(timeout=240, max_workers=2, max_retries=3)
+        except ImportError:
+            run_config = None
+
+        eval_kwargs = dict(
             dataset=dataset,
             metrics=metric_objs,
             llm=llm,
             embeddings=emb,
             show_progress=True,
         )
+        if run_config is not None:
+            eval_kwargs["run_config"] = run_config
+        eval_result = evaluate(**eval_kwargs)
 
         # 把结果转成 DataFrame，按 query_id 对齐填回
         try:

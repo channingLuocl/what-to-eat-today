@@ -138,6 +138,9 @@ class MetricsCollector:
 
     @staticmethod
     def _stats(values: List[float], with_ci: bool = True) -> MetricStats:
+        # 过滤 NaN（部分 RAGAS job 失败时不让单个 NaN 污染整列 mean）
+        import math
+        values = [v for v in values if v is not None and not (isinstance(v, float) and math.isnan(v))]
         if not values:
             return MetricStats()
         ci = bootstrap_ci(values, n_iter=1000, confidence=0.95) if with_ci else {

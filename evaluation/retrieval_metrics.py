@@ -24,39 +24,49 @@
 """
 
 import math
+import os
 from typing import Dict, List, Optional
 
 
 def _normalize_path(path: str) -> str:
-    """规范化路径用于匹配（去前缀斜杠、去 .md 扩展、小写）。
+    """规范化为 basename 去扩展名，使两端都收敛到菜名。
 
-    注意：这里只做轻度规范化。如果你的检索系统返回的是绝对路径，
-    而 expected 是相对路径，需要在外层先对齐。
+    这样 expected `data/dishes/.../糖醋鲤鱼.md` 与 retrieved `糖醋鲤鱼`（来自
+    metadata.recipe_name）能对齐。RAG 端 Document.metadata 不带 source 路径，
+    只带 recipe_name，所以双方收敛到菜名是最务实的对齐方式。
     """
     if not path:
         return ""
-    p = path.strip().lstrip("./").lstrip("/")
+    p = os.path.basename(path.strip().lstrip("./").lstrip("/"))
+    if p.endswith(".md"):
+        p = p[:-3]
     return p
 
 
 def recall_at_k(retrieved: List[str], expected: List[str], k: int) -> float:
-    """检索到的相关文档数 / 应该检索到的文档总数"""
+    """检索到的相关文档数 / 应该检索到的文档总数。
+    分子按 unique 文档计数：同一菜被多个 chunk 命中只算 1 次，避免 recall>1。
+    """
     if not expected:
         return 0.0
     expected_set = {_normalize_path(p) for p in expected}
-    retrieved_topk = [_normalize_path(p) for p in retrieved[:k]]
-    hits = sum(1 for p in retrieved_topk if p in expected_set)
+    retrieved_set = {_normalize_path(p) for p in retrieved[:k] if p}
+    hits = len(retrieved_set & expected_set)
     return hits / len(expected_set)
 
 
 def precision_at_k(retrieved: List[str], expected: List[str], k: int) -> float:
-    """检索到的相关文档数 / 实际检索到的文档总数（截断到 k）"""
+    """检索到的相关 unique 文档数 / 检索到的 unique 文档总数（截断到 k）。
+    分子分母都按 unique 算，避免同一菜的多个 chunk 把 precision 推高过 1。
+    """
     if not retrieved or k <= 0:
         return 0.0
     expected_set = {_normalize_path(p) for p in expected}
-    retrieved_topk = [_normalize_path(p) for p in retrieved[:k]]
-    hits = sum(1 for p in retrieved_topk if p in expected_set)
-    return hits / min(k, len(retrieved_topk))
+    retrieved_set = {_normalize_path(p) for p in retrieved[:k] if p}
+    if not retrieved_set:
+        return 0.0
+    hits = len(retrieved_set & expected_set)
+    return hits / len(retrieved_set)
 
 
 def f1_at_k(retrieved: List[str], expected: List[str], k: int) -> float:
@@ -89,14 +99,25 @@ def hit_at_k(retrieved: List[str], expected: List[str], k: int) -> float:
 def ndcg_at_k(retrieved: List[str], expected: List[str], k: int) -> float:
     """归一化折损累计增益。这里把所有相关文档当作同样相关（rel=1），
     所以 DCG 退化为 sum(1 / log2(i+2))，IDCG 是把所有相关文档放在前面时的 DCG。
+
+    NDCG 也按 unique 文档统计：同一菜的多个 chunk 只在首次出现位置计 gain，
+    避免重复计入导致 NDCG > 1。
     """
     expected_set = {_normalize_path(p) for p in expected}
     if not expected_set:
         return 0.0
 
-    retrieved_topk = [_normalize_path(p) for p in retrieved[:k]]
+    # 按首次出现位置去重，保留排序信息
+    seen = set()
+    retrieved_unique = []
+    for p in retrieved[:k]:
+        np_p = _normalize_path(p)
+        if np_p and np_p not in seen:
+            seen.add(np_p)
+            retrieved_unique.append(np_p)
+
     dcg = 0.0
-    for i, p in enumerate(retrieved_topk):
+    for i, p in enumerate(retrieved_unique):
         if p in expected_set:
             dcg += 1.0 / math.log2(i + 2)
 

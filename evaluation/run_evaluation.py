@@ -79,7 +79,7 @@ class MockRAG:
 def _doc_to_path(doc) -> str:
     """从 langchain Document 中提取文档路径，按多个常见 metadata key 尝试"""
     md = getattr(doc, "metadata", {}) or {}
-    for key in ("source", "file_path", "path", "doc_path", "node_id"):
+    for key in ("source", "file_path", "path", "doc_path", "recipe_name", "node_id"):
         if md.get(key):
             return str(md[key])
     return ""

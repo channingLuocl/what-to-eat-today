@@ -603,31 +603,38 @@ class HybridRetrievalModule:
             concurrent.futures.wait([future_dual, future_vector], timeout=20)
 
         # 3. Round-robin轮询合并
+        # 注意：dedup key 用 page_content 的 hash，而不是 node_id。
+        # 实体卡片（dual_level，"菜品名称: x\n分类: y..."）和真菜谱 chunk
+        # （vector_enhanced，含步骤）虽属同一菜谱（node_id 相同），但内容互补，
+        # 应共存。原来用 node_id 去重会把 vector 检索到的真菜谱 chunk 全部误杀。
         merged_docs = []
-        seen_doc_ids = set()
+        seen_content_hashes = set()
         max_len = max(len(dual_docs), len(vector_docs))
         origin_len = len(dual_docs) + len(vector_docs)
-        
+
         for i in range(max_len):
             # 先添加双层检索结果
             if i < len(dual_docs):
                 doc = dual_docs[i]
-                doc_id = doc.metadata.get("node_id", hash(doc.page_content))
-                if doc_id not in seen_doc_ids:
-                    seen_doc_ids.add(doc_id)
+                content_hash = hash(doc.page_content)
+                if content_hash not in seen_content_hashes:
+                    seen_content_hashes.add(content_hash)
                     doc.metadata["search_method"] = "dual_level"
                     doc.metadata["round_robin_order"] = len(merged_docs)
                     # 设置统一的final_score字段
                     doc.metadata["final_score"] = doc.metadata.get("relevance_score", 0.0)
                     merged_docs.append(doc)
-            
+
             # 再添加向量检索结果
             if i < len(vector_docs):
                 doc = vector_docs[i]
-                doc_id = doc.metadata.get("node_id", hash(doc.page_content))
-                if doc_id not in seen_doc_ids:
-                    seen_doc_ids.add(doc_id)
+                content_hash = hash(doc.page_content)
+                if content_hash not in seen_content_hashes:
+                    seen_content_hashes.add(content_hash)
                     doc.metadata["search_method"] = "vector_enhanced"
+                    # 给 vector 检索的真菜谱 chunk 标上 retrieval_level，
+                    # 让下游（如评估）能区分内容来源
+                    doc.metadata.setdefault("retrieval_level", "chunk")
                     doc.metadata["round_robin_order"] = len(merged_docs)
                     # 设置统一的final_score字段（向量得分需要转换）
                     vector_score = doc.metadata.get("score", 0.0)

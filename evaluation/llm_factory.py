@@ -24,7 +24,7 @@ def build_ragas_llm(
     base_url: Optional[str] = None,
     api_key: Optional[str] = None,
     temperature: float = 0.0,
-    timeout: int = 60,
+    timeout: int = 240,
 ):
     """
     构造一个供 RAGAS 评估使用的 LLM 包装器。
@@ -131,6 +131,10 @@ def inject_into_metrics(metrics: list, llm=None, embeddings=None) -> None:
         # 部分指标（如 answer_relevancy）需要 embedding
         if hasattr(m, "embeddings"):
             m.embeddings = embeddings
+        # MiniMax 不支持 n>1（self-consistency 采样会触发 400）。
+        # 把 strictness 强制为 1，让 metric 每次只采一个候选。
+        if hasattr(m, "strictness"):
+            m.strictness = 1
 
     logger.info(
         f"Injected LLM + Embeddings into {len(metrics)} RAGAS metrics"
