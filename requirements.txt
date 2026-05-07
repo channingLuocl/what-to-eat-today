@@ -48,3 +48,5 @@ requests>=2.28.0
 
 # 评价工具
 ragas==0.4.3
+
+langchain-openai>=0.2.0
