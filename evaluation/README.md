@@ -51,8 +51,9 @@ evaluation/
 ├── run_evaluation.py         # 主入口
 ├── smoke_test.py             # 不依赖 RAG/RAGAS 的冒烟测试
 ├── _auto_dataset.json        # 自动生成的样本（120 条）
-├── _manual_edge_cases.json   # 手工编写的 edge case（78 条）
-├── eval_dataset.json         # 合并后的最终评测集（200 条）
+├── _manual_edge_cases.json   # 手工编写的 edge case（80 条）
+├── eval_dataset.json         # 评测集（100 条，按 category × difficulty 分层抽样）
+├── eval_dataset.200.bak.json # 合并后的完整评测集备份（200 条）
 ├── eval_dataset.old.json     # 旧版数据集备份（35 条）
 └── README.md                 # 本文件
 ```
@@ -154,24 +155,26 @@ python evaluation/run_evaluation.py --compare \
 - `expected_doc_paths` — 系统应该检索到的文档路径列表（相对项目根目录）
 - `reference_answer` — 标准答案（用于 RAGAS context_recall 和 faithfulness）
 
-**category 分布（200 条）**：
+**category 分布（100 条，按 category × difficulty 分层抽样自 200 条全集）**：
 
 | category | 数量 | 说明 |
 |----------|------|------|
-| entity_query | ~50 | 按菜名问做法 |
-| ingredient_query | ~25 | 按食材问相关菜 |
-| category_query | ~10 | 按品类问 |
-| cooking_method_query | ~11 | 按烹饪方法问 |
-| cooking_tip_query | ~15 | 烹饪技巧 |
-| scenario_query | ~13 | 场景（带饭/约会等） |
-| health_query | ~13 | 健康/特殊人群饮食 |
-| diet_query | ~5 | 饮食偏好（素食/低卡） |
-| seasonal_query | ~6 | 时令 |
-| multi_hop_query | ~6 | 多跳/约束推理 |
-| robustness_case | ~12 | 改写/错别字鲁棒性 |
-| rejection_case | ~8 | 应拒答（越界） |
-| empty_kb_case | ~6 | 库里没有 |
-| ambiguous_query | ~5 | 歧义 query |
+| entity_query | 34 | 按菜名问做法 |
+| ingredient_query | 12 | 按食材问相关菜 |
+| cooking_tip_query | 7 | 烹饪技巧 |
+| robustness_case | 6 | 改写/错别字鲁棒性 |
+| health_query | 5 | 健康/特殊人群饮食 |
+| scenario_query | 5 | 场景（带饭/约会等） |
+| cooking_method_query | 5 | 按烹饪方法问 |
+| category_query | 5 | 按品类问 |
+| rejection_case | 4 | 应拒答（越界） |
+| multi_hop_query | 4 | 多跳/约束推理 |
+| empty_kb_case | 4 | 库里没有 |
+| seasonal_query | 3 | 时令 |
+| diet_query | 3 | 饮食偏好（素食/低卡） |
+| ambiguous_query | 3 | 歧义 query |
+
+> 200 条全集见 `eval_dataset.200.bak.json`，需要时可替换 `eval_dataset.json` 跑全量评测。
 
 ---
 

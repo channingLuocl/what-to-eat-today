@@ -1,5 +1,899 @@
 [
   {
+    "id": "A004",
+    "query": "请告诉我糖醋鲤鱼的烹饪步骤",
+    "category": "entity_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/aquatic/糖醋鲤鱼/糖醋鲤鱼.md"
+    ],
+    "reference_answer": "糖醋鲤鱼：鱼改花刀腌制，裹粉炸至金黄，调糖醋汁浇上即可。",
+    "should_answer": true,
+    "tags": [
+      "aquatic",
+      "entity"
+    ]
+  },
+  {
+    "id": "A007",
+    "query": "燕麦鸡蛋饼的做法",
+    "category": "entity_query",
+    "difficulty": "easy",
+    "expected_doc_paths": [
+      "data/dishes/breakfast/燕麦鸡蛋饼.md"
+    ],
+    "reference_answer": "燕麦鸡蛋饼：燕麦泡软，加鸡蛋调成糊，平底锅煎成饼。",
+    "should_answer": true,
+    "tags": [
+      "breakfast",
+      "entity"
+    ]
+  },
+  {
+    "id": "A010",
+    "query": "葱油的做法是什么？",
+    "category": "entity_query",
+    "difficulty": "easy",
+    "expected_doc_paths": [
+      "data/dishes/condiment/葱油.md"
+    ],
+    "reference_answer": "葱油：葱段冷油下锅小火炸至焦黄，过滤即得葱油。",
+    "should_answer": true,
+    "tags": [
+      "condiment",
+      "entity"
+    ]
+  },
+  {
+    "id": "A012",
+    "query": "戚风蛋糕怎么做不容易塌？",
+    "category": "entity_query",
+    "difficulty": "hard",
+    "expected_doc_paths": [
+      "data/dishes/dessert/戚风蛋糕/戚风蛋糕.md"
+    ],
+    "reference_answer": "戚风蛋糕不塌秘诀：蛋白打发到硬性发泡、烤完倒扣冷却、避免开炉门。",
+    "should_answer": true,
+    "tags": [
+      "dessert",
+      "entity"
+    ]
+  },
+  {
+    "id": "A015",
+    "query": "Mojito莫吉托怎么调？",
+    "category": "entity_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/drink/Mojito莫吉托.md"
+    ],
+    "reference_answer": "Mojito：薄荷叶+青柠+糖捣碎，加朗姆酒，倒入苏打水，加冰块。",
+    "should_answer": true,
+    "tags": [
+      "drink",
+      "entity"
+    ]
+  },
+  {
+    "id": "A016",
+    "query": "酸梅汤的做法",
+    "category": "entity_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/drink/酸梅汤/酸梅汤.md"
+    ],
+    "reference_answer": "酸梅汤：乌梅、山楂、甘草等熬煮，加冰糖调味。",
+    "should_answer": true,
+    "tags": [
+      "drink",
+      "entity"
+    ]
+  },
+  {
+    "id": "A018",
+    "query": "宫保鸡丁的做法是什么？",
+    "category": "entity_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/meat_dish/宫保鸡丁/宫保鸡丁.md"
+    ],
+    "reference_answer": "宫保鸡丁：鸡腿肉切丁腌制，干辣椒花椒爆香，调宫保汁炒制，最后撒花生米。",
+    "should_answer": true,
+    "tags": [
+      "meat_dish",
+      "entity"
+    ]
+  },
+  {
+    "id": "A021",
+    "query": "麻婆豆腐需要哪些食材？",
+    "category": "entity_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/meat_dish/麻婆豆腐/麻婆豆腐.md"
+    ],
+    "reference_answer": "麻婆豆腐：豆腐、肉末、豆瓣酱、花椒、辣椒粉、葱姜蒜。",
+    "should_answer": true,
+    "tags": [
+      "meat_dish",
+      "entity"
+    ]
+  },
+  {
+    "id": "A023",
+    "query": "空气炸锅鸡翅中的做法",
+    "category": "entity_query",
+    "difficulty": "easy",
+    "expected_doc_paths": [
+      "data/dishes/semi-finished/空气炸锅鸡翅中/空气炸锅鸡翅中.md"
+    ],
+    "reference_answer": "空气炸锅鸡翅：腌制后200度炸15分钟，中途翻面。",
+    "should_answer": true,
+    "tags": [
+      "semi-finished",
+      "entity"
+    ]
+  },
+  {
+    "id": "A024",
+    "query": "紫菜蛋花汤怎么做？",
+    "category": "entity_query",
+    "difficulty": "easy",
+    "expected_doc_paths": [
+      "data/dishes/soup/紫菜蛋花汤.md"
+    ],
+    "reference_answer": "紫菜蛋花汤：水开下紫菜，鸡蛋打散淋入，调味即可。",
+    "should_answer": true,
+    "tags": [
+      "soup",
+      "entity"
+    ]
+  },
+  {
+    "id": "A026",
+    "query": "皮蛋瘦肉粥怎么做？",
+    "category": "entity_query",
+    "difficulty": "easy",
+    "expected_doc_paths": [
+      "data/dishes/soup/皮蛋瘦肉粥.md"
+    ],
+    "reference_answer": "皮蛋瘦肉粥：大米煮粥，加入皮蛋丁和腌好的瘦肉煮熟。",
+    "should_answer": true,
+    "tags": [
+      "soup",
+      "entity"
+    ]
+  },
+  {
+    "id": "A027",
+    "query": "蛋炒饭怎么做？",
+    "category": "entity_query",
+    "difficulty": "easy",
+    "expected_doc_paths": [
+      "data/dishes/staple/蛋炒饭.md"
+    ],
+    "reference_answer": "蛋炒饭：隔夜饭+鸡蛋+葱花，热油爆炒至粒粒分明。",
+    "should_answer": true,
+    "tags": [
+      "staple",
+      "entity"
+    ]
+  },
+  {
+    "id": "A029",
+    "query": "炸酱面怎么做？",
+    "category": "entity_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/staple/炸酱面.md"
+    ],
+    "reference_answer": "炸酱面：肉末炒酱，配菜码（黄瓜、豆芽等），煮面浇酱拌匀。",
+    "should_answer": true,
+    "tags": [
+      "staple",
+      "entity"
+    ]
+  },
+  {
+    "id": "A031",
+    "query": "西红柿炒鸡蛋怎么做才好吃？",
+    "category": "entity_query",
+    "difficulty": "easy",
+    "expected_doc_paths": [
+      "data/dishes/vegetable_dish/西红柿炒鸡蛋.md"
+    ],
+    "reference_answer": "西红柿炒鸡蛋：鸡蛋加少许盐打散先炒出，番茄炒出汁加糖，倒回鸡蛋翻匀。",
+    "should_answer": true,
+    "tags": [
+      "vegetable_dish",
+      "entity"
+    ]
+  },
+  {
+    "id": "A032",
+    "query": "酸辣土豆丝的做法是什么？",
+    "category": "entity_query",
+    "difficulty": "easy",
+    "expected_doc_paths": [
+      "data/dishes/vegetable_dish/酸辣土豆丝.md"
+    ],
+    "reference_answer": "酸辣土豆丝：土豆切丝过水去淀粉，热油爆香干辣椒花椒，下土豆丝快炒加醋调味。",
+    "should_answer": true,
+    "tags": [
+      "vegetable_dish",
+      "entity"
+    ]
+  },
+  {
+    "id": "A036",
+    "query": "鸡蛋可以做什么菜？",
+    "category": "ingredient_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/vegetable_dish/西红柿炒鸡蛋.md",
+      "data/dishes/breakfast/太阳蛋.md",
+      "data/dishes/breakfast/美式炒蛋.md",
+      "data/dishes/breakfast/茶叶蛋.md",
+      "data/dishes/vegetable_dish/鸡蛋羹/鸡蛋羹.md"
+    ],
+    "reference_answer": "鸡蛋做法：西红柿炒鸡蛋、太阳蛋、美式炒蛋、茶叶蛋、蒸蛋羹等。",
+    "should_answer": true,
+    "tags": [
+      "ingredient",
+      "鸡蛋"
+    ]
+  },
+  {
+    "id": "A042",
+    "query": "鱼有哪些好吃的做法？",
+    "category": "ingredient_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/aquatic/清蒸鲈鱼/清蒸鲈鱼.md",
+      "data/dishes/aquatic/红烧鱼.md",
+      "data/dishes/aquatic/糖醋鲤鱼/糖醋鲤鱼.md",
+      "data/dishes/aquatic/水煮鱼.md",
+      "data/dishes/aquatic/葱油桂鱼/葱油桂鱼.md"
+    ],
+    "reference_answer": "鱼的做法：清蒸鲈鱼、红烧鱼、糖醋鲤鱼、水煮鱼、葱油桂鱼等。",
+    "should_answer": true,
+    "tags": [
+      "ingredient",
+      "鱼"
+    ]
+  },
+  {
+    "id": "A043",
+    "query": "豆腐有哪些好吃的做法？",
+    "category": "ingredient_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/meat_dish/麻婆豆腐/麻婆豆腐.md",
+      "data/dishes/vegetable_dish/凉拌豆腐.md",
+      "data/dishes/vegetable_dish/葱煎豆腐.md",
+      "data/dishes/vegetable_dish/脆皮豆腐.md",
+      "data/dishes/aquatic/鳊鱼炖豆腐/鳊鱼炖豆腐.md"
+    ],
+    "reference_answer": "豆腐菜谱：麻婆豆腐、凉拌豆腐、葱煎豆腐、脆皮豆腐、鳊鱼炖豆腐等。",
+    "should_answer": true,
+    "tags": [
+      "ingredient",
+      "豆腐"
+    ]
+  },
+  {
+    "id": "A044",
+    "query": "土豆能做什么菜？",
+    "category": "ingredient_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/vegetable_dish/酸辣土豆丝.md",
+      "data/dishes/vegetable_dish/拔丝土豆/拔丝土豆.md",
+      "data/dishes/vegetable_dish/地三鲜.md",
+      "data/dishes/meat_dish/土豆炖排骨/土豆炖排骨.md",
+      "data/dishes/meat_dish/瘦肉土豆片/瘦肉土豆片.md"
+    ],
+    "reference_answer": "土豆菜谱：酸辣土豆丝、拔丝土豆、地三鲜、土豆炖排骨、瘦肉土豆片等。",
+    "should_answer": true,
+    "tags": [
+      "ingredient",
+      "土豆"
+    ]
+  },
+  {
+    "id": "A045",
+    "query": "茄子有哪些菜谱？",
+    "category": "ingredient_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/meat_dish/鱼香茄子/鱼香茄子.md",
+      "data/dishes/vegetable_dish/红烧茄子.md",
+      "data/dishes/vegetable_dish/烤茄子/烤茄子.md",
+      "data/dishes/vegetable_dish/蒲烧茄子.md",
+      "data/dishes/vegetable_dish/茄子炖土豆.md"
+    ],
+    "reference_answer": "茄子菜谱：鱼香茄子、红烧茄子、烤茄子、蒲烧茄子、茄子炖土豆。",
+    "should_answer": true,
+    "tags": [
+      "ingredient",
+      "茄子"
+    ]
+  },
+  {
+    "id": "A049",
+    "query": "鸭肉有什么做法？",
+    "category": "ingredient_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/meat_dish/乡村啤酒鸭.md",
+      "data/dishes/meat_dish/啤酒鸭/啤酒鸭.md",
+      "data/dishes/meat_dish/血浆鸭/血浆鸭.md",
+      "data/dishes/meat_dish/湘祁米夫鸭/湘祁米夫鸭.md"
+    ],
+    "reference_answer": "鸭肉菜谱：乡村啤酒鸭、啤酒鸭、血浆鸭、湘祁米夫鸭等。",
+    "should_answer": true,
+    "tags": [
+      "ingredient",
+      "鸭"
+    ]
+  },
+  {
+    "id": "A050",
+    "query": "面条有哪些做法？",
+    "category": "ingredient_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/staple/炸酱面.md",
+      "data/dishes/staple/热干面.md",
+      "data/dishes/staple/炒意大利面/炒意大利面.md",
+      "data/dishes/staple/汤面.md",
+      "data/dishes/staple/葱油拌面.md"
+    ],
+    "reference_answer": "面条做法：炸酱面、热干面、炒意大利面、汤面、葱油拌面等。",
+    "should_answer": true,
+    "tags": [
+      "ingredient",
+      "面"
+    ]
+  },
+  {
+    "id": "A051",
+    "query": "推荐几个用饭做的菜",
+    "category": "ingredient_query",
+    "difficulty": "easy",
+    "expected_doc_paths": [
+      "data/dishes/staple/蛋炒饭.md",
+      "data/dishes/staple/扬州炒饭/扬州炒饭.md",
+      "data/dishes/staple/韩式拌饭/韩式拌饭.md",
+      "data/dishes/staple/蛋包饭.md",
+      "data/dishes/staple/日式肥牛丼饭/日式肥牛丼饭.md"
+    ],
+    "reference_answer": "饭类做法：蛋炒饭、扬州炒饭、韩式拌饭、蛋包饭、肥牛丼饭。",
+    "should_answer": true,
+    "tags": [
+      "ingredient",
+      "饭"
+    ]
+  },
+  {
+    "id": "A052",
+    "query": "粥有哪些种类？",
+    "category": "ingredient_query",
+    "difficulty": "easy",
+    "expected_doc_paths": [
+      "data/dishes/soup/小米粥.md",
+      "data/dishes/soup/米粥.md",
+      "data/dishes/soup/皮蛋瘦肉粥.md",
+      "data/dishes/soup/腊八粥.md",
+      "data/dishes/soup/银耳莲子粥/银耳莲子粥.md"
+    ],
+    "reference_answer": "粥的种类：小米粥、米粥、皮蛋瘦肉粥、腊八粥、银耳莲子粥。",
+    "should_answer": true,
+    "tags": [
+      "ingredient",
+      "粥"
+    ]
+  },
+  {
+    "id": "A053",
+    "query": "有哪些好吃的鱼虾菜？",
+    "category": "category_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/aquatic/清蒸鲈鱼/清蒸鲈鱼.md",
+      "data/dishes/aquatic/糖醋鲤鱼/糖醋鲤鱼.md",
+      "data/dishes/aquatic/蒜蓉虾/蒜蓉虾.md",
+      "data/dishes/aquatic/白灼虾/白灼虾.md",
+      "data/dishes/aquatic/葱烧海参/葱烧海参.md",
+      "data/dishes/aquatic/水煮鱼.md",
+      "data/dishes/aquatic/红烧鱼.md",
+      "data/dishes/aquatic/油焖大虾/油焖大虾.md"
+    ],
+    "reference_answer": "水产推荐：清蒸鲈鱼、糖醋鲤鱼、蒜蓉虾、白灼虾、葱烧海参等。",
+    "should_answer": true,
+    "tags": [
+      "category",
+      "aquatic"
+    ]
+  },
+  {
+    "id": "A055",
+    "query": "推荐几个好做的甜品",
+    "category": "category_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/dessert/烤蛋挞/烤蛋挞.md",
+      "data/dishes/dessert/玛格丽特饼干/玛格丽特饼干.md",
+      "data/dishes/dessert/反沙芋头/反沙芋头.md",
+      "data/dishes/dessert/咖啡椰奶冻/咖啡椰奶冻.md",
+      "data/dishes/dessert/酸奶意式奶冻/酸奶意式奶冻.md",
+      "data/dishes/dessert/奥利奥冰淇淋/奥利奥冰淇淋.md",
+      "data/dishes/dessert/草莓冰淇淋/草莓冰淇淋.md"
+    ],
+    "reference_answer": "好做甜品：烤蛋挞、玛格丽特饼干、反沙芋头、咖啡椰奶冻、奥利奥冰淇淋。",
+    "should_answer": true,
+    "tags": [
+      "category",
+      "dessert"
+    ]
+  },
+  {
+    "id": "A059",
+    "query": "主食有什么推荐？",
+    "category": "category_query",
+    "difficulty": "easy",
+    "expected_doc_paths": [
+      "data/dishes/staple/蛋炒饭.md",
+      "data/dishes/staple/扬州炒饭/扬州炒饭.md",
+      "data/dishes/staple/炸酱面.md",
+      "data/dishes/staple/手工水饺.md",
+      "data/dishes/staple/葱油拌面.md",
+      "data/dishes/staple/螺蛳粉.md",
+      "data/dishes/staple/韩式拌饭/韩式拌饭.md"
+    ],
+    "reference_answer": "主食推荐：蛋炒饭、扬州炒饭、炸酱面、手工水饺、葱油拌面等。",
+    "should_answer": true,
+    "tags": [
+      "category",
+      "staple"
+    ]
+  },
+  {
+    "id": "A060",
+    "query": "推荐几道家常素菜",
+    "category": "category_query",
+    "difficulty": "easy",
+    "expected_doc_paths": [
+      "data/dishes/vegetable_dish/西红柿炒鸡蛋.md",
+      "data/dishes/vegetable_dish/酸辣土豆丝.md",
+      "data/dishes/vegetable_dish/凉拌黄瓜.md",
+      "data/dishes/vegetable_dish/蒜蓉西兰花.md",
+      "data/dishes/vegetable_dish/手撕包菜/手撕包菜.md",
+      "data/dishes/vegetable_dish/炒青菜.md",
+      "data/dishes/vegetable_dish/虎皮青椒/虎皮青椒.md"
+    ],
+    "reference_answer": "家常素菜：西红柿炒鸡蛋、酸辣土豆丝、凉拌黄瓜、蒜蓉西兰花、手撕包菜等。",
+    "should_answer": true,
+    "tags": [
+      "category",
+      "vegetable_dish"
+    ]
+  },
+  {
+    "id": "A061",
+    "query": "有哪些常用调味料的做法？",
+    "category": "category_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/condiment/油泼辣子/油泼辣子.md",
+      "data/dishes/condiment/糖醋汁.md",
+      "data/dishes/condiment/葱油.md",
+      "data/dishes/condiment/草莓酱/草莓酱.md",
+      "data/dishes/condiment/简易版炒糖色.md",
+      "data/dishes/condiment/蒜香酱油.md"
+    ],
+    "reference_answer": "调味料：油泼辣子、糖醋汁、葱油、草莓酱、炒糖色、蒜香酱油等。",
+    "should_answer": true,
+    "tags": [
+      "category",
+      "condiment"
+    ]
+  },
+  {
+    "id": "A063",
+    "query": "有哪些清蒸的菜？",
+    "category": "cooking_method_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/aquatic/清蒸鲈鱼/清蒸鲈鱼.md",
+      "data/dishes/aquatic/清蒸生蚝.md",
+      "data/dishes/meat_dish/清蒸鳜鱼/清蒸鳜鱼.md",
+      "data/dishes/vegetable_dish/清蒸南瓜.md",
+      "data/dishes/breakfast/蒸水蛋.md"
+    ],
+    "reference_answer": "清蒸类菜：清蒸鲈鱼、清蒸生蚝、清蒸鳜鱼、清蒸南瓜、蒸水蛋等。",
+    "should_answer": true,
+    "tags": [
+      "cooking_method",
+      "蒸"
+    ]
+  },
+  {
+    "id": "A065",
+    "query": "凉拌菜有哪些做法？",
+    "category": "cooking_method_query",
+    "difficulty": "easy",
+    "expected_doc_paths": [
+      "data/dishes/vegetable_dish/凉拌黄瓜.md",
+      "data/dishes/vegetable_dish/凉拌豆腐.md",
+      "data/dishes/vegetable_dish/凉拌木耳/凉拌木耳.md",
+      "data/dishes/vegetable_dish/凉拌油麦菜.md",
+      "data/dishes/vegetable_dish/凉拌莴笋/凉拌莴笋.md",
+      "data/dishes/vegetable_dish/凉拌金针菇.md",
+      "data/dishes/meat_dish/凉拌鸡丝/凉拌鸡丝.md"
+    ],
+    "reference_answer": "凉拌菜：凉拌黄瓜、凉拌豆腐、凉拌木耳、凉拌油麦菜、凉拌金针菇等。",
+    "should_answer": true,
+    "tags": [
+      "cooking_method",
+      "凉拌"
+    ]
+  },
+  {
+    "id": "A067",
+    "query": "有什么烤的菜可以做？",
+    "category": "cooking_method_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/meat_dish/烤鸡翅.md",
+      "data/dishes/meat_dish/意式烤鸡.md",
+      "data/dishes/meat_dish/甜辣烤全翅.md",
+      "data/dishes/aquatic/混合烤鱼/烤鱼.md",
+      "data/dishes/vegetable_dish/烤茄子/烤茄子.md"
+    ],
+    "reference_answer": "烤类菜：烤鸡翅、意式烤鸡、甜辣烤全翅、烤鱼、烤茄子等。",
+    "should_answer": true,
+    "tags": [
+      "cooking_method",
+      "烤"
+    ]
+  },
+  {
+    "id": "A070",
+    "query": "煎类菜有哪些？",
+    "category": "cooking_method_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/aquatic/干煎阿根廷红虾/干煎阿根廷红虾.md",
+      "data/dishes/aquatic/香煎翘嘴鱼/香煎翘嘴鱼.md",
+      "data/dishes/breakfast/煎饺.md",
+      "data/dishes/meat_dish/香煎五花肉/香煎五花肉.md",
+      "data/dishes/staple/茄子肉煎饼/茄子肉煎饼.md"
+    ],
+    "reference_answer": "煎菜：干煎红虾、香煎翘嘴鱼、煎饺、香煎五花肉、煎饼。",
+    "should_answer": true,
+    "tags": [
+      "cooking_method",
+      "煎"
+    ]
+  },
+  {
+    "id": "A074",
+    "query": "怎么做凉拌黄瓜",
+    "category": "robustness_case",
+    "difficulty": "easy",
+    "expected_doc_paths": [
+      "data/dishes/vegetable_dish/凉拌黄瓜.md"
+    ],
+    "reference_answer": "凉拌黄瓜：黄瓜拍碎，加蒜蓉、生抽、醋、香油拌匀。",
+    "should_answer": true,
+    "tags": [
+      "paraphrase",
+      "robustness"
+    ]
+  },
+  {
+    "id": "A075",
+    "query": "番茄炒蛋的做法",
+    "category": "robustness_case",
+    "difficulty": "easy",
+    "expected_doc_paths": [
+      "data/dishes/vegetable_dish/西红柿炒鸡蛋.md"
+    ],
+    "reference_answer": "番茄炒蛋（西红柿炒鸡蛋）：鸡蛋打散先炒出，番茄出汁回锅翻炒。",
+    "should_answer": true,
+    "tags": [
+      "paraphrase",
+      "robustness"
+    ]
+  },
+  {
+    "id": "A080",
+    "query": "请告诉我手抓饼的烹饪步骤",
+    "category": "entity_query",
+    "difficulty": "easy",
+    "expected_doc_paths": [
+      "data/dishes/breakfast/手抓饼.md"
+    ],
+    "reference_answer": "手抓饼：平底锅小火，饼放入煎至两面金黄起酥层即可。",
+    "should_answer": true,
+    "tags": [
+      "breakfast",
+      "entity"
+    ]
+  },
+  {
+    "id": "A082",
+    "query": "苏格兰蛋的做法",
+    "category": "entity_query",
+    "difficulty": "hard",
+    "expected_doc_paths": [
+      "data/dishes/breakfast/苏格兰蛋/苏格兰蛋.md"
+    ],
+    "reference_answer": "苏格兰蛋：水煮蛋外裹肉馅，再裹面包糠炸至金黄。",
+    "should_answer": true,
+    "tags": [
+      "breakfast",
+      "entity"
+    ]
+  },
+  {
+    "id": "A084",
+    "query": "鱼香肉丝怎么做？",
+    "category": "entity_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/meat_dish/鱼香肉丝.md"
+    ],
+    "reference_answer": "鱼香肉丝：肉丝腌制，木耳笋丝配菜，调鱼香汁炒制。",
+    "should_answer": true,
+    "tags": [
+      "meat_dish",
+      "entity"
+    ]
+  },
+  {
+    "id": "A087",
+    "query": "白灼虾怎么做？",
+    "category": "entity_query",
+    "difficulty": "easy",
+    "expected_doc_paths": [
+      "data/dishes/aquatic/白灼虾/白灼虾.md"
+    ],
+    "reference_answer": "白灼虾：水加葱姜料酒煮开下虾，变红即捞出，蘸料食用。",
+    "should_answer": true,
+    "tags": [
+      "aquatic",
+      "entity"
+    ]
+  },
+  {
+    "id": "A088",
+    "query": "排骨苦瓜汤怎么做？",
+    "category": "entity_query",
+    "difficulty": "easy",
+    "expected_doc_paths": [
+      "data/dishes/soup/排骨苦瓜汤/排骨苦瓜汤.md"
+    ],
+    "reference_answer": "排骨苦瓜汤：排骨焯水后炖煮，加入苦瓜片煮至软烂。",
+    "should_answer": true,
+    "tags": [
+      "soup",
+      "entity"
+    ]
+  },
+  {
+    "id": "A091",
+    "query": "蒜蓉空心菜的做法",
+    "category": "entity_query",
+    "difficulty": "easy",
+    "expected_doc_paths": [
+      "data/dishes/vegetable_dish/蒜蓉空心菜/蒜蓉空心菜.md"
+    ],
+    "reference_answer": "蒜蓉空心菜：热油爆蒜末，下空心菜大火翻炒，加少许盐。",
+    "should_answer": true,
+    "tags": [
+      "vegetable_dish",
+      "entity"
+    ]
+  },
+  {
+    "id": "A092",
+    "query": "酱牛肉怎么做？",
+    "category": "entity_query",
+    "difficulty": "hard",
+    "expected_doc_paths": [
+      "data/dishes/meat_dish/酱牛肉/酱牛肉.md"
+    ],
+    "reference_answer": "酱牛肉：牛腱焯水，加酱料和香料炖煮，浸泡入味，切片食用。",
+    "should_answer": true,
+    "tags": [
+      "meat_dish",
+      "entity"
+    ]
+  },
+  {
+    "id": "A093",
+    "query": "口水鸡怎么做？",
+    "category": "entity_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/meat_dish/口水鸡/口水鸡.md"
+    ],
+    "reference_answer": "口水鸡：鸡煮熟切块，调辣椒油+花椒+生抽汁淋上。",
+    "should_answer": true,
+    "tags": [
+      "meat_dish",
+      "entity"
+    ]
+  },
+  {
+    "id": "A094",
+    "query": "螺蛳粉怎么做？",
+    "category": "entity_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/staple/螺蛳粉.md"
+    ],
+    "reference_answer": "螺蛳粉：米粉煮软，加汤底、酸笋、腐竹、花生、青菜。",
+    "should_answer": true,
+    "tags": [
+      "staple",
+      "entity"
+    ]
+  },
+  {
+    "id": "A096",
+    "query": "蟹有哪些好吃的做法？",
+    "category": "ingredient_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/aquatic/咖喱炒蟹.md"
+    ],
+    "reference_answer": "蟹的做法：咖喱炒蟹等。",
+    "should_answer": true,
+    "tags": [
+      "ingredient",
+      "蟹"
+    ]
+  },
+  {
+    "id": "A100",
+    "query": "韩式拌饭的做法",
+    "category": "entity_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/staple/韩式拌饭/韩式拌饭.md"
+    ],
+    "reference_answer": "韩式拌饭：石锅放米饭，铺各种炒制的菜码（豆芽、菠菜、肉、蛋等），加韩式辣酱拌匀。",
+    "should_answer": true,
+    "tags": [
+      "staple",
+      "entity"
+    ]
+  },
+  {
+    "id": "A103",
+    "query": "意式肉酱面怎么做？",
+    "category": "entity_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/staple/意式肉酱面/意式肉酱面.md"
+    ],
+    "reference_answer": "肉酱面：肉末炒香，加番茄酱、洋葱胡萝卜熬煮，配煮好的意面。",
+    "should_answer": true,
+    "tags": [
+      "staple",
+      "entity"
+    ]
+  },
+  {
+    "id": "A105",
+    "query": "烤鱼怎么做？",
+    "category": "entity_query",
+    "difficulty": "hard",
+    "expected_doc_paths": [
+      "data/dishes/aquatic/混合烤鱼/烤鱼.md"
+    ],
+    "reference_answer": "烤鱼：鱼腌制烤至焦香，配菜炒香铺底，浇上辣酱。",
+    "should_answer": true,
+    "tags": [
+      "aquatic",
+      "entity"
+    ]
+  },
+  {
+    "id": "A107",
+    "query": "烙饼的做法",
+    "category": "entity_query",
+    "difficulty": "easy",
+    "expected_doc_paths": [
+      "data/dishes/staple/烙饼/烙饼.md"
+    ],
+    "reference_answer": "烙饼：和面，擀薄抹油卷起，平底锅烙至两面金黄。",
+    "should_answer": true,
+    "tags": [
+      "staple",
+      "entity"
+    ]
+  },
+  {
+    "id": "A110",
+    "query": "披萨饼皮怎么做？",
+    "category": "entity_query",
+    "difficulty": "hard",
+    "expected_doc_paths": [
+      "data/dishes/staple/披萨饼皮/披萨饼皮.md"
+    ],
+    "reference_answer": "披萨饼皮：高筋面粉+酵母+水+油揉面发酵，擀成圆饼。",
+    "should_answer": true,
+    "tags": [
+      "staple",
+      "entity"
+    ]
+  },
+  {
+    "id": "A115",
+    "query": "陈皮排骨汤怎么做？",
+    "category": "entity_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/soup/陈皮排骨汤.md",
+      "data/dishes/soup/陈皮排骨汤/陈皮排骨汤.md"
+    ],
+    "reference_answer": "陈皮排骨汤：排骨焯水，加陈皮、姜片炖煮2小时。",
+    "should_answer": true,
+    "tags": [
+      "soup",
+      "entity"
+    ]
+  },
+  {
+    "id": "A116",
+    "query": "银耳莲子粥的做法",
+    "category": "entity_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/soup/银耳莲子粥/银耳莲子粥.md"
+    ],
+    "reference_answer": "银耳莲子粥：银耳泡发撕小朵，与莲子大米同煮至浓稠。",
+    "should_answer": true,
+    "tags": [
+      "soup",
+      "entity"
+    ]
+  },
+  {
+    "id": "A117",
+    "query": "腊八粥怎么做？",
+    "category": "entity_query",
+    "difficulty": "medium",
+    "expected_doc_paths": [
+      "data/dishes/soup/腊八粥.md"
+    ],
+    "reference_answer": "腊八粥：八种以上杂粮（红豆、桂圆、莲子等）同煮成粥。",
+    "should_answer": true,
+    "tags": [
+      "soup",
+      "entity"
+    ]
+  },
+  {
+    "id": "A120",
+    "query": "茶叶蛋的做法",
+    "category": "entity_query",
+    "difficulty": "easy",
+    "expected_doc_paths": [
+      "data/dishes/breakfast/茶叶蛋.md"
+    ],
+    "reference_answer": "茶叶蛋：水煮蛋后敲裂，加茶叶、酱油、香料浸泡卤煮。",
+    "should_answer": true,
+    "tags": [
+      "breakfast",
+      "entity"
+    ]
+  },
+  {
     "id": "M001",
     "query": "宝宝多大可以开始吃辅食？",
     "category": "health_query",
@@ -10,45 +904,6 @@
     "tags": [
       "health",
       "baby"
-    ]
-  },
-  {
-    "id": "M002",
-    "query": "怀孕初期吃什么对胎儿好？",
-    "category": "health_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [],
-    "reference_answer": "怀孕初期应多吃富含叶酸的食物，如绿叶蔬菜、水果、全谷物等，同时保证优质蛋白质的摄入。",
-    "should_answer": true,
-    "tags": [
-      "health",
-      "pregnancy"
-    ]
-  },
-  {
-    "id": "M003",
-    "query": "糖尿病患者适合吃什么？",
-    "category": "health_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [],
-    "reference_answer": "糖尿病患者适合吃低GI食物，如绿叶蔬菜、粗粮、豆腐、鱼肉等。",
-    "should_answer": true,
-    "tags": [
-      "health",
-      "diabetes"
-    ]
-  },
-  {
-    "id": "M004",
-    "query": "三高人群饮食要注意什么？",
-    "category": "health_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [],
-    "reference_answer": "三高人群应少油少盐低糖，多吃蔬菜水果、粗粮、深海鱼等。",
-    "should_answer": true,
-    "tags": [
-      "health",
-      "chronic"
     ]
   },
   {
@@ -77,19 +932,6 @@
     "tags": [
       "health",
       "elderly"
-    ]
-  },
-  {
-    "id": "M007",
-    "query": "减肥期间晚餐吃什么好？",
-    "category": "health_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [],
-    "reference_answer": "减肥晚餐推荐鸡胸肉沙拉、蒸南瓜、凉拌黄瓜、番茄蛋汤等低热量食物。",
-    "should_answer": true,
-    "tags": [
-      "health",
-      "weight_loss"
     ]
   },
   {
@@ -124,34 +966,6 @@
     ]
   },
   {
-    "id": "M010",
-    "query": "无麸质的食物有哪些？",
-    "category": "diet_query",
-    "difficulty": "hard",
-    "expected_doc_paths": [],
-    "reference_answer": "无麸质食物包括米饭、玉米、土豆等不含小麦/大麦/黑麦的食物。",
-    "should_answer": true,
-    "tags": [
-      "diet",
-      "gluten_free"
-    ]
-  },
-  {
-    "id": "M011",
-    "query": "如何去除鱼的腥味？",
-    "category": "cooking_tip_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/aquatic/清蒸鲈鱼/清蒸鲈鱼.md"
-    ],
-    "reference_answer": "去腥方法：用料酒腌制、葱姜水浸泡、烹饪时烹入白酒、清洗鱼腹内的黑膜。",
-    "should_answer": true,
-    "tags": [
-      "cooking_tip",
-      "fish"
-    ]
-  },
-  {
     "id": "M012",
     "query": "牛肉怎么做才嫩？",
     "category": "cooking_tip_query",
@@ -178,34 +992,6 @@
     "tags": [
       "cooking_tip",
       "oil_temp"
-    ]
-  },
-  {
-    "id": "M014",
-    "query": "腌肉是用淀粉还是面粉？",
-    "category": "cooking_tip_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [],
-    "reference_answer": "腌肉用淀粉更好，吸水性好且能形成酥脆外壳。",
-    "should_answer": true,
-    "tags": [
-      "cooking_tip",
-      "marinate"
-    ]
-  },
-  {
-    "id": "M015",
-    "query": "海参怎么泡发？",
-    "category": "cooking_tip_query",
-    "difficulty": "hard",
-    "expected_doc_paths": [
-      "data/dishes/aquatic/葱烧海参/葱烧海参.md"
-    ],
-    "reference_answer": "无油容器加纯净水冷藏泡发48小时换水，煮软后再泡发24小时。",
-    "should_answer": true,
-    "tags": [
-      "cooking_tip",
-      "seafood"
     ]
   },
   {
@@ -237,19 +1023,6 @@
     "tags": [
       "cooking_tip",
       "egg"
-    ]
-  },
-  {
-    "id": "M018",
-    "query": "切菜时怎么不切到手？",
-    "category": "cooking_tip_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [],
-    "reference_answer": "用'猫爪'手势按住食材，刀贴着指关节走，刀不要超过指尖高度。",
-    "should_answer": true,
-    "tags": [
-      "cooking_tip",
-      "knife_skill"
     ]
   },
   {
@@ -319,40 +1092,6 @@
     ]
   },
   {
-    "id": "M023",
-    "query": "家里来客人了快做几个硬菜",
-    "category": "scenario_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/aquatic/清蒸鲈鱼/清蒸鲈鱼.md",
-      "data/dishes/meat_dish/红烧肉/南派红烧肉.md",
-      "data/dishes/meat_dish/糖醋排骨/糖醋排骨.md"
-    ],
-    "reference_answer": "硬菜推荐：清蒸鲈鱼、红烧肉、糖醋排骨、糖醋里脊。",
-    "should_answer": true,
-    "tags": [
-      "scenario",
-      "guest"
-    ]
-  },
-  {
-    "id": "M024",
-    "query": "夏天没胃口想吃点开胃的",
-    "category": "scenario_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/vegetable_dish/凉拌黄瓜.md",
-      "data/dishes/vegetable_dish/酸辣土豆丝.md",
-      "data/dishes/drink/酸梅汤/酸梅汤.md"
-    ],
-    "reference_answer": "夏天开胃推荐：凉拌黄瓜、酸辣土豆丝、酸梅汤等。",
-    "should_answer": true,
-    "tags": [
-      "scenario",
-      "summer"
-    ]
-  },
-  {
     "id": "M025",
     "query": "夏天适合喝什么汤？",
     "category": "seasonal_query",
@@ -367,35 +1106,6 @@
     "tags": [
       "seasonal",
       "summer"
-    ]
-  },
-  {
-    "id": "M026",
-    "query": "冬天吃什么暖身体？",
-    "category": "seasonal_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/soup/羊肉汤/羊肉汤.md",
-      "data/dishes/meat_dish/枝竹羊腩煲/枝竹羊腩煲.md"
-    ],
-    "reference_answer": "冬天暖身推荐：羊肉汤、羊腩煲、姜母鸭等温补食物。",
-    "should_answer": true,
-    "tags": [
-      "seasonal",
-      "winter"
-    ]
-  },
-  {
-    "id": "M027",
-    "query": "春天吃什么应季？",
-    "category": "seasonal_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [],
-    "reference_answer": "春天宜吃春笋、香椿、菠菜、韭菜等时令蔬菜。",
-    "should_answer": true,
-    "tags": [
-      "seasonal",
-      "spring"
     ]
   },
   {
@@ -420,19 +1130,6 @@
     "difficulty": "medium",
     "expected_doc_paths": [],
     "reference_answer": "中秋节传统吃月饼、桂花糕、糖醋鱼等团圆寓意的菜。",
-    "should_answer": true,
-    "tags": [
-      "seasonal",
-      "festival"
-    ]
-  },
-  {
-    "id": "M030",
-    "query": "端午节除了粽子还有什么传统吃的？",
-    "category": "seasonal_query",
-    "difficulty": "hard",
-    "expected_doc_paths": [],
-    "reference_answer": "端午传统食物：粽子、咸鸭蛋、五黄、雄黄酒等。",
     "should_answer": true,
     "tags": [
       "seasonal",
@@ -473,39 +1170,6 @@
     ]
   },
   {
-    "id": "M033",
-    "query": "30 分钟内能做好的下饭菜",
-    "category": "multi_hop_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/meat_dish/西红柿土豆炖牛肉/西红柿土豆炖牛肉.md",
-      "data/dishes/meat_dish/可乐鸡翅.md",
-      "data/dishes/vegetable_dish/酸辣土豆丝.md"
-    ],
-    "reference_answer": "30分钟可做：西红柿炒鸡蛋、酸辣土豆丝、可乐鸡翅等。",
-    "should_answer": true,
-    "tags": [
-      "multi_hop",
-      "time_constraint"
-    ]
-  },
-  {
-    "id": "M034",
-    "query": "高血压能吃的低盐菜推荐",
-    "category": "multi_hop_query",
-    "difficulty": "hard",
-    "expected_doc_paths": [
-      "data/dishes/aquatic/清蒸鲈鱼/清蒸鲈鱼.md",
-      "data/dishes/vegetable_dish/清蒸南瓜.md"
-    ],
-    "reference_answer": "清蒸做法少盐，推荐清蒸鲈鱼、清蒸南瓜、白灼蔬菜等。",
-    "should_answer": true,
-    "tags": [
-      "multi_hop",
-      "health_constraint"
-    ]
-  },
-  {
     "id": "M035",
     "query": "孩子不爱吃蔬菜，怎么把蔬菜混进菜里？",
     "category": "multi_hop_query",
@@ -535,64 +1199,12 @@
     ]
   },
   {
-    "id": "M037",
-    "query": "今天天气怎么样？",
-    "category": "rejection_case",
-    "difficulty": "easy",
-    "expected_doc_paths": [],
-    "reference_answer": "抱歉，我是菜谱推荐助手，无法回答天气问题。",
-    "should_answer": false,
-    "tags": [
-      "rejection",
-      "out_of_scope"
-    ]
-  },
-  {
     "id": "M038",
     "query": "帮我写一首关于爱情的诗",
     "category": "rejection_case",
     "difficulty": "easy",
     "expected_doc_paths": [],
     "reference_answer": "抱歉，我是菜谱推荐助手，无法创作诗歌。",
-    "should_answer": false,
-    "tags": [
-      "rejection",
-      "out_of_scope"
-    ]
-  },
-  {
-    "id": "M039",
-    "query": "推荐几只值得买的股票",
-    "category": "rejection_case",
-    "difficulty": "easy",
-    "expected_doc_paths": [],
-    "reference_answer": "抱歉，我是菜谱推荐助手，无法提供投资建议。",
-    "should_answer": false,
-    "tags": [
-      "rejection",
-      "out_of_scope"
-    ]
-  },
-  {
-    "id": "M040",
-    "query": "Python 怎么写一个 for 循环？",
-    "category": "rejection_case",
-    "difficulty": "easy",
-    "expected_doc_paths": [],
-    "reference_answer": "抱歉，我是菜谱推荐助手，无法回答编程问题。",
-    "should_answer": false,
-    "tags": [
-      "rejection",
-      "out_of_scope"
-    ]
-  },
-  {
-    "id": "M041",
-    "query": "我心情不好该怎么办",
-    "category": "rejection_case",
-    "difficulty": "medium",
-    "expected_doc_paths": [],
-    "reference_answer": "抱歉，我是菜谱推荐助手，建议你和朋友聊聊或寻求专业帮助。",
     "should_answer": false,
     "tags": [
       "rejection",
@@ -639,32 +1251,6 @@
     ]
   },
   {
-    "id": "M045",
-    "query": "鳄鱼肉怎么做？",
-    "category": "empty_kb_case",
-    "difficulty": "medium",
-    "expected_doc_paths": [],
-    "reference_answer": "抱歉，菜谱库中没有鳄鱼肉的相关菜谱。",
-    "should_answer": false,
-    "tags": [
-      "empty_kb",
-      "uncommon"
-    ]
-  },
-  {
-    "id": "M046",
-    "query": "佛跳墙的具体做法",
-    "category": "empty_kb_case",
-    "difficulty": "medium",
-    "expected_doc_paths": [],
-    "reference_answer": "抱歉，菜谱库中暂未收录佛跳墙的做法。",
-    "should_answer": false,
-    "tags": [
-      "empty_kb",
-      "missing_dish"
-    ]
-  },
-  {
     "id": "M047",
     "query": "蜗牛怎么烹饪？",
     "category": "empty_kb_case",
@@ -691,19 +1277,6 @@
     ]
   },
   {
-    "id": "M049",
-    "query": "意大利千层面怎么做？",
-    "category": "empty_kb_case",
-    "difficulty": "medium",
-    "expected_doc_paths": [],
-    "reference_answer": "抱歉，菜谱库中暂未收录千层面的做法。",
-    "should_answer": false,
-    "tags": [
-      "empty_kb",
-      "missing_dish"
-    ]
-  },
-  {
     "id": "M050",
     "query": "鹿肉刺身的做法",
     "category": "empty_kb_case",
@@ -714,32 +1287,6 @@
     "tags": [
       "empty_kb",
       "uncommon"
-    ]
-  },
-  {
-    "id": "M051",
-    "query": "那个菜怎么做",
-    "category": "ambiguous_query",
-    "difficulty": "hard",
-    "expected_doc_paths": [],
-    "reference_answer": "请问您指的是哪道菜？可以告诉我菜名或主要食材。",
-    "should_answer": false,
-    "tags": [
-      "ambiguous",
-      "no_referent"
-    ]
-  },
-  {
-    "id": "M052",
-    "query": "鱼",
-    "category": "ambiguous_query",
-    "difficulty": "hard",
-    "expected_doc_paths": [],
-    "reference_answer": "请问您想了解鱼的什么呢？做法、营养价值还是某道具体的鱼菜？",
-    "should_answer": false,
-    "tags": [
-      "ambiguous",
-      "too_short"
     ]
   },
   {
@@ -860,49 +1407,6 @@
     ]
   },
   {
-    "id": "M061",
-    "query": "吃海鲜不能和什么一起吃？",
-    "category": "cooking_tip_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [],
-    "reference_answer": "海鲜不宜与富含维生素C的水果（橙子、猕猴桃）、啤酒、大量肉类同食。",
-    "should_answer": true,
-    "tags": [
-      "cooking_tip",
-      "food_combination"
-    ]
-  },
-  {
-    "id": "M062",
-    "query": "怎么用空气炸锅做菜？",
-    "category": "scenario_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/breakfast/空气炸锅面包片.md",
-      "data/dishes/semi-finished/空气炸锅羊排/空气炸锅羊排.md",
-      "data/dishes/semi-finished/空气炸锅鸡翅中/空气炸锅鸡翅中.md"
-    ],
-    "reference_answer": "空气炸锅可做：面包片、羊排、鸡翅、薯条等。",
-    "should_answer": true,
-    "tags": [
-      "scenario",
-      "appliance"
-    ]
-  },
-  {
-    "id": "M063",
-    "query": "孩子辅食阶段可以吃哪些蔬菜？",
-    "category": "health_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [],
-    "reference_answer": "辅食初期可以吃南瓜泥、胡萝卜泥、菠菜泥等温和蔬菜。",
-    "should_answer": true,
-    "tags": [
-      "health",
-      "baby"
-    ]
-  },
-  {
     "id": "M064",
     "query": "肠胃不好吃什么养胃？",
     "category": "health_query",
@@ -915,19 +1419,6 @@
     "tags": [
       "health",
       "stomach"
-    ]
-  },
-  {
-    "id": "M065",
-    "query": "感冒了吃什么好得快？",
-    "category": "health_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [],
-    "reference_answer": "感冒宜吃清淡易消化食物，如粥、面汤、蒸蛋、温热水果等。",
-    "should_answer": true,
-    "tags": [
-      "health",
-      "cold"
     ]
   },
   {
@@ -944,22 +1435,6 @@
     ]
   },
   {
-    "id": "M067",
-    "query": "晚上吃什么不容易胖？",
-    "category": "diet_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/vegetable_dish/凉拌黄瓜.md",
-      "data/dishes/soup/西红柿鸡蛋汤.md"
-    ],
-    "reference_answer": "晚上不易胖：凉拌黄瓜、清汤、蒸南瓜、蛋白等低热量食物。",
-    "should_answer": true,
-    "tags": [
-      "diet",
-      "weight_loss"
-    ]
-  },
-  {
     "id": "M068",
     "query": "生酮饮食可以吃什么？",
     "category": "diet_query",
@@ -970,21 +1445,6 @@
     "tags": [
       "diet",
       "keto"
-    ]
-  },
-  {
-    "id": "M069",
-    "query": "宫保鸡丁里的花生需要先炸吗？",
-    "category": "cooking_tip_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/meat_dish/宫保鸡丁/宫保鸡丁.md"
-    ],
-    "reference_answer": "宫保鸡丁的花生需要先用油炸至酥脆，再最后撒入翻匀，避免被汁泡软。",
-    "should_answer": true,
-    "tags": [
-      "cooking_tip",
-      "specific_dish"
     ]
   },
   {
@@ -1035,19 +1495,6 @@
     ]
   },
   {
-    "id": "M073",
-    "query": "怎么做出酥脆的炸鸡？",
-    "category": "cooking_tip_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [],
-    "reference_answer": "炸鸡酥脆秘诀：腌制后裹淀粉静置返潮，复炸一次效果更好。",
-    "should_answer": true,
-    "tags": [
-      "cooking_tip",
-      "fried"
-    ]
-  },
-  {
     "id": "M074",
     "query": "蒸蛋羹怎么做才嫩滑无气孔？",
     "category": "cooking_tip_query",
@@ -1061,19 +1508,6 @@
     "tags": [
       "cooking_tip",
       "egg"
-    ]
-  },
-  {
-    "id": "M075",
-    "query": "我想自己炼一点猪油怎么搞",
-    "category": "cooking_tip_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [],
-    "reference_answer": "炼猪油：肥肉切块小火慢炼，期间加少量水防糊，至油脂渗出渣呈金黄色即可。",
-    "should_answer": true,
-    "tags": [
-      "cooking_tip",
-      "fat"
     ]
   },
   {
@@ -1136,2013 +1570,6 @@
     "tags": [
       "empty_kb",
       "missing_dish"
-    ]
-  },
-  {
-    "id": "M080",
-    "query": "我老婆怀孕6个月想吃辣但不能太辣，最好是清淡一点的家常川菜",
-    "category": "multi_hop_query",
-    "difficulty": "hard",
-    "expected_doc_paths": [
-      "data/dishes/meat_dish/宫保鸡丁/宫保鸡丁.md",
-      "data/dishes/meat_dish/回锅肉/回锅肉.md"
-    ],
-    "reference_answer": "孕期可以适量微辣，推荐辣度可调的川菜如宫保鸡丁、回锅肉（少辣版本）。具体仍建议遵医嘱。",
-    "should_answer": true,
-    "tags": [
-      "multi_hop",
-      "pregnancy",
-      "constraint"
-    ]
-  },
-  {
-    "id": "A001",
-    "query": "怎么做清蒸鲈鱼？",
-    "category": "entity_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/aquatic/清蒸鲈鱼/清蒸鲈鱼.md"
-    ],
-    "reference_answer": "清蒸鲈鱼：鱼洗净腌制10分钟，鱼腹塞姜葱，水开大火蒸10分钟，淋蒸鱼豉油和热油即可。",
-    "should_answer": true,
-    "tags": [
-      "aquatic",
-      "entity"
-    ]
-  },
-  {
-    "id": "A002",
-    "query": "蒜蓉虾的做法是什么？",
-    "category": "entity_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/aquatic/蒜蓉虾/蒜蓉虾.md"
-    ],
-    "reference_answer": "蒜蓉虾：处理虾后开背，铺蒜蓉、粉丝，蒸熟后浇热油酱汁。",
-    "should_answer": true,
-    "tags": [
-      "aquatic",
-      "entity"
-    ]
-  },
-  {
-    "id": "A003",
-    "query": "葱烧海参怎么做才好吃？",
-    "category": "entity_query",
-    "difficulty": "hard",
-    "expected_doc_paths": [
-      "data/dishes/aquatic/葱烧海参/葱烧海参.md"
-    ],
-    "reference_answer": "葱烧海参：海参泡发处理，葱白炸至金黄，调酱汁烧入味。",
-    "should_answer": true,
-    "tags": [
-      "aquatic",
-      "entity"
-    ]
-  },
-  {
-    "id": "A004",
-    "query": "请告诉我糖醋鲤鱼的烹饪步骤",
-    "category": "entity_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/aquatic/糖醋鲤鱼/糖醋鲤鱼.md"
-    ],
-    "reference_answer": "糖醋鲤鱼：鱼改花刀腌制，裹粉炸至金黄，调糖醋汁浇上即可。",
-    "should_answer": true,
-    "tags": [
-      "aquatic",
-      "entity"
-    ]
-  },
-  {
-    "id": "A005",
-    "query": "太阳蛋怎么做？",
-    "category": "entity_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/breakfast/太阳蛋.md"
-    ],
-    "reference_answer": "太阳蛋：平底锅小火，鸡蛋打入锅中保持蛋黄完整，盖盖煎至蛋白凝固。",
-    "should_answer": true,
-    "tags": [
-      "breakfast",
-      "entity"
-    ]
-  },
-  {
-    "id": "A006",
-    "query": "完美水煮蛋怎么做？",
-    "category": "entity_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/breakfast/完美水煮蛋.md"
-    ],
-    "reference_answer": "水煮蛋：冷水下锅，水开后定时（溏心6分钟、全熟9分钟）。",
-    "should_answer": true,
-    "tags": [
-      "breakfast",
-      "entity"
-    ]
-  },
-  {
-    "id": "A007",
-    "query": "燕麦鸡蛋饼的做法",
-    "category": "entity_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/breakfast/燕麦鸡蛋饼.md"
-    ],
-    "reference_answer": "燕麦鸡蛋饼：燕麦泡软，加鸡蛋调成糊，平底锅煎成饼。",
-    "should_answer": true,
-    "tags": [
-      "breakfast",
-      "entity"
-    ]
-  },
-  {
-    "id": "A008",
-    "query": "蒸花卷需要哪些食材？",
-    "category": "entity_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/breakfast/蒸花卷.md"
-    ],
-    "reference_answer": "蒸花卷：面粉、酵母、温水、油、葱花、盐。",
-    "should_answer": true,
-    "tags": [
-      "breakfast",
-      "entity"
-    ]
-  },
-  {
-    "id": "A009",
-    "query": "草莓酱怎么做？",
-    "category": "entity_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/condiment/草莓酱/草莓酱.md"
-    ],
-    "reference_answer": "草莓酱：草莓洗净切块，加糖腌出汁，小火熬煮至浓稠。",
-    "should_answer": true,
-    "tags": [
-      "condiment",
-      "entity"
-    ]
-  },
-  {
-    "id": "A010",
-    "query": "葱油的做法是什么？",
-    "category": "entity_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/condiment/葱油.md"
-    ],
-    "reference_answer": "葱油：葱段冷油下锅小火炸至焦黄，过滤即得葱油。",
-    "should_answer": true,
-    "tags": [
-      "condiment",
-      "entity"
-    ]
-  },
-  {
-    "id": "A011",
-    "query": "提拉米苏的具体做法",
-    "category": "entity_query",
-    "difficulty": "hard",
-    "expected_doc_paths": [
-      "data/dishes/dessert/提拉米苏/提拉米苏.md"
-    ],
-    "reference_answer": "提拉米苏：手指饼干蘸咖啡酒液，铺入容器；马斯卡彭奶酪+蛋黄+糖打发，分层铺好冷藏。",
-    "should_answer": true,
-    "tags": [
-      "dessert",
-      "entity"
-    ]
-  },
-  {
-    "id": "A012",
-    "query": "戚风蛋糕怎么做不容易塌？",
-    "category": "entity_query",
-    "difficulty": "hard",
-    "expected_doc_paths": [
-      "data/dishes/dessert/戚风蛋糕/戚风蛋糕.md"
-    ],
-    "reference_answer": "戚风蛋糕不塌秘诀：蛋白打发到硬性发泡、烤完倒扣冷却、避免开炉门。",
-    "should_answer": true,
-    "tags": [
-      "dessert",
-      "entity"
-    ]
-  },
-  {
-    "id": "A013",
-    "query": "烤蛋挞需要哪些食材？",
-    "category": "entity_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/dessert/烤蛋挞/烤蛋挞.md"
-    ],
-    "reference_answer": "烤蛋挞：蛋挞皮、蛋黄、淡奶油、牛奶、糖。",
-    "should_answer": true,
-    "tags": [
-      "dessert",
-      "entity"
-    ]
-  },
-  {
-    "id": "A014",
-    "query": "杨枝甘露怎么做？",
-    "category": "entity_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/drink/杨枝甘露.md"
-    ],
-    "reference_answer": "杨枝甘露：芒果打成泥，加椰汁、淡奶油、西柚粒和西米。",
-    "should_answer": true,
-    "tags": [
-      "drink",
-      "entity"
-    ]
-  },
-  {
-    "id": "A015",
-    "query": "Mojito莫吉托怎么调？",
-    "category": "entity_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/drink/Mojito莫吉托.md"
-    ],
-    "reference_answer": "Mojito：薄荷叶+青柠+糖捣碎，加朗姆酒，倒入苏打水，加冰块。",
-    "should_answer": true,
-    "tags": [
-      "drink",
-      "entity"
-    ]
-  },
-  {
-    "id": "A016",
-    "query": "酸梅汤的做法",
-    "category": "entity_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/drink/酸梅汤/酸梅汤.md"
-    ],
-    "reference_answer": "酸梅汤：乌梅、山楂、甘草等熬煮，加冰糖调味。",
-    "should_answer": true,
-    "tags": [
-      "drink",
-      "entity"
-    ]
-  },
-  {
-    "id": "A017",
-    "query": "怎么做红烧肉？",
-    "category": "entity_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/meat_dish/红烧肉/南派红烧肉.md",
-      "data/dishes/meat_dish/红烧肉/简易红烧肉.md"
-    ],
-    "reference_answer": "红烧肉：五花肉切块焯水，煸炒上色，加酱油糖料酒炖至软烂。",
-    "should_answer": true,
-    "tags": [
-      "meat_dish",
-      "entity"
-    ]
-  },
-  {
-    "id": "A018",
-    "query": "宫保鸡丁的做法是什么？",
-    "category": "entity_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/meat_dish/宫保鸡丁/宫保鸡丁.md"
-    ],
-    "reference_answer": "宫保鸡丁：鸡腿肉切丁腌制，干辣椒花椒爆香，调宫保汁炒制，最后撒花生米。",
-    "should_answer": true,
-    "tags": [
-      "meat_dish",
-      "entity"
-    ]
-  },
-  {
-    "id": "A019",
-    "query": "可乐鸡翅怎么做才好吃？",
-    "category": "entity_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/meat_dish/可乐鸡翅.md"
-    ],
-    "reference_answer": "可乐鸡翅：鸡翅划口焯水，煎至两面金黄，加可乐和酱油烧至收汁。",
-    "should_answer": true,
-    "tags": [
-      "meat_dish",
-      "entity"
-    ]
-  },
-  {
-    "id": "A020",
-    "query": "请告诉我糖醋排骨的烹饪步骤",
-    "category": "entity_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/meat_dish/糖醋排骨/糖醋排骨.md"
-    ],
-    "reference_answer": "糖醋排骨：排骨焯水，炸至金黄，调糖醋汁翻炒收汁。",
-    "should_answer": true,
-    "tags": [
-      "meat_dish",
-      "entity"
-    ]
-  },
-  {
-    "id": "A021",
-    "query": "麻婆豆腐需要哪些食材？",
-    "category": "entity_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/meat_dish/麻婆豆腐/麻婆豆腐.md"
-    ],
-    "reference_answer": "麻婆豆腐：豆腐、肉末、豆瓣酱、花椒、辣椒粉、葱姜蒜。",
-    "should_answer": true,
-    "tags": [
-      "meat_dish",
-      "entity"
-    ]
-  },
-  {
-    "id": "A022",
-    "query": "回锅肉怎么做？",
-    "category": "entity_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/meat_dish/回锅肉/回锅肉.md"
-    ],
-    "reference_answer": "回锅肉：五花肉煮熟切片，加豆瓣酱蒜苗炒制。",
-    "should_answer": true,
-    "tags": [
-      "meat_dish",
-      "entity"
-    ]
-  },
-  {
-    "id": "A023",
-    "query": "空气炸锅鸡翅中的做法",
-    "category": "entity_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/semi-finished/空气炸锅鸡翅中/空气炸锅鸡翅中.md"
-    ],
-    "reference_answer": "空气炸锅鸡翅：腌制后200度炸15分钟，中途翻面。",
-    "should_answer": true,
-    "tags": [
-      "semi-finished",
-      "entity"
-    ]
-  },
-  {
-    "id": "A024",
-    "query": "紫菜蛋花汤怎么做？",
-    "category": "entity_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/soup/紫菜蛋花汤.md"
-    ],
-    "reference_answer": "紫菜蛋花汤：水开下紫菜，鸡蛋打散淋入，调味即可。",
-    "should_answer": true,
-    "tags": [
-      "soup",
-      "entity"
-    ]
-  },
-  {
-    "id": "A025",
-    "query": "罗宋汤怎么做？",
-    "category": "entity_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/soup/罗宋汤.md"
-    ],
-    "reference_answer": "罗宋汤：番茄炒酱，加牛肉、土豆、卷心菜炖煮。",
-    "should_answer": true,
-    "tags": [
-      "soup",
-      "entity"
-    ]
-  },
-  {
-    "id": "A026",
-    "query": "皮蛋瘦肉粥怎么做？",
-    "category": "entity_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/soup/皮蛋瘦肉粥.md"
-    ],
-    "reference_answer": "皮蛋瘦肉粥：大米煮粥，加入皮蛋丁和腌好的瘦肉煮熟。",
-    "should_answer": true,
-    "tags": [
-      "soup",
-      "entity"
-    ]
-  },
-  {
-    "id": "A027",
-    "query": "蛋炒饭怎么做？",
-    "category": "entity_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/staple/蛋炒饭.md"
-    ],
-    "reference_answer": "蛋炒饭：隔夜饭+鸡蛋+葱花，热油爆炒至粒粒分明。",
-    "should_answer": true,
-    "tags": [
-      "staple",
-      "entity"
-    ]
-  },
-  {
-    "id": "A028",
-    "query": "扬州炒饭的做法",
-    "category": "entity_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/staple/扬州炒饭/扬州炒饭.md"
-    ],
-    "reference_answer": "扬州炒饭：米饭、鸡蛋、虾仁、火腿丁、青豆等炒制。",
-    "should_answer": true,
-    "tags": [
-      "staple",
-      "entity"
-    ]
-  },
-  {
-    "id": "A029",
-    "query": "炸酱面怎么做？",
-    "category": "entity_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/staple/炸酱面.md"
-    ],
-    "reference_answer": "炸酱面：肉末炒酱，配菜码（黄瓜、豆芽等），煮面浇酱拌匀。",
-    "should_answer": true,
-    "tags": [
-      "staple",
-      "entity"
-    ]
-  },
-  {
-    "id": "A030",
-    "query": "西红柿鸡蛋挂面的做法",
-    "category": "entity_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/staple/西红柿鸡蛋挂面/西红柿鸡蛋挂面.md"
-    ],
-    "reference_answer": "西红柿鸡蛋挂面：番茄炒鸡蛋出汁，加水煮开下挂面。",
-    "should_answer": true,
-    "tags": [
-      "staple",
-      "entity"
-    ]
-  },
-  {
-    "id": "A031",
-    "query": "西红柿炒鸡蛋怎么做才好吃？",
-    "category": "entity_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/vegetable_dish/西红柿炒鸡蛋.md"
-    ],
-    "reference_answer": "西红柿炒鸡蛋：鸡蛋加少许盐打散先炒出，番茄炒出汁加糖，倒回鸡蛋翻匀。",
-    "should_answer": true,
-    "tags": [
-      "vegetable_dish",
-      "entity"
-    ]
-  },
-  {
-    "id": "A032",
-    "query": "酸辣土豆丝的做法是什么？",
-    "category": "entity_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/vegetable_dish/酸辣土豆丝.md"
-    ],
-    "reference_answer": "酸辣土豆丝：土豆切丝过水去淀粉，热油爆香干辣椒花椒，下土豆丝快炒加醋调味。",
-    "should_answer": true,
-    "tags": [
-      "vegetable_dish",
-      "entity"
-    ]
-  },
-  {
-    "id": "A033",
-    "query": "凉拌黄瓜怎么做？",
-    "category": "entity_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/vegetable_dish/凉拌黄瓜.md"
-    ],
-    "reference_answer": "凉拌黄瓜：黄瓜拍碎，加蒜蓉、生抽、醋、香油、辣椒油拌匀。",
-    "should_answer": true,
-    "tags": [
-      "vegetable_dish",
-      "entity"
-    ]
-  },
-  {
-    "id": "A034",
-    "query": "蒜蓉西兰花的做法",
-    "category": "entity_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/vegetable_dish/蒜蓉西兰花.md"
-    ],
-    "reference_answer": "蒜蓉西兰花：西兰花焯水，蒜末爆香，下西兰花翻炒调味。",
-    "should_answer": true,
-    "tags": [
-      "vegetable_dish",
-      "entity"
-    ]
-  },
-  {
-    "id": "A035",
-    "query": "鸡蛋羹怎么做才嫩？",
-    "category": "entity_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/vegetable_dish/鸡蛋羹/鸡蛋羹.md",
-      "data/dishes/breakfast/蒸水蛋.md"
-    ],
-    "reference_answer": "鸡蛋羹：蛋液加1.5倍温水，过筛去泡，盖盘小火蒸8分钟。",
-    "should_answer": true,
-    "tags": [
-      "vegetable_dish",
-      "entity"
-    ]
-  },
-  {
-    "id": "A036",
-    "query": "鸡蛋可以做什么菜？",
-    "category": "ingredient_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/vegetable_dish/西红柿炒鸡蛋.md",
-      "data/dishes/breakfast/太阳蛋.md",
-      "data/dishes/breakfast/美式炒蛋.md",
-      "data/dishes/breakfast/茶叶蛋.md",
-      "data/dishes/vegetable_dish/鸡蛋羹/鸡蛋羹.md"
-    ],
-    "reference_answer": "鸡蛋做法：西红柿炒鸡蛋、太阳蛋、美式炒蛋、茶叶蛋、蒸蛋羹等。",
-    "should_answer": true,
-    "tags": [
-      "ingredient",
-      "鸡蛋"
-    ]
-  },
-  {
-    "id": "A037",
-    "query": "有没有用排骨做的菜谱？",
-    "category": "ingredient_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/meat_dish/糖醋排骨/糖醋排骨.md",
-      "data/dishes/meat_dish/酱排骨/酱排骨.md",
-      "data/dishes/soup/玉米排骨汤/玉米排骨汤.md",
-      "data/dishes/soup/排骨苦瓜汤/排骨苦瓜汤.md",
-      "data/dishes/meat_dish/土豆炖排骨/土豆炖排骨.md"
-    ],
-    "reference_answer": "排骨菜谱：糖醋排骨、酱排骨、玉米排骨汤、土豆炖排骨等。",
-    "should_answer": true,
-    "tags": [
-      "ingredient",
-      "排骨"
-    ]
-  },
-  {
-    "id": "A038",
-    "query": "鸡肉有哪些好吃的做法？",
-    "category": "ingredient_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/meat_dish/宫保鸡丁/宫保鸡丁.md",
-      "data/dishes/meat_dish/可乐鸡翅.md",
-      "data/dishes/meat_dish/黄焖鸡.md",
-      "data/dishes/meat_dish/口水鸡/口水鸡.md",
-      "data/dishes/meat_dish/凉拌鸡丝/凉拌鸡丝.md"
-    ],
-    "reference_answer": "鸡肉菜谱：宫保鸡丁、可乐鸡翅、黄焖鸡、口水鸡、凉拌鸡丝等。",
-    "should_answer": true,
-    "tags": [
-      "ingredient",
-      "鸡肉"
-    ]
-  },
-  {
-    "id": "A039",
-    "query": "推荐几个虾的菜",
-    "category": "ingredient_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/aquatic/蒜蓉虾/蒜蓉虾.md",
-      "data/dishes/aquatic/白灼虾/白灼虾.md",
-      "data/dishes/aquatic/油焖大虾/油焖大虾.md",
-      "data/dishes/aquatic/黄油煎虾/黄油煎虾.md",
-      "data/dishes/aquatic/小龙虾/小龙虾.md"
-    ],
-    "reference_answer": "虾的做法：蒜蓉虾、白灼虾、油焖大虾、黄油煎虾、小龙虾等。",
-    "should_answer": true,
-    "tags": [
-      "ingredient",
-      "虾"
-    ]
-  },
-  {
-    "id": "A040",
-    "query": "猪肉可以做什么菜？",
-    "category": "ingredient_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/meat_dish/红烧肉/南派红烧肉.md",
-      "data/dishes/meat_dish/回锅肉/回锅肉.md",
-      "data/dishes/meat_dish/小炒肉.md",
-      "data/dishes/meat_dish/辣椒炒肉.md",
-      "data/dishes/meat_dish/鱼香肉丝.md"
-    ],
-    "reference_answer": "猪肉菜谱：红烧肉、回锅肉、小炒肉、辣椒炒肉、鱼香肉丝等。",
-    "should_answer": true,
-    "tags": [
-      "ingredient",
-      "猪肉"
-    ]
-  },
-  {
-    "id": "A041",
-    "query": "牛肉有哪些做法？",
-    "category": "ingredient_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/meat_dish/孜然牛肉.md",
-      "data/dishes/meat_dish/小炒黄牛肉/小炒黄牛肉.md",
-      "data/dishes/meat_dish/水煮牛肉/水煮牛肉.md",
-      "data/dishes/meat_dish/西红柿牛腩/西红柿牛腩.md",
-      "data/dishes/meat_dish/黑椒牛柳/黑椒牛柳.md"
-    ],
-    "reference_answer": "牛肉菜谱：孜然牛肉、小炒黄牛肉、水煮牛肉、西红柿牛腩、黑椒牛柳等。",
-    "should_answer": true,
-    "tags": [
-      "ingredient",
-      "牛肉"
-    ]
-  },
-  {
-    "id": "A042",
-    "query": "鱼有哪些好吃的做法？",
-    "category": "ingredient_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/aquatic/清蒸鲈鱼/清蒸鲈鱼.md",
-      "data/dishes/aquatic/红烧鱼.md",
-      "data/dishes/aquatic/糖醋鲤鱼/糖醋鲤鱼.md",
-      "data/dishes/aquatic/水煮鱼.md",
-      "data/dishes/aquatic/葱油桂鱼/葱油桂鱼.md"
-    ],
-    "reference_answer": "鱼的做法：清蒸鲈鱼、红烧鱼、糖醋鲤鱼、水煮鱼、葱油桂鱼等。",
-    "should_answer": true,
-    "tags": [
-      "ingredient",
-      "鱼"
-    ]
-  },
-  {
-    "id": "A043",
-    "query": "豆腐有哪些好吃的做法？",
-    "category": "ingredient_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/meat_dish/麻婆豆腐/麻婆豆腐.md",
-      "data/dishes/vegetable_dish/凉拌豆腐.md",
-      "data/dishes/vegetable_dish/葱煎豆腐.md",
-      "data/dishes/vegetable_dish/脆皮豆腐.md",
-      "data/dishes/aquatic/鳊鱼炖豆腐/鳊鱼炖豆腐.md"
-    ],
-    "reference_answer": "豆腐菜谱：麻婆豆腐、凉拌豆腐、葱煎豆腐、脆皮豆腐、鳊鱼炖豆腐等。",
-    "should_answer": true,
-    "tags": [
-      "ingredient",
-      "豆腐"
-    ]
-  },
-  {
-    "id": "A044",
-    "query": "土豆能做什么菜？",
-    "category": "ingredient_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/vegetable_dish/酸辣土豆丝.md",
-      "data/dishes/vegetable_dish/拔丝土豆/拔丝土豆.md",
-      "data/dishes/vegetable_dish/地三鲜.md",
-      "data/dishes/meat_dish/土豆炖排骨/土豆炖排骨.md",
-      "data/dishes/meat_dish/瘦肉土豆片/瘦肉土豆片.md"
-    ],
-    "reference_answer": "土豆菜谱：酸辣土豆丝、拔丝土豆、地三鲜、土豆炖排骨、瘦肉土豆片等。",
-    "should_answer": true,
-    "tags": [
-      "ingredient",
-      "土豆"
-    ]
-  },
-  {
-    "id": "A045",
-    "query": "茄子有哪些菜谱？",
-    "category": "ingredient_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/meat_dish/鱼香茄子/鱼香茄子.md",
-      "data/dishes/vegetable_dish/红烧茄子.md",
-      "data/dishes/vegetable_dish/烤茄子/烤茄子.md",
-      "data/dishes/vegetable_dish/蒲烧茄子.md",
-      "data/dishes/vegetable_dish/茄子炖土豆.md"
-    ],
-    "reference_answer": "茄子菜谱：鱼香茄子、红烧茄子、烤茄子、蒲烧茄子、茄子炖土豆。",
-    "should_answer": true,
-    "tags": [
-      "ingredient",
-      "茄子"
-    ]
-  },
-  {
-    "id": "A046",
-    "query": "西红柿可以做什么菜？",
-    "category": "ingredient_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/vegetable_dish/西红柿炒鸡蛋.md",
-      "data/dishes/soup/西红柿鸡蛋汤.md",
-      "data/dishes/staple/西红柿鸡蛋挂面/西红柿鸡蛋挂面.md",
-      "data/dishes/meat_dish/西红柿牛腩/西红柿牛腩.md",
-      "data/dishes/meat_dish/西红柿土豆炖牛肉/西红柿土豆炖牛肉.md"
-    ],
-    "reference_answer": "西红柿菜谱：炒鸡蛋、鸡蛋汤、挂面、牛腩、土豆炖牛肉等。",
-    "should_answer": true,
-    "tags": [
-      "ingredient",
-      "西红柿"
-    ]
-  },
-  {
-    "id": "A047",
-    "query": "黄瓜怎么吃好？",
-    "category": "ingredient_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/vegetable_dish/凉拌黄瓜.md",
-      "data/dishes/vegetable_dish/鸡蛋火腿炒黄瓜.md",
-      "data/dishes/meat_dish/黄瓜炒肉.md"
-    ],
-    "reference_answer": "黄瓜做法：凉拌黄瓜、鸡蛋火腿炒黄瓜、黄瓜炒肉等。",
-    "should_answer": true,
-    "tags": [
-      "ingredient",
-      "黄瓜"
-    ]
-  },
-  {
-    "id": "A048",
-    "query": "羊肉可以做什么菜？",
-    "category": "ingredient_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/soup/羊肉汤/羊肉汤.md",
-      "data/dishes/meat_dish/枝竹羊腩煲/枝竹羊腩煲.md",
-      "data/dishes/meat_dish/羊排焖面/羊排焖面.md",
-      "data/dishes/meat_dish/萝卜炖羊排.md"
-    ],
-    "reference_answer": "羊肉菜谱：羊肉汤、枝竹羊腩煲、羊排焖面、萝卜炖羊排等。",
-    "should_answer": true,
-    "tags": [
-      "ingredient",
-      "羊肉"
-    ]
-  },
-  {
-    "id": "A049",
-    "query": "鸭肉有什么做法？",
-    "category": "ingredient_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/meat_dish/乡村啤酒鸭.md",
-      "data/dishes/meat_dish/啤酒鸭/啤酒鸭.md",
-      "data/dishes/meat_dish/血浆鸭/血浆鸭.md",
-      "data/dishes/meat_dish/湘祁米夫鸭/湘祁米夫鸭.md"
-    ],
-    "reference_answer": "鸭肉菜谱：乡村啤酒鸭、啤酒鸭、血浆鸭、湘祁米夫鸭等。",
-    "should_answer": true,
-    "tags": [
-      "ingredient",
-      "鸭"
-    ]
-  },
-  {
-    "id": "A050",
-    "query": "面条有哪些做法？",
-    "category": "ingredient_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/staple/炸酱面.md",
-      "data/dishes/staple/热干面.md",
-      "data/dishes/staple/炒意大利面/炒意大利面.md",
-      "data/dishes/staple/汤面.md",
-      "data/dishes/staple/葱油拌面.md"
-    ],
-    "reference_answer": "面条做法：炸酱面、热干面、炒意大利面、汤面、葱油拌面等。",
-    "should_answer": true,
-    "tags": [
-      "ingredient",
-      "面"
-    ]
-  },
-  {
-    "id": "A051",
-    "query": "推荐几个用饭做的菜",
-    "category": "ingredient_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/staple/蛋炒饭.md",
-      "data/dishes/staple/扬州炒饭/扬州炒饭.md",
-      "data/dishes/staple/韩式拌饭/韩式拌饭.md",
-      "data/dishes/staple/蛋包饭.md",
-      "data/dishes/staple/日式肥牛丼饭/日式肥牛丼饭.md"
-    ],
-    "reference_answer": "饭类做法：蛋炒饭、扬州炒饭、韩式拌饭、蛋包饭、肥牛丼饭。",
-    "should_answer": true,
-    "tags": [
-      "ingredient",
-      "饭"
-    ]
-  },
-  {
-    "id": "A052",
-    "query": "粥有哪些种类？",
-    "category": "ingredient_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/soup/小米粥.md",
-      "data/dishes/soup/米粥.md",
-      "data/dishes/soup/皮蛋瘦肉粥.md",
-      "data/dishes/soup/腊八粥.md",
-      "data/dishes/soup/银耳莲子粥/银耳莲子粥.md"
-    ],
-    "reference_answer": "粥的种类：小米粥、米粥、皮蛋瘦肉粥、腊八粥、银耳莲子粥。",
-    "should_answer": true,
-    "tags": [
-      "ingredient",
-      "粥"
-    ]
-  },
-  {
-    "id": "A053",
-    "query": "有哪些好吃的鱼虾菜？",
-    "category": "category_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/aquatic/清蒸鲈鱼/清蒸鲈鱼.md",
-      "data/dishes/aquatic/糖醋鲤鱼/糖醋鲤鱼.md",
-      "data/dishes/aquatic/蒜蓉虾/蒜蓉虾.md",
-      "data/dishes/aquatic/白灼虾/白灼虾.md",
-      "data/dishes/aquatic/葱烧海参/葱烧海参.md",
-      "data/dishes/aquatic/水煮鱼.md",
-      "data/dishes/aquatic/红烧鱼.md",
-      "data/dishes/aquatic/油焖大虾/油焖大虾.md"
-    ],
-    "reference_answer": "水产推荐：清蒸鲈鱼、糖醋鲤鱼、蒜蓉虾、白灼虾、葱烧海参等。",
-    "should_answer": true,
-    "tags": [
-      "category",
-      "aquatic"
-    ]
-  },
-  {
-    "id": "A054",
-    "query": "有什么简单的早餐推荐？",
-    "category": "category_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/breakfast/太阳蛋.md",
-      "data/dishes/breakfast/吐司果酱.md",
-      "data/dishes/breakfast/牛奶燕麦.md",
-      "data/dishes/breakfast/手抓饼.md",
-      "data/dishes/breakfast/鸡蛋三明治.md",
-      "data/dishes/breakfast/燕麦鸡蛋饼.md",
-      "data/dishes/breakfast/水煮玉米.md",
-      "data/dishes/breakfast/微波炉荷包蛋.md"
-    ],
-    "reference_answer": "简单早餐：太阳蛋、吐司果酱、牛奶燕麦、手抓饼、鸡蛋三明治等。",
-    "should_answer": true,
-    "tags": [
-      "category",
-      "breakfast"
-    ]
-  },
-  {
-    "id": "A055",
-    "query": "推荐几个好做的甜品",
-    "category": "category_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/dessert/烤蛋挞/烤蛋挞.md",
-      "data/dishes/dessert/玛格丽特饼干/玛格丽特饼干.md",
-      "data/dishes/dessert/反沙芋头/反沙芋头.md",
-      "data/dishes/dessert/咖啡椰奶冻/咖啡椰奶冻.md",
-      "data/dishes/dessert/酸奶意式奶冻/酸奶意式奶冻.md",
-      "data/dishes/dessert/奥利奥冰淇淋/奥利奥冰淇淋.md",
-      "data/dishes/dessert/草莓冰淇淋/草莓冰淇淋.md"
-    ],
-    "reference_answer": "好做甜品：烤蛋挞、玛格丽特饼干、反沙芋头、咖啡椰奶冻、奥利奥冰淇淋。",
-    "should_answer": true,
-    "tags": [
-      "category",
-      "dessert"
-    ]
-  },
-  {
-    "id": "A056",
-    "query": "有什么好喝的饮品？",
-    "category": "category_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/drink/杨枝甘露.md",
-      "data/dishes/drink/酸梅汤/酸梅汤.md",
-      "data/dishes/drink/奶茶.md",
-      "data/dishes/drink/柠檬水/柠檬水.md",
-      "data/dishes/drink/Mojito莫吉托.md",
-      "data/dishes/drink/冬瓜茶.md",
-      "data/dishes/drink/百香果橙子特调/百香果橙子特调.md"
-    ],
-    "reference_answer": "饮品推荐：杨枝甘露、酸梅汤、奶茶、柠檬水、莫吉托等。",
-    "should_answer": true,
-    "tags": [
-      "category",
-      "drink"
-    ]
-  },
-  {
-    "id": "A057",
-    "query": "推荐几道下饭的肉菜",
-    "category": "category_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/meat_dish/红烧肉/南派红烧肉.md",
-      "data/dishes/meat_dish/宫保鸡丁/宫保鸡丁.md",
-      "data/dishes/meat_dish/糖醋排骨/糖醋排骨.md",
-      "data/dishes/meat_dish/可乐鸡翅.md",
-      "data/dishes/meat_dish/麻婆豆腐/麻婆豆腐.md",
-      "data/dishes/meat_dish/鱼香肉丝.md",
-      "data/dishes/meat_dish/辣椒炒肉.md",
-      "data/dishes/meat_dish/回锅肉/回锅肉.md"
-    ],
-    "reference_answer": "下饭肉菜：红烧肉、宫保鸡丁、糖醋排骨、可乐鸡翅、麻婆豆腐等。",
-    "should_answer": true,
-    "tags": [
-      "category",
-      "meat_dish"
-    ]
-  },
-  {
-    "id": "A058",
-    "query": "有哪些好喝的汤？",
-    "category": "category_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/soup/紫菜蛋花汤.md",
-      "data/dishes/soup/西红柿鸡蛋汤.md",
-      "data/dishes/soup/罗宋汤.md",
-      "data/dishes/soup/玉米排骨汤/玉米排骨汤.md",
-      "data/dishes/soup/陈皮排骨汤.md",
-      "data/dishes/soup/羊肉汤/羊肉汤.md",
-      "data/dishes/soup/排骨苦瓜汤/排骨苦瓜汤.md"
-    ],
-    "reference_answer": "汤推荐：紫菜蛋花汤、西红柿鸡蛋汤、罗宋汤、玉米排骨汤、陈皮排骨汤等。",
-    "should_answer": true,
-    "tags": [
-      "category",
-      "soup"
-    ]
-  },
-  {
-    "id": "A059",
-    "query": "主食有什么推荐？",
-    "category": "category_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/staple/蛋炒饭.md",
-      "data/dishes/staple/扬州炒饭/扬州炒饭.md",
-      "data/dishes/staple/炸酱面.md",
-      "data/dishes/staple/手工水饺.md",
-      "data/dishes/staple/葱油拌面.md",
-      "data/dishes/staple/螺蛳粉.md",
-      "data/dishes/staple/韩式拌饭/韩式拌饭.md"
-    ],
-    "reference_answer": "主食推荐：蛋炒饭、扬州炒饭、炸酱面、手工水饺、葱油拌面等。",
-    "should_answer": true,
-    "tags": [
-      "category",
-      "staple"
-    ]
-  },
-  {
-    "id": "A060",
-    "query": "推荐几道家常素菜",
-    "category": "category_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/vegetable_dish/西红柿炒鸡蛋.md",
-      "data/dishes/vegetable_dish/酸辣土豆丝.md",
-      "data/dishes/vegetable_dish/凉拌黄瓜.md",
-      "data/dishes/vegetable_dish/蒜蓉西兰花.md",
-      "data/dishes/vegetable_dish/手撕包菜/手撕包菜.md",
-      "data/dishes/vegetable_dish/炒青菜.md",
-      "data/dishes/vegetable_dish/虎皮青椒/虎皮青椒.md"
-    ],
-    "reference_answer": "家常素菜：西红柿炒鸡蛋、酸辣土豆丝、凉拌黄瓜、蒜蓉西兰花、手撕包菜等。",
-    "should_answer": true,
-    "tags": [
-      "category",
-      "vegetable_dish"
-    ]
-  },
-  {
-    "id": "A061",
-    "query": "有哪些常用调味料的做法？",
-    "category": "category_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/condiment/油泼辣子/油泼辣子.md",
-      "data/dishes/condiment/糖醋汁.md",
-      "data/dishes/condiment/葱油.md",
-      "data/dishes/condiment/草莓酱/草莓酱.md",
-      "data/dishes/condiment/简易版炒糖色.md",
-      "data/dishes/condiment/蒜香酱油.md"
-    ],
-    "reference_answer": "调味料：油泼辣子、糖醋汁、葱油、草莓酱、炒糖色、蒜香酱油等。",
-    "should_answer": true,
-    "tags": [
-      "category",
-      "condiment"
-    ]
-  },
-  {
-    "id": "A062",
-    "query": "有哪些半成品料理？",
-    "category": "category_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/semi-finished/速冻水饺.md",
-      "data/dishes/semi-finished/速冻馄饨.md",
-      "data/dishes/semi-finished/速冻汤圆/速冻汤圆.md",
-      "data/dishes/semi-finished/炸薯条/炸薯条.md",
-      "data/dishes/semi-finished/空气炸锅鸡翅中/空气炸锅鸡翅中.md"
-    ],
-    "reference_answer": "半成品：速冻水饺、馄饨、汤圆、炸薯条、空气炸锅鸡翅等。",
-    "should_answer": true,
-    "tags": [
-      "category",
-      "semi-finished"
-    ]
-  },
-  {
-    "id": "A063",
-    "query": "有哪些清蒸的菜？",
-    "category": "cooking_method_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/aquatic/清蒸鲈鱼/清蒸鲈鱼.md",
-      "data/dishes/aquatic/清蒸生蚝.md",
-      "data/dishes/meat_dish/清蒸鳜鱼/清蒸鳜鱼.md",
-      "data/dishes/vegetable_dish/清蒸南瓜.md",
-      "data/dishes/breakfast/蒸水蛋.md"
-    ],
-    "reference_answer": "清蒸类菜：清蒸鲈鱼、清蒸生蚝、清蒸鳜鱼、清蒸南瓜、蒸水蛋等。",
-    "should_answer": true,
-    "tags": [
-      "cooking_method",
-      "蒸"
-    ]
-  },
-  {
-    "id": "A064",
-    "query": "推荐几个红烧菜",
-    "category": "cooking_method_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/meat_dish/红烧肉/南派红烧肉.md",
-      "data/dishes/aquatic/红烧鱼.md",
-      "data/dishes/aquatic/红烧鲤鱼.md",
-      "data/dishes/vegetable_dish/红烧茄子.md",
-      "data/dishes/vegetable_dish/红烧冬瓜/红烧冬瓜.md",
-      "data/dishes/meat_dish/红烧猪蹄/红烧猪蹄.md"
-    ],
-    "reference_answer": "红烧菜：红烧肉、红烧鱼、红烧鲤鱼、红烧茄子、红烧冬瓜、红烧猪蹄等。",
-    "should_answer": true,
-    "tags": [
-      "cooking_method",
-      "红烧"
-    ]
-  },
-  {
-    "id": "A065",
-    "query": "凉拌菜有哪些做法？",
-    "category": "cooking_method_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/vegetable_dish/凉拌黄瓜.md",
-      "data/dishes/vegetable_dish/凉拌豆腐.md",
-      "data/dishes/vegetable_dish/凉拌木耳/凉拌木耳.md",
-      "data/dishes/vegetable_dish/凉拌油麦菜.md",
-      "data/dishes/vegetable_dish/凉拌莴笋/凉拌莴笋.md",
-      "data/dishes/vegetable_dish/凉拌金针菇.md",
-      "data/dishes/meat_dish/凉拌鸡丝/凉拌鸡丝.md"
-    ],
-    "reference_answer": "凉拌菜：凉拌黄瓜、凉拌豆腐、凉拌木耳、凉拌油麦菜、凉拌金针菇等。",
-    "should_answer": true,
-    "tags": [
-      "cooking_method",
-      "凉拌"
-    ]
-  },
-  {
-    "id": "A066",
-    "query": "糖醋菜有什么推荐？",
-    "category": "cooking_method_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/meat_dish/糖醋排骨/糖醋排骨.md",
-      "data/dishes/meat_dish/糖醋里脊.md",
-      "data/dishes/aquatic/糖醋鲤鱼/糖醋鲤鱼.md",
-      "data/dishes/condiment/糖醋汁.md"
-    ],
-    "reference_answer": "糖醋类：糖醋排骨、糖醋里脊、糖醋鲤鱼，调味用糖醋汁。",
-    "should_answer": true,
-    "tags": [
-      "cooking_method",
-      "糖醋"
-    ]
-  },
-  {
-    "id": "A067",
-    "query": "有什么烤的菜可以做？",
-    "category": "cooking_method_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/meat_dish/烤鸡翅.md",
-      "data/dishes/meat_dish/意式烤鸡.md",
-      "data/dishes/meat_dish/甜辣烤全翅.md",
-      "data/dishes/aquatic/混合烤鱼/烤鱼.md",
-      "data/dishes/vegetable_dish/烤茄子/烤茄子.md"
-    ],
-    "reference_answer": "烤类菜：烤鸡翅、意式烤鸡、甜辣烤全翅、烤鱼、烤茄子等。",
-    "should_answer": true,
-    "tags": [
-      "cooking_method",
-      "烤"
-    ]
-  },
-  {
-    "id": "A068",
-    "query": "推荐几道炖菜",
-    "category": "cooking_method_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/meat_dish/西红柿土豆炖牛肉/西红柿土豆炖牛肉.md",
-      "data/dishes/meat_dish/土豆炖排骨/土豆炖排骨.md",
-      "data/dishes/meat_dish/萝卜炖羊排.md",
-      "data/dishes/aquatic/鳊鱼炖豆腐/鳊鱼炖豆腐.md",
-      "data/dishes/aquatic/鲤鱼炖白菜/鲤鱼炖白菜.md"
-    ],
-    "reference_answer": "炖菜推荐：西红柿土豆炖牛肉、土豆炖排骨、萝卜炖羊排、鳊鱼炖豆腐等。",
-    "should_answer": true,
-    "tags": [
-      "cooking_method",
-      "炖"
-    ]
-  },
-  {
-    "id": "A069",
-    "query": "有什么焖菜推荐？",
-    "category": "cooking_method_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/aquatic/油焖大虾/油焖大虾.md",
-      "data/dishes/meat_dish/黄焖鸡.md",
-      "data/dishes/staple/豆角焖面/豆角焖面.md",
-      "data/dishes/meat_dish/羊排焖面/羊排焖面.md"
-    ],
-    "reference_answer": "焖菜：油焖大虾、黄焖鸡、豆角焖面、羊排焖面。",
-    "should_answer": true,
-    "tags": [
-      "cooking_method",
-      "焖"
-    ]
-  },
-  {
-    "id": "A070",
-    "query": "煎类菜有哪些？",
-    "category": "cooking_method_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/aquatic/干煎阿根廷红虾/干煎阿根廷红虾.md",
-      "data/dishes/aquatic/香煎翘嘴鱼/香煎翘嘴鱼.md",
-      "data/dishes/breakfast/煎饺.md",
-      "data/dishes/meat_dish/香煎五花肉/香煎五花肉.md",
-      "data/dishes/staple/茄子肉煎饼/茄子肉煎饼.md"
-    ],
-    "reference_answer": "煎菜：干煎红虾、香煎翘嘴鱼、煎饺、香煎五花肉、煎饼。",
-    "should_answer": true,
-    "tags": [
-      "cooking_method",
-      "煎"
-    ]
-  },
-  {
-    "id": "A071",
-    "query": "炒菜有哪些经典做法？",
-    "category": "cooking_method_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/vegetable_dish/西红柿炒鸡蛋.md",
-      "data/dishes/meat_dish/小炒肉.md",
-      "data/dishes/meat_dish/辣椒炒肉.md",
-      "data/dishes/vegetable_dish/手撕包菜/手撕包菜.md",
-      "data/dishes/staple/扬州炒饭/扬州炒饭.md"
-    ],
-    "reference_answer": "经典炒菜：西红柿炒鸡蛋、小炒肉、辣椒炒肉、手撕包菜、扬州炒饭等。",
-    "should_answer": true,
-    "tags": [
-      "cooking_method",
-      "炒"
-    ]
-  },
-  {
-    "id": "A072",
-    "query": "有什么炸的菜？",
-    "category": "cooking_method_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/dessert/炸鲜奶/炸鲜奶.md",
-      "data/dishes/semi-finished/炸薯条/炸薯条.md",
-      "data/dishes/meat_dish/小酥肉.md"
-    ],
-    "reference_answer": "炸类菜：炸鲜奶、炸薯条、小酥肉等。",
-    "should_answer": true,
-    "tags": [
-      "cooking_method",
-      "炸"
-    ]
-  },
-  {
-    "id": "A073",
-    "query": "蒸鲈鱼怎么做",
-    "category": "robustness_case",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/aquatic/清蒸鲈鱼/清蒸鲈鱼.md"
-    ],
-    "reference_answer": "您是说清蒸鲈鱼吗？详见菜谱步骤。",
-    "should_answer": true,
-    "tags": [
-      "paraphrase",
-      "robustness"
-    ]
-  },
-  {
-    "id": "A074",
-    "query": "怎么做凉拌黄瓜",
-    "category": "robustness_case",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/vegetable_dish/凉拌黄瓜.md"
-    ],
-    "reference_answer": "凉拌黄瓜：黄瓜拍碎，加蒜蓉、生抽、醋、香油拌匀。",
-    "should_answer": true,
-    "tags": [
-      "paraphrase",
-      "robustness"
-    ]
-  },
-  {
-    "id": "A075",
-    "query": "番茄炒蛋的做法",
-    "category": "robustness_case",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/vegetable_dish/西红柿炒鸡蛋.md"
-    ],
-    "reference_answer": "番茄炒蛋（西红柿炒鸡蛋）：鸡蛋打散先炒出，番茄出汁回锅翻炒。",
-    "should_answer": true,
-    "tags": [
-      "paraphrase",
-      "robustness"
-    ]
-  },
-  {
-    "id": "A076",
-    "query": "如何做糖醋排骨",
-    "category": "robustness_case",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/meat_dish/糖醋排骨/糖醋排骨.md"
-    ],
-    "reference_answer": "糖醋排骨：排骨焯水炸金黄，调糖醋汁翻炒收汁。",
-    "should_answer": true,
-    "tags": [
-      "paraphrase",
-      "robustness"
-    ]
-  },
-  {
-    "id": "A077",
-    "query": "家常红烧肉",
-    "category": "robustness_case",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/meat_dish/红烧肉/南派红烧肉.md",
-      "data/dishes/meat_dish/红烧肉/简易红烧肉.md"
-    ],
-    "reference_answer": "家常红烧肉做法见相关菜谱（南派/简易/湖南家常）。",
-    "should_answer": true,
-    "tags": [
-      "paraphrase",
-      "robustness"
-    ]
-  },
-  {
-    "id": "A078",
-    "query": "酸辣土豆丝怎么炒",
-    "category": "robustness_case",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/vegetable_dish/酸辣土豆丝.md"
-    ],
-    "reference_answer": "土豆丝过水，热油爆干辣椒花椒，下锅快炒加醋。",
-    "should_answer": true,
-    "tags": [
-      "paraphrase",
-      "robustness"
-    ]
-  },
-  {
-    "id": "A079",
-    "query": "蛋炒饭做法",
-    "category": "robustness_case",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/staple/蛋炒饭.md"
-    ],
-    "reference_answer": "蛋炒饭：隔夜饭+鸡蛋热油爆炒至粒粒分明。",
-    "should_answer": true,
-    "tags": [
-      "paraphrase",
-      "robustness"
-    ]
-  },
-  {
-    "id": "A080",
-    "query": "请告诉我手抓饼的烹饪步骤",
-    "category": "entity_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/breakfast/手抓饼.md"
-    ],
-    "reference_answer": "手抓饼：平底锅小火，饼放入煎至两面金黄起酥层即可。",
-    "should_answer": true,
-    "tags": [
-      "breakfast",
-      "entity"
-    ]
-  },
-  {
-    "id": "A081",
-    "query": "桂圆红枣粥怎么做？",
-    "category": "entity_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/breakfast/桂圆红枣粥.md"
-    ],
-    "reference_answer": "桂圆红枣粥：大米、桂圆、红枣同煮成粥，可加冰糖。",
-    "should_answer": true,
-    "tags": [
-      "breakfast",
-      "entity"
-    ]
-  },
-  {
-    "id": "A082",
-    "query": "苏格兰蛋的做法",
-    "category": "entity_query",
-    "difficulty": "hard",
-    "expected_doc_paths": [
-      "data/dishes/breakfast/苏格兰蛋/苏格兰蛋.md"
-    ],
-    "reference_answer": "苏格兰蛋：水煮蛋外裹肉馅，再裹面包糠炸至金黄。",
-    "should_answer": true,
-    "tags": [
-      "breakfast",
-      "entity"
-    ]
-  },
-  {
-    "id": "A083",
-    "query": "手工水饺需要哪些食材？",
-    "category": "entity_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/staple/手工水饺.md"
-    ],
-    "reference_answer": "水饺：面粉、温水做皮；猪肉、葱姜、蔬菜做馅。",
-    "should_answer": true,
-    "tags": [
-      "staple",
-      "entity"
-    ]
-  },
-  {
-    "id": "A084",
-    "query": "鱼香肉丝怎么做？",
-    "category": "entity_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/meat_dish/鱼香肉丝.md"
-    ],
-    "reference_answer": "鱼香肉丝：肉丝腌制，木耳笋丝配菜，调鱼香汁炒制。",
-    "should_answer": true,
-    "tags": [
-      "meat_dish",
-      "entity"
-    ]
-  },
-  {
-    "id": "A085",
-    "query": "鱼香茄子的做法是什么？",
-    "category": "entity_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/meat_dish/鱼香茄子/鱼香茄子.md"
-    ],
-    "reference_answer": "鱼香茄子：茄子炸软，调鱼香汁炒入味。",
-    "should_answer": true,
-    "tags": [
-      "meat_dish",
-      "entity"
-    ]
-  },
-  {
-    "id": "A086",
-    "query": "新疆大盘鸡怎么做？",
-    "category": "entity_query",
-    "difficulty": "hard",
-    "expected_doc_paths": [
-      "data/dishes/meat_dish/新疆大盘鸡/新疆大盘鸡.md"
-    ],
-    "reference_answer": "大盘鸡：鸡块炒至上色，加土豆、青椒、啤酒炖煮，可配皮带面。",
-    "should_answer": true,
-    "tags": [
-      "meat_dish",
-      "entity"
-    ]
-  },
-  {
-    "id": "A087",
-    "query": "白灼虾怎么做？",
-    "category": "entity_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/aquatic/白灼虾/白灼虾.md"
-    ],
-    "reference_answer": "白灼虾：水加葱姜料酒煮开下虾，变红即捞出，蘸料食用。",
-    "should_answer": true,
-    "tags": [
-      "aquatic",
-      "entity"
-    ]
-  },
-  {
-    "id": "A088",
-    "query": "排骨苦瓜汤怎么做？",
-    "category": "entity_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/soup/排骨苦瓜汤/排骨苦瓜汤.md"
-    ],
-    "reference_answer": "排骨苦瓜汤：排骨焯水后炖煮，加入苦瓜片煮至软烂。",
-    "should_answer": true,
-    "tags": [
-      "soup",
-      "entity"
-    ]
-  },
-  {
-    "id": "A089",
-    "query": "番茄牛肉蛋花汤的做法",
-    "category": "entity_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/soup/番茄牛肉蛋花汤.md"
-    ],
-    "reference_answer": "番茄牛肉蛋花汤：番茄炒酱，加水加牛肉煮熟，淋蛋液出锅。",
-    "should_answer": true,
-    "tags": [
-      "soup",
-      "entity"
-    ]
-  },
-  {
-    "id": "A090",
-    "query": "炒青菜怎么做才好吃？",
-    "category": "entity_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/vegetable_dish/炒青菜.md"
-    ],
-    "reference_answer": "炒青菜：热油大火快炒，加蒜末调味盐少许糖提鲜。",
-    "should_answer": true,
-    "tags": [
-      "vegetable_dish",
-      "entity"
-    ]
-  },
-  {
-    "id": "A091",
-    "query": "蒜蓉空心菜的做法",
-    "category": "entity_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/vegetable_dish/蒜蓉空心菜/蒜蓉空心菜.md"
-    ],
-    "reference_answer": "蒜蓉空心菜：热油爆蒜末，下空心菜大火翻炒，加少许盐。",
-    "should_answer": true,
-    "tags": [
-      "vegetable_dish",
-      "entity"
-    ]
-  },
-  {
-    "id": "A092",
-    "query": "酱牛肉怎么做？",
-    "category": "entity_query",
-    "difficulty": "hard",
-    "expected_doc_paths": [
-      "data/dishes/meat_dish/酱牛肉/酱牛肉.md"
-    ],
-    "reference_answer": "酱牛肉：牛腱焯水，加酱料和香料炖煮，浸泡入味，切片食用。",
-    "should_answer": true,
-    "tags": [
-      "meat_dish",
-      "entity"
-    ]
-  },
-  {
-    "id": "A093",
-    "query": "口水鸡怎么做？",
-    "category": "entity_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/meat_dish/口水鸡/口水鸡.md"
-    ],
-    "reference_answer": "口水鸡：鸡煮熟切块，调辣椒油+花椒+生抽汁淋上。",
-    "should_answer": true,
-    "tags": [
-      "meat_dish",
-      "entity"
-    ]
-  },
-  {
-    "id": "A094",
-    "query": "螺蛳粉怎么做？",
-    "category": "entity_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/staple/螺蛳粉.md"
-    ],
-    "reference_answer": "螺蛳粉：米粉煮软，加汤底、酸笋、腐竹、花生、青菜。",
-    "should_answer": true,
-    "tags": [
-      "staple",
-      "entity"
-    ]
-  },
-  {
-    "id": "A095",
-    "query": "热干面的做法",
-    "category": "entity_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/staple/热干面.md"
-    ],
-    "reference_answer": "热干面：碱面煮熟过油，调芝麻酱、生抽、醋、辣椒油拌匀。",
-    "should_answer": true,
-    "tags": [
-      "staple",
-      "entity"
-    ]
-  },
-  {
-    "id": "A096",
-    "query": "蟹有哪些好吃的做法？",
-    "category": "ingredient_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/aquatic/咖喱炒蟹.md"
-    ],
-    "reference_answer": "蟹的做法：咖喱炒蟹等。",
-    "should_answer": true,
-    "tags": [
-      "ingredient",
-      "蟹"
-    ]
-  },
-  {
-    "id": "A097",
-    "query": "猪蹄能做什么菜？",
-    "category": "ingredient_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/meat_dish/红烧猪蹄/红烧猪蹄.md",
-      "data/dishes/meat_dish/老妈蹄花/老妈蹄花.md",
-      "data/dishes/meat_dish/猪皮冻/猪皮冻.md"
-    ],
-    "reference_answer": "猪蹄菜：红烧猪蹄、老妈蹄花、猪皮冻等。",
-    "should_answer": true,
-    "tags": [
-      "ingredient",
-      "猪蹄"
-    ]
-  },
-  {
-    "id": "A098",
-    "query": "鸡翅有什么做法？",
-    "category": "ingredient_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/meat_dish/可乐鸡翅.md",
-      "data/dishes/meat_dish/烤鸡翅.md",
-      "data/dishes/meat_dish/甜辣烤全翅.md",
-      "data/dishes/semi-finished/空气炸锅鸡翅中/空气炸锅鸡翅中.md"
-    ],
-    "reference_answer": "鸡翅做法：可乐鸡翅、烤鸡翅、甜辣烤全翅、空气炸锅鸡翅。",
-    "should_answer": true,
-    "tags": [
-      "ingredient",
-      "鸡翅"
-    ]
-  },
-  {
-    "id": "A099",
-    "query": "用五花肉可以做什么？",
-    "category": "ingredient_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/meat_dish/红烧肉/南派红烧肉.md",
-      "data/dishes/meat_dish/回锅肉/回锅肉.md",
-      "data/dishes/meat_dish/梅菜扣肉/梅菜扣肉.md",
-      "data/dishes/meat_dish/粉蒸肉.md",
-      "data/dishes/meat_dish/香煎五花肉/香煎五花肉.md"
-    ],
-    "reference_answer": "五花肉做法：红烧肉、回锅肉、梅菜扣肉、粉蒸肉、香煎五花肉。",
-    "should_answer": true,
-    "tags": [
-      "ingredient",
-      "五花肉"
-    ]
-  },
-  {
-    "id": "A100",
-    "query": "韩式拌饭的做法",
-    "category": "entity_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/staple/韩式拌饭/韩式拌饭.md"
-    ],
-    "reference_answer": "韩式拌饭：石锅放米饭，铺各种炒制的菜码（豆芽、菠菜、肉、蛋等），加韩式辣酱拌匀。",
-    "should_answer": true,
-    "tags": [
-      "staple",
-      "entity"
-    ]
-  },
-  {
-    "id": "A101",
-    "query": "日式咖喱饭怎么做？",
-    "category": "entity_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/staple/日式咖喱饭/日式咖喱饭.md"
-    ],
-    "reference_answer": "日式咖喱饭：洋葱胡萝卜土豆肉块炒制，加水煮，加咖喱块煮稠浇饭上。",
-    "should_answer": true,
-    "tags": [
-      "staple",
-      "entity"
-    ]
-  },
-  {
-    "id": "A102",
-    "query": "日式肥牛丼饭的做法",
-    "category": "entity_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/staple/日式肥牛丼饭/日式肥牛丼饭.md"
-    ],
-    "reference_answer": "肥牛丼饭：洋葱炒软，加酱汁煮开下肥牛，浇饭上撒葱花。",
-    "should_answer": true,
-    "tags": [
-      "staple",
-      "entity"
-    ]
-  },
-  {
-    "id": "A103",
-    "query": "意式肉酱面怎么做？",
-    "category": "entity_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/staple/意式肉酱面/意式肉酱面.md"
-    ],
-    "reference_answer": "肉酱面：肉末炒香，加番茄酱、洋葱胡萝卜熬煮，配煮好的意面。",
-    "should_answer": true,
-    "tags": [
-      "staple",
-      "entity"
-    ]
-  },
-  {
-    "id": "A104",
-    "query": "意式烤鸡怎么做？",
-    "category": "entity_query",
-    "difficulty": "hard",
-    "expected_doc_paths": [
-      "data/dishes/meat_dish/意式烤鸡.md"
-    ],
-    "reference_answer": "意式烤鸡：整鸡腌制（迷迭香、橄榄油、盐胡椒），烤箱烤制。",
-    "should_answer": true,
-    "tags": [
-      "meat_dish",
-      "entity"
-    ]
-  },
-  {
-    "id": "A105",
-    "query": "烤鱼怎么做？",
-    "category": "entity_query",
-    "difficulty": "hard",
-    "expected_doc_paths": [
-      "data/dishes/aquatic/混合烤鱼/烤鱼.md"
-    ],
-    "reference_answer": "烤鱼：鱼腌制烤至焦香，配菜炒香铺底，浇上辣酱。",
-    "should_answer": true,
-    "tags": [
-      "aquatic",
-      "entity"
-    ]
-  },
-  {
-    "id": "A106",
-    "query": "烧饼怎么做？",
-    "category": "entity_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/staple/烧饼/芝麻烧饼.md"
-    ],
-    "reference_answer": "烧饼：发面，加馅料卷起，烙制后烤制。",
-    "should_answer": true,
-    "tags": [
-      "staple",
-      "entity"
-    ]
-  },
-  {
-    "id": "A107",
-    "query": "烙饼的做法",
-    "category": "entity_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/staple/烙饼/烙饼.md"
-    ],
-    "reference_answer": "烙饼：和面，擀薄抹油卷起，平底锅烙至两面金黄。",
-    "should_answer": true,
-    "tags": [
-      "staple",
-      "entity"
-    ]
-  },
-  {
-    "id": "A108",
-    "query": "韭菜盒子怎么做？",
-    "category": "entity_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/staple/韭菜盒子.md"
-    ],
-    "reference_answer": "韭菜盒子：韭菜鸡蛋虾皮拌馅，面皮包成饺子状，平底锅烙熟。",
-    "should_answer": true,
-    "tags": [
-      "staple",
-      "entity"
-    ]
-  },
-  {
-    "id": "A109",
-    "query": "拌面有哪些种类？",
-    "category": "ingredient_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/staple/葱油拌面.md",
-      "data/dishes/staple/老干妈拌面.md",
-      "data/dishes/staple/麻油拌面.md",
-      "data/dishes/staple/酱拌荞麦面/酱拌荞麦面.md"
-    ],
-    "reference_answer": "拌面：葱油拌面、老干妈拌面、麻油拌面、酱拌荞麦面。",
-    "should_answer": true,
-    "tags": [
-      "ingredient",
-      "拌面"
-    ]
-  },
-  {
-    "id": "A110",
-    "query": "披萨饼皮怎么做？",
-    "category": "entity_query",
-    "difficulty": "hard",
-    "expected_doc_paths": [
-      "data/dishes/staple/披萨饼皮/披萨饼皮.md"
-    ],
-    "reference_answer": "披萨饼皮：高筋面粉+酵母+水+油揉面发酵，擀成圆饼。",
-    "should_answer": true,
-    "tags": [
-      "staple",
-      "entity"
-    ]
-  },
-  {
-    "id": "A111",
-    "query": "烤箱可以做什么菜？",
-    "category": "scenario_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/meat_dish/烤鸡翅.md",
-      "data/dishes/meat_dish/意式烤鸡.md",
-      "data/dishes/dessert/戚风蛋糕/戚风蛋糕.md",
-      "data/dishes/dessert/烤蛋挞/烤蛋挞.md",
-      "data/dishes/aquatic/混合烤鱼/烤鱼.md"
-    ],
-    "reference_answer": "烤箱可做：烤鸡翅、意式烤鸡、戚风蛋糕、烤蛋挞、烤鱼等。",
-    "should_answer": true,
-    "tags": [
-      "scenario",
-      "appliance"
-    ]
-  },
-  {
-    "id": "A112",
-    "query": "想做点凉菜下酒",
-    "category": "scenario_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/vegetable_dish/凉拌黄瓜.md",
-      "data/dishes/vegetable_dish/凉拌木耳/凉拌木耳.md",
-      "data/dishes/meat_dish/凉拌鸡丝/凉拌鸡丝.md",
-      "data/dishes/vegetable_dish/话梅煮毛豆/话梅煮毛豆.md"
-    ],
-    "reference_answer": "下酒凉菜：凉拌黄瓜、凉拌木耳、凉拌鸡丝、话梅煮毛豆等。",
-    "should_answer": true,
-    "tags": [
-      "scenario",
-      "drink"
-    ]
-  },
-  {
-    "id": "A113",
-    "query": "想吃辣的，推荐几个",
-    "category": "scenario_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/meat_dish/水煮肉片.md",
-      "data/dishes/meat_dish/麻辣香锅.md",
-      "data/dishes/meat_dish/水煮牛肉/水煮牛肉.md",
-      "data/dishes/meat_dish/辣椒炒肉.md",
-      "data/dishes/meat_dish/麻婆豆腐/麻婆豆腐.md"
-    ],
-    "reference_answer": "辣菜推荐：水煮肉片、麻辣香锅、水煮牛肉、辣椒炒肉、麻婆豆腐。",
-    "should_answer": true,
-    "tags": [
-      "scenario",
-      "spicy"
-    ]
-  },
-  {
-    "id": "A114",
-    "query": "玉米排骨汤怎么做？",
-    "category": "entity_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/soup/玉米排骨汤/玉米排骨汤.md"
-    ],
-    "reference_answer": "玉米排骨汤：排骨焯水，加玉米段炖1小时调味。",
-    "should_answer": true,
-    "tags": [
-      "soup",
-      "entity"
-    ]
-  },
-  {
-    "id": "A115",
-    "query": "陈皮排骨汤怎么做？",
-    "category": "entity_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/soup/陈皮排骨汤.md",
-      "data/dishes/soup/陈皮排骨汤/陈皮排骨汤.md"
-    ],
-    "reference_answer": "陈皮排骨汤：排骨焯水，加陈皮、姜片炖煮2小时。",
-    "should_answer": true,
-    "tags": [
-      "soup",
-      "entity"
-    ]
-  },
-  {
-    "id": "A116",
-    "query": "银耳莲子粥的做法",
-    "category": "entity_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/soup/银耳莲子粥/银耳莲子粥.md"
-    ],
-    "reference_answer": "银耳莲子粥：银耳泡发撕小朵，与莲子大米同煮至浓稠。",
-    "should_answer": true,
-    "tags": [
-      "soup",
-      "entity"
-    ]
-  },
-  {
-    "id": "A117",
-    "query": "腊八粥怎么做？",
-    "category": "entity_query",
-    "difficulty": "medium",
-    "expected_doc_paths": [
-      "data/dishes/soup/腊八粥.md"
-    ],
-    "reference_answer": "腊八粥：八种以上杂粮（红豆、桂圆、莲子等）同煮成粥。",
-    "should_answer": true,
-    "tags": [
-      "soup",
-      "entity"
-    ]
-  },
-  {
-    "id": "A118",
-    "query": "金针菇汤怎么做？",
-    "category": "entity_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/soup/金针菇汤.md"
-    ],
-    "reference_answer": "金针菇汤：水开下金针菇，调味加葱花即可。",
-    "should_answer": true,
-    "tags": [
-      "soup",
-      "entity"
-    ]
-  },
-  {
-    "id": "A119",
-    "query": "无骨鸡爪怎么做？",
-    "category": "entity_query",
-    "difficulty": "hard",
-    "expected_doc_paths": [
-      "data/dishes/meat_dish/无骨鸡爪/无骨鸡爪.md"
-    ],
-    "reference_answer": "无骨鸡爪：鸡爪煮熟去骨，调泡椒酱料浸泡入味。",
-    "should_answer": true,
-    "tags": [
-      "meat_dish",
-      "entity"
-    ]
-  },
-  {
-    "id": "A120",
-    "query": "茶叶蛋的做法",
-    "category": "entity_query",
-    "difficulty": "easy",
-    "expected_doc_paths": [
-      "data/dishes/breakfast/茶叶蛋.md"
-    ],
-    "reference_answer": "茶叶蛋：水煮蛋后敲裂，加茶叶、酱油、香料浸泡卤煮。",
-    "should_answer": true,
-    "tags": [
-      "breakfast",
-      "entity"
     ]
   }
 ]
