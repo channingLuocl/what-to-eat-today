@@ -5,11 +5,15 @@
 from .graph_data_preparation import GraphDataPreparationModule
 from .milvus_index_construction import MilvusIndexConstructionModule
 from .hybrid_retrieval import HybridRetrievalModule
+from .graph_rag_retrieval import GraphRAGRetrieval
 from .generation_integration import GenerationIntegrationModule
+from .query_analyzer import QueryAnalyzer
 
 __all__ = [
     'GraphDataPreparationModule',
-    'MilvusIndexConstructionModule', 
+    'MilvusIndexConstructionModule',
     'HybridRetrievalModule',
-    'GenerationIntegrationModule'
-] 
+    'GraphRAGRetrieval',
+    'GenerationIntegrationModule',
+    'QueryAnalyzer',
+]

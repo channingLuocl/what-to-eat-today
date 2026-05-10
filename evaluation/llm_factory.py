@@ -93,7 +93,7 @@ def build_ragas_embeddings(
             "需要安装依赖: pip install langchain-huggingface ragas sentence-transformers"
         ) from e
 
-    model = model or os.getenv("EMBEDDING_MODEL", "BAAI/bge-small-zh-v1.5")
+    model = model or os.getenv("EMBEDDING_MODEL", "BAAI/bge-large-zh-v1.5")
 
     logger.info(f"Building RAGAS Embeddings: model={model}")
 

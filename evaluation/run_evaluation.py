@@ -77,9 +77,17 @@ class MockRAG:
 
 
 def _doc_to_path(doc) -> str:
-    """从 langchain Document 中提取文档路径，按多个常见 metadata key 尝试"""
+    """从 langchain Document 中提取用于评测对齐的标识。
+
+    本项目的 Document 不携带原始文件路径，只有 recipe_name；evaluation/retrieval_metrics.py
+    的 _normalize_path 会把 expected `data/dishes/.../糖醋鲤鱼.md` 归一化为 `糖醋鲤鱼`，
+    所以这里直接用 recipe_name 即可对齐。
+
+    注意：不要再优先 metadata["source"]——hybrid_retrieval 把它写成
+    "neo4j_fallback" / "category_match" 这类数据来源标识，会盖掉真正的菜名。
+    """
     md = getattr(doc, "metadata", {}) or {}
-    for key in ("source", "file_path", "path", "doc_path", "recipe_name", "node_id"):
+    for key in ("recipe_name", "file_path", "path", "doc_path", "node_id"):
         if md.get(key):
             return str(md[key])
     return ""
@@ -97,7 +105,7 @@ class RealRAG:
         )
         from rag_modules.graph_rag_retrieval import GraphRAGRetrieval
         from rag_modules.hybrid_retrieval import HybridRetrievalModule
-        from rag_modules.intelligent_query_router import IntelligentQueryRouter
+        from rag_modules.query_analyzer import QueryAnalyzer
 
         self.config = GraphRAGConfig()
         logger.info("初始化检索组件...")
@@ -141,13 +149,8 @@ class RealRAG:
             llm_client=llm_client,
         )
 
-        # 6. 智能路由器（参数名与实际签名对齐）
-        self.router = IntelligentQueryRouter(
-            traditional_retrieval=self.hybrid,
-            graph_rag_retrieval=self.graph,
-            llm_client=llm_client,
-            config=self.config,
-        )
+        # 6. 查询分析器（规则驱动）
+        self.query_analyzer = QueryAnalyzer()
 
         # 7. 加载知识库并初始化检索器（需在路由器创建后执行）
         logger.info("加载知识库数据...")
@@ -170,7 +173,20 @@ class RealRAG:
 
     def retrieve_and_generate(self, query: str, item: Dict[str, Any], top_k: int = 5) -> Tuple[List[str], List[str], str]:
         try:
-            docs, _ = self.router.route_query(query, top_k=top_k)
+            # 查询分析（规则驱动，毫秒级）
+            analysis = self.query_analyzer.analyze(query)
+
+            # 拒答检测
+            if analysis.intent.value == "rejection":
+                return [], [], "抱歉，我是菜谱推荐助手，无法回答这个问题。"
+
+            # 混合检索（BM25 + 向量 + 图实体匹配 → 粗召回 → 父子解析 → Reranker）
+            docs = self.hybrid.hybrid_search(query, top_k=top_k)
+
+            # 图增强（关系推理查询时触发）
+            enrichment = None
+            if analysis.need_graph_enrichment and docs:
+                enrichment = self.graph.enrich_retrieval_results(query, docs)
         except Exception as e:
             logger.error(f"检索失败 query={query!r}: {e}")
             return [], [], f"检索出错: {e}"
@@ -187,11 +203,17 @@ class RealRAG:
             else:
                 retrieved_contexts.append(content)
 
+        # 图增强上下文也加入评估 context
+        if enrichment:
+            retrieved_contexts.append(f"[GRAPH_ENRICHMENT] {enrichment}")
+
         if not docs:
             return [], [], "抱歉，没有找到相关信息。"
 
         try:
-            answer = self.gen.generate_adaptive_answer(query, docs)
+            answer = self.gen.generate_adaptive_answer(
+                query, docs, enrichment_context=enrichment
+            )
         except Exception as e:
             logger.error(f"生成失败: {e}")
             answer = f"生成出错: {e}"

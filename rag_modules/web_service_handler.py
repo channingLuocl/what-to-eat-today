@@ -163,12 +163,28 @@ class WebServiceHandler:
                 concurrent.futures.wait([future_query], timeout=2)
             
             # 缓存未命中，执行完整的RAG流程
-            documents, analysis = self.rag_system.query_router.route_query(
-                query=enhanced_query,
-                top_k=self.rag_system.config.top_k
+            analysis = self.rag_system.query_analyzer.analyze(enhanced_query)
+            if analysis.intent.value == "rejection":
+                return jsonify({
+                    "response": "抱歉，我是菜谱推荐助手，无法回答这个问题。",
+                    "query": query,
+                    "timestamp": str(datetime.now()),
+                })
+
+            documents = self.rag_system.traditional_retrieval.hybrid_search(
+                enhanced_query, self.rag_system.config.top_k
             )
+
+            enrichment = None
+            if analysis.need_graph_enrichment:
+                enrichment = self.rag_system.graph_rag_retrieval.enrich_retrieval_results(
+                    enhanced_query, documents
+                )
+
             # 使用生成模块生成最终答案
-            response = self.rag_system.generation_module.generate_adaptive_answer(enhanced_query, documents)
+            response = self.rag_system.generation_module.generate_adaptive_answer(
+                enhanced_query, documents, enrichment_context=enrichment
+            )
             
             # 将结果添加到会话缓存和上下文
             self.rag_system.cache_manager.add_to_semantic_cache(query, response, session_id)
@@ -234,18 +250,30 @@ class WebServiceHandler:
                         # 缓存未命中，等待查询预处理完成
                         concurrent.futures.wait([future_query], timeout=2)
                     
-                    # 缓存未命中，执行完整的RAG流程
-                    documents, analysis = self.rag_system.query_router.route_query(
-                        query=enhanced_query,
-                        top_k=self.rag_system.config.top_k
-                    )
-                    
-                    # 流式生成答案
-                    full_response = ""
-                    for chunk in self.rag_system.generation_module.generate_adaptive_answer_stream(enhanced_query, documents):
-                        full_response += chunk
-                        data_obj = {"chunk": chunk}
-                        yield f"data: {json.dumps(data_obj)}\n\n"
+                        analysis = self.rag_system.query_analyzer.analyze(enhanced_query)
+                        if analysis.intent.value == "rejection":
+                            yield f"data: {json.dumps({'chunk': '抱歉，我是菜谱推荐助手，无法回答这个问题。'})}\n\n"
+                            yield f"data: [DONE]\n\n"
+                            return
+
+                        documents = self.rag_system.traditional_retrieval.hybrid_search(
+                            enhanced_query, self.rag_system.config.top_k
+                        )
+
+                        enrichment = None
+                        if analysis.need_graph_enrichment:
+                            enrichment = self.rag_system.graph_rag_retrieval.enrich_retrieval_results(
+                                enhanced_query, documents
+                            )
+
+                        # 流式生成答案
+                        full_response = ""
+                        for chunk in self.rag_system.generation_module.generate_adaptive_answer_stream(
+                            enhanced_query, documents, enrichment_context=enrichment
+                        ):
+                            full_response += chunk
+                            data_obj = {"chunk": chunk}
+                            yield f"data: {json.dumps(data_obj)}\n\n"
                     
                     # 将完整结果添加到会话缓存和上下文
                     self.rag_system.cache_manager.add_to_semantic_cache(query, full_response, session_id)
@@ -318,7 +346,6 @@ class WebServiceHandler:
             # 获取系统统计信息
             stats = {
                 "cache_stats": self.rag_system.cache_manager.get_session_stats(),
-                "route_stats": self.rag_system.query_router.get_route_statistics(),
                 "system_info": {
                     "timestamp": str(datetime.now()),
                     "status": "running"

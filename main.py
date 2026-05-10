@@ -30,7 +30,7 @@ from rag_modules import (
 )
 from rag_modules.hybrid_retrieval import HybridRetrievalModule
 from rag_modules.graph_rag_retrieval import GraphRAGRetrieval
-from rag_modules.intelligent_query_router import IntelligentQueryRouter, QueryAnalysis
+from rag_modules.query_analyzer import QueryAnalyzer
 from rag_modules.session_cache_manager import SessionCacheManager
 from rag_modules.web_service_handler import WebServiceHandler
 from rag_modules.recipe_recommendation import RecipeRecommendationManager
@@ -59,7 +59,7 @@ class AdvancedGraphRAGSystem:
         # 检索引擎
         self.traditional_retrieval = None
         self.graph_rag_retrieval = None
-        self.query_router = None
+        self.query_analyzer = None
         
         # 系统状态
         self.system_ready = False
@@ -115,14 +115,9 @@ class AdvancedGraphRAGSystem:
                 llm_client=self.generation_module.client
             )
             
-            # 6. 智能查询路由器
-            print("初始化智能查询路由器...")
-            self.query_router = IntelligentQueryRouter(
-                traditional_retrieval=self.traditional_retrieval,
-                graph_rag_retrieval=self.graph_rag_retrieval,
-                llm_client=self.generation_module.client,
-                config=self.config
-            )
+            # 6. 查询分析器（规则驱动，零 LLM 开销）
+            print("初始化查询分析器...")
+            self.query_analyzer = QueryAnalyzer()
 
             # 7. 会话缓存管理器
             print("初始化会话缓存管理器...")
@@ -215,17 +210,17 @@ class AdvancedGraphRAGSystem:
         
         # 初始化传统检索器
         self.traditional_retrieval.initialize(chunks)
-        
-        # 初始化图RAG检索器
+
+        # 初始化图增强模块（Neo4j 连接 + 索引）
         self.graph_rag_retrieval.initialize()
-        
+
         self.system_ready = True
         print("✅ 检索引擎初始化完成！")
     
     def _show_knowledge_base_stats(self):
         """显示知识库统计信息"""
         print(f"\n知识库统计:")
-        
+
         # 数据统计
         stats = self.data_module.get_statistics()
         print(f"   菜谱数量: {stats.get('total_recipes', 0)}")
@@ -233,91 +228,113 @@ class AdvancedGraphRAGSystem:
         print(f"   烹饪步骤: {stats.get('total_cooking_steps', 0)}")
         print(f"   文档数量: {stats.get('total_documents', 0)}")
         print(f"   文本块数: {stats.get('total_chunks', 0)}")
-        
+
         # Milvus统计
         milvus_stats = self.index_module.get_collection_stats()
         print(f"   向量索引: {milvus_stats.get('row_count', 0)} 条记录")
-        
-        # 图RAG统计
-        route_stats = self.query_router.get_route_statistics()
-        print(f"   路由统计: 总查询 {route_stats.get('total_queries', 0)} 次")
-        
+
         if stats.get('categories'):
             categories = list(stats['categories'].keys())[:10]
             print(f"   🏷️ 主要分类: {', '.join(categories)}")
     
     def ask_question_with_routing(self, question: str, stream: bool = False, explain_routing: bool = False):
         """
-        智能问答：自动选择最佳检索策略
+        智能问答：查询分析 → 混合检索 → 图增强 → 生成回答
         """
         if not self.system_ready:
             raise ValueError("系统未就绪，请先构建知识库")
-            
+
         print(f"\n❓ 用户问题: {question}")
-        
-        # 显示路由决策解释（可选）
+
+        # 查询意图分析（规则驱动，毫秒级）
+        analysis = self.query_analyzer.analyze(question)
+
         if explain_routing:
-            explanation = self.query_router.explain_routing_decision(question)
-            print(explanation)
-        
+            print(self._format_analysis(analysis))
+
+        # 拒答检测
+        if analysis.intent.value == "rejection":
+            return "抱歉，我是菜谱推荐助手，无法回答这个问题。请尝试询问烹饪相关的问题。", analysis
+
         start_time = time.time()
-        
+
         try:
-            # 1. 智能路由检索
-            print("执行智能查询路由...")
-            relevant_docs, analysis = self.query_router.route_query(question, self.config.top_k)
-            
-            # 2. 显示路由信息
-            strategy_icons = {
-                "hybrid_traditional": "🔍",
-                "graph_rag": "🕸️", 
-                "combined": "🔄"
-            }
-            strategy_icon = strategy_icons.get(analysis.recommended_strategy.value, "❓")
-            print(f"{strategy_icon} 使用策略: {analysis.recommended_strategy.value}")
-            print(f"📊 复杂度: {analysis.query_complexity:.2f}, 关系密集度: {analysis.relationship_intensity:.2f}")
-            
-            # 3. 显示检索结果信息
-            if relevant_docs:
-                doc_info = []
-                for doc in relevant_docs:
-                    recipe_name = doc.metadata.get('recipe_name', '未知内容')
-                    search_type = doc.metadata.get('search_type', doc.metadata.get('route_strategy', 'unknown'))
-                    score = doc.metadata.get('final_score', doc.metadata.get('relevance_score', 0))
-                    doc_info.append(f"{recipe_name}({search_type}, {score:.3f})")
-                
-                print(f"📋 找到 {len(relevant_docs)} 个相关文档: {', '.join(doc_info[:3])}")
-                if len(doc_info) > 3:
-                    print(f"    等 {len(relevant_docs)} 个结果...")
-            else:
-                return "抱歉，没有找到相关的烹饪信息。请尝试其他问题。"
-            
+            # 1. 混合检索（BM25 + 向量 + 图实体匹配）→ 粗召回 → 父子解析 → Reranker
+            print("执行混合检索...")
+            relevant_docs = self.traditional_retrieval.hybrid_search(
+                question, self.config.top_k
+            )
+
+            if not relevant_docs:
+                return "抱歉，没有找到相关的烹饪信息。请尝试其他问题。", analysis
+
+            # 2. 图增强（关系推理查询时触发）
+            enrichment_context = None
+            if analysis.need_graph_enrichment:
+                print("🕸️ 启用图增强...")
+                enrichment_context = self.graph_rag_retrieval.enrich_retrieval_results(
+                    question, relevant_docs
+                )
+
+            # 3. 显示检索信息
+            doc_info = []
+            for doc in relevant_docs:
+                recipe_name = doc.metadata.get("recipe_name", "未知")
+                method = doc.metadata.get("search_method", "unknown")
+                score = doc.metadata.get("rerank_score", doc.metadata.get("final_score", 0))
+                doc_info.append(f"{recipe_name}({method}, {score:.3f})")
+
+            print(f"📋 检索结果 ({analysis.intent.value}): {', '.join(doc_info[:3])}")
+
             # 4. 生成回答
-            print("🎯 智能生成回答...")
-            
+            print("🎯 生成回答...")
+
             if stream:
                 try:
-                    for chunk_text in self.generation_module.generate_adaptive_answer_stream(question, relevant_docs):
+                    for chunk_text in self.generation_module.generate_adaptive_answer_stream(
+                        question, relevant_docs, enrichment_context=enrichment_context
+                    ):
                         print(chunk_text, end="", flush=True)
                     print("\n")
                     result = "流式输出完成"
                 except Exception as stream_error:
-                    logger.error(f"流式输出过程中出现错误: {stream_error}")
+                    logger.error(f"流式输出中断: {stream_error}")
                     print(f"\n⚠️ 流式输出中断，切换到标准模式...")
-                    # 使用非流式作为后备
-                    result = self.generation_module.generate_adaptive_answer(question, relevant_docs)
+                    result = self.generation_module.generate_adaptive_answer(
+                        question, relevant_docs, enrichment_context=enrichment_context
+                    )
             else:
-                result = self.generation_module.generate_adaptive_answer(question, relevant_docs)
-            
+                result = self.generation_module.generate_adaptive_answer(
+                    question, relevant_docs, enrichment_context=enrichment_context
+                )
+
             # 5. 性能统计
             end_time = time.time()
             print(f"\n⏱️ 问答完成，耗时: {end_time - start_time:.2f}秒")
-            
+
             return result, analysis
-            
+
         except Exception as e:
             logger.error(f"问答处理失败: {e}")
             return f"抱歉，处理问题时出现错误：{str(e)}", None
+
+    def _format_analysis(self, analysis) -> str:
+        """格式化查询分析结果"""
+        intent_labels = {
+            "entity_lookup": "实体查询",
+            "fuzzy_rec": "模糊推荐",
+            "relational": "关系推理",
+            "rejection": "拒答",
+        }
+        label = intent_labels.get(analysis.intent.value, "未知")
+        return (
+            f"\n📊 查询分析:\n"
+            f"  意图: {label}\n"
+            f"  复杂度: {analysis.query_complexity:.2f}\n"
+            f"  关系密集度: {analysis.relationship_intensity:.2f}\n"
+            f"  图增强: {'是' if analysis.need_graph_enrichment else '否'}\n"
+            f"  理由: {analysis.reasoning}\n"
+        )
 
     def _get_query_embedding(self, query: str):
         """获取查询的向量表示（用于语义缓存）"""

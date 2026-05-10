@@ -48,6 +48,7 @@ class GraphDataPreparationModule:
         self.driver = None
         self.documents: List[Document] = []
         self.chunks: List[Document] = []
+        self.parent_docs: Dict[str, Document] = {}  # node_id → 完整菜谱文档
         self.recipes: List[GraphNode] = []
         self.ingredients: List[GraphNode] = []
         self.cooking_steps: List[GraphNode] = []
@@ -302,6 +303,8 @@ class GraphDataPreparationModule:
                     )
                     
                     documents.append(doc)
+                    # 存储完整菜谱作为父文档（用于父子块索引检索时还原）
+                    self.parent_docs[recipe_id] = doc
                     
                 except Exception as e:
                     logger.warning(f"构建菜谱文档失败 {recipe_name} (ID: {recipe_id}): {e}")
@@ -313,100 +316,149 @@ class GraphDataPreparationModule:
     
     def chunk_documents(self, chunk_size: int = 500, chunk_overlap: int = 50) -> List[Document]:
         """
-        对文档进行分块处理
-        
-        Args:
-            chunk_size: 分块大小
-            chunk_overlap: 重叠大小
-            
-        Returns:
-            分块后的文档列表
+        按章节类型创建父子块索引（Small-to-Big Retrieval）。
+
+        每个菜谱拆分为聚焦的 child chunk（meta / ingredients / step），
+        检索时命中 child 后通过 parent_id 还原完整菜谱文档。
+        参数 chunk_size / chunk_overlap 保留兼容旧接口，不再使用。
         """
-        logger.info(f"正在进行文档分块，块大小: {chunk_size}, 重叠: {chunk_overlap}")
-        
+        logger.info("正在进行父子块索引分块（按章节类型）...")
+
         if not self.documents:
             raise ValueError("请先构建文档")
-        
+
         chunks = []
         chunk_id = 0
-        
+
         for doc in self.documents:
+            parent_id = doc.metadata["node_id"]
+            recipe_name = doc.metadata["recipe_name"]
             content = doc.page_content
-            
-            # 简单的按长度分块
-            if len(content) <= chunk_size:
-                # 内容较短，不需要分块
-                chunk = Document(
-                    page_content=content,
-                    metadata={
-                        **doc.metadata,
-                        "chunk_id": f"{doc.metadata['node_id']}_chunk_{chunk_id}",
-                        "parent_id": doc.metadata["node_id"],
-                        "chunk_index": 0,
-                        "total_chunks": 1,
-                        "chunk_size": len(content),
-                        "doc_type": "chunk"
-                    }
-                )
-                chunks.append(chunk)
+
+            # ---- 解析章节 ----
+            sections = self._parse_recipe_sections(content, recipe_name)
+
+            # ---- child 1: meta ----
+            meta_text = (
+                f"菜谱简介: {recipe_name}\n"
+                f"菜系: {doc.metadata.get('cuisine_type', '未知')}\n"
+                f"分类: {doc.metadata.get('category', '未知')}\n"
+                f"难度: {doc.metadata.get('difficulty', 0)}/5\n"
+                f"准备时间: {doc.metadata.get('prep_time', '未知')}\n"
+                f"烹饪时间: {doc.metadata.get('cook_time', '未知')}\n"
+                f"份量: {doc.metadata.get('servings', '未知')}"
+            )
+            if sections.get("description"):
+                meta_text += f"\n描述: {sections['description'][:200]}"
+            if sections.get("tags"):
+                meta_text += f"\n标签: {sections['tags']}"
+
+            chunks.append(self._make_child(
+                doc, parent_id, chunk_id, 0, "meta", meta_text
+            ))
+            chunk_id += 1
+
+            # ---- child 2: ingredients ----
+            if sections.get("ingredients"):
+                ing_text = f"食材清单 - {recipe_name}:\n{sections['ingredients']}"
+                chunks.append(self._make_child(
+                    doc, parent_id, chunk_id, 1, "ingredients", ing_text
+                ))
                 chunk_id += 1
-            else:
-                # 按章节分块（基于标题）
-                sections = content.split('\n## ')
-                if len(sections) <= 1:
-                    # 没有二级标题，按长度强制分块
-                    total_chunks = (len(content) - 1) // (chunk_size - chunk_overlap) + 1
-                    
-                    for i in range(total_chunks):
-                        start = i * (chunk_size - chunk_overlap)
-                        end = min(start + chunk_size, len(content))
-                        
-                        chunk_content = content[start:end]
-                        
-                        chunk = Document(
-                            page_content=chunk_content,
-                            metadata={
-                                **doc.metadata,
-                                "chunk_id": f"{doc.metadata['node_id']}_chunk_{chunk_id}",
-                                "parent_id": doc.metadata["node_id"],
-                                "chunk_index": i,
-                                "total_chunks": total_chunks,
-                                "chunk_size": len(chunk_content),
-                                "doc_type": "chunk"
-                            }
-                        )
-                        chunks.append(chunk)
-                        chunk_id += 1
-                else:
-                    # 按章节分块
-                    total_chunks = len(sections)
-                    for i, section in enumerate(sections):
-                        if i == 0:
-                            # 第一个部分包含标题
-                            chunk_content = section
-                        else:
-                            # 其他部分添加章节标题
-                            chunk_content = f"## {section}"
-                        
-                        chunk = Document(
-                            page_content=chunk_content,
-                            metadata={
-                                **doc.metadata,
-                                "chunk_id": f"{doc.metadata['node_id']}_chunk_{chunk_id}",
-                                "parent_id": doc.metadata["node_id"],
-                                "chunk_index": i,
-                                "total_chunks": total_chunks,
-                                "chunk_size": len(chunk_content),
-                                "doc_type": "chunk",
-                                "section_title": section.split('\n')[0] if i > 0 else "主标题"
-                            }
-                        )
-                        chunks.append(chunk)
-                        chunk_id += 1
-        
+
+            # ---- children: steps ----
+            steps = sections.get("steps", [])
+            for si, step_text in enumerate(steps):
+                full_step = f"制作步骤 - {recipe_name}:\n{step_text}"
+                chunks.append(self._make_child(
+                    doc, parent_id, chunk_id, 2 + si, "step", full_step
+                ))
+                chunk_id += 1
+
+            if not steps:
+                chunks.append(self._make_child(
+                    doc, parent_id, chunk_id, 2, "content",
+                    content[:800]
+                ))
+                chunk_id += 1
+
         self.chunks = chunks
-        logger.info(f"文档分块完成，共生成 {len(chunks)} 个块")
+        logger.info(
+            f"父子块索引完成: {len(self.documents)} 个菜谱 → {len(chunks)} 个 child chunk "
+            f"(meta/ingredients/step)"
+        )
         return chunks
+
+    def _parse_recipe_sections(self, content: str, recipe_name: str) -> Dict[str, Any]:
+        """从菜谱 Markdown 中解析各章节"""
+        sections: Dict[str, Any] = {"steps": []}
+
+        current_section = None
+        current_content: List[str] = []
+
+        for line in content.split("\n"):
+            stripped = line.strip()
+            if stripped.startswith("## 菜品描述"):
+                if current_section:
+                    sections[current_section] = "\n".join(current_content).strip()
+                current_section = "description"
+                current_content = []
+            elif stripped.startswith("## 所需食材"):
+                if current_section:
+                    sections[current_section] = "\n".join(current_content).strip()
+                current_section = "ingredients"
+                current_content = []
+            elif stripped.startswith("## 制作步骤"):
+                if current_section:
+                    sections[current_section] = "\n".join(current_content).strip()
+                current_section = "steps"
+                current_content = []
+            elif stripped.startswith("## 标签"):
+                if current_section:
+                    sections[current_section] = "\n".join(current_content).strip()
+                current_section = "tags"
+                current_content = []
+            elif stripped.startswith("### 第") and current_section == "steps":
+                if current_content:
+                    sections["steps"].append("\n".join(current_content).strip())
+                current_content = [stripped]
+            elif stripped.startswith("# ") and not current_section:
+                continue
+            else:
+                current_content.append(line)
+
+        # 收尾
+        if current_section == "steps" and current_content:
+            sections["steps"].append("\n".join(current_content).strip())
+        elif current_section and current_section != "steps":
+            sections[current_section] = "\n".join(current_content).strip()
+
+        return sections
+
+    def _make_child(self, parent_doc: Document, parent_id: str,
+                    chunk_id: int, chunk_index: int, doc_type: str,
+                    content: str) -> Document:
+        """创建子块 Document，继承父文档的结构化元数据"""
+        return Document(
+            page_content=content,
+            metadata={
+                "node_id": parent_doc.metadata.get("node_id", parent_id),
+                "recipe_name": parent_doc.metadata.get("recipe_name", ""),
+                "node_type": parent_doc.metadata.get("node_type", "Recipe"),
+                "category": parent_doc.metadata.get("category", "未知"),
+                "cuisine_type": parent_doc.metadata.get("cuisine_type", "未知"),
+                "difficulty": parent_doc.metadata.get("difficulty", 0),
+                "chunk_id": f"{parent_id}_chunk_{chunk_id}",
+                "parent_id": parent_id,
+                "chunk_index": chunk_index,
+                "doc_type": doc_type,
+                "chunk_size": len(content),
+            },
+        )
+
+    def get_parent_document(self, node_id: str) -> Optional[Document]:
+        """根据 node_id 获取完整菜谱父文档"""
+        return self.parent_docs.get(node_id)
     
 
     

@@ -7,7 +7,7 @@
 import json
 import logging
 import re
-from typing import List, Dict, Tuple, Any
+from typing import List, Dict, Tuple, Any, Optional
 from dataclasses import dataclass
 
 from langchain_core.documents import Document
@@ -63,11 +63,162 @@ class HybridRetrievalModule:
         self.llm_client = llm_client
         self.driver = None
         self.bm25_retriever = None
-        
+
         # 图索引模块
         self.graph_indexing = GraphIndexingModule(config, llm_client)
         self.graph_indexed = False
-        
+
+        # 延迟加载的 Cross-encoder reranker
+        self._reranker = None
+
+        # 元数据过滤规则表
+        self._filter_rules = {
+            "difficulty_easy": {
+                "keywords": ["简单", "快手", "新手", "好做", "容易", "快速", "懒人", "不费事"],
+                "expr": "difficulty <= 2",
+            },
+            "difficulty_hard": {
+                "keywords": ["复杂", "大菜", "硬菜", "难做", "功夫", "考验", "高难度"],
+                "expr": "difficulty >= 4",
+            },
+            "cuisine": {
+                "川菜": ["川菜", "麻辣", "四川", "成都", "重庆", "花椒", "红油"],
+                "粤菜": ["粤菜", "广东", "清淡", "广州", "煲汤", "白切"],
+                "湘菜": ["湘菜", "湖南", "香辣", "剁椒"],
+                "鲁菜": ["鲁菜", "山东", "酱香"],
+                "苏菜": ["苏菜", "江苏", "淮扬", "甜口"],
+                "闽菜": ["闽菜", "福建", "福州", "佛跳墙"],
+                "浙菜": ["浙菜", "浙江", "杭州", "西湖"],
+                "徽菜": ["徽菜", "安徽", "黄山"],
+                "东北菜": ["东北", "锅包肉", "炖菜", "酸菜"],
+                "西北菜": ["西北", "兰州", "西安", "拉面", "羊肉"],
+            },
+            "category": {
+                "家常菜": ["家常", "下饭", "日常", "普通"],
+                "汤羹": ["汤", "羹", "煲", "暖身"],
+                "凉菜": ["凉拌", "凉菜", "冷菜", "沙拉"],
+                "主食": ["主食", "米饭", "面", "馒头", "饺子", "馄饨"],
+                "小吃": ["小吃", "零食", "点心", "夜宵"],
+                "甜品": ["甜品", "甜点", "蛋糕", "冰淇淋", "糖水"],
+                "早餐": ["早餐", "早饭", "早点", "早上"],
+                "快手菜": ["快手菜", "快速", "几分钟", "省时"],
+            },
+            "diet": {
+                "减肥": ["减肥", "低卡", "轻食", "低脂", "瘦身", "减脂", "热量低"],
+                "高蛋白": ["高蛋白", "增肌", "健身餐"],
+                "素食": ["素食", "素菜", "纯素", "吃素"],
+            },
+        }
+
+    def _should_hyde(self, query: str) -> bool:
+        """
+        判断是否需要 HyDE 改写。
+
+        跳过场景：
+        - 查询包含明确菜名（如"宫保鸡丁怎么做"）
+        - 查询过短（<4字）
+        - 纯闲聊/问候语
+
+        触发场景：
+        - 模糊推荐查询（如"推荐几个下饭菜"）
+        - 偏好查询（如"不想吃辣的有什么"）
+        - 场景查询（如"早餐吃什么好"）
+        """
+        query = query.strip()
+        if len(query) < 4:
+            return False
+
+        # 闲聊/问候跳过
+        greetings = {"你好", "谢谢", "再见", "hello", "hi", "thanks"}
+        if any(g in query.lower() for g in greetings):
+            return False
+
+        # 包含明确菜名的简单指示词跳过
+        entity_indicators = ["怎么做", "做法", "步骤", "烹饪方法", "的食谱", "教程"]
+        has_entity_indicator = any(ind in query for ind in entity_indicators)
+        # 如果查询看起来像 "XX怎么做" 且 XX 部分很短 → 可能是具体菜名查询
+        if has_entity_indicator:
+            # 去掉指示词和标点，如果剩余部分是 2-8 字的短语，可能是菜名
+            remaining = query
+            for ind in entity_indicators:
+                remaining = remaining.replace(ind, " ")
+            remaining = remaining.strip("？！。，,? \t")
+            if 2 <= len(remaining) <= 10:
+                return False  # 具体菜名查询，跳过 HyDE
+
+        return True
+
+    def _hyde_rewrite(self, query: str) -> Optional[str]:
+        """
+        用 LLM 生成假设答案（HyDE），用于增强检索语义。
+        失败时返回 None，调用方回退到原始 query。
+        """
+        prompt = f"""你是一个中餐烹饪助手。用户提出了以下问题：
+
+"{query}"
+
+请以烹饪助手身份，直接给出一个简洁的推荐/回答（100-200字即可），
+列出 3-5 道相关菜谱的中文名称，并简述每道菜的特点（口味、做法、适合场景）。
+不要解释你在做什么，直接给答案。"""
+
+        try:
+            response = self.llm_client.chat.completions.create(
+                model=self.config.llm_model,
+                messages=[{"role": "user", "content": prompt}],
+                temperature=0.3,
+                max_tokens=300,
+            )
+            hyde_text = response.choices[0].message.content.strip()
+            if hyde_text and len(hyde_text) > 10:
+                return hyde_text
+            return None
+        except Exception as e:
+            logger.warning(f"HyDE 改写失败，回退到原始 query: {e}")
+            return None
+
+    def _extract_metadata_filters(self, query: str) -> Optional[str]:
+        """从 query 中提取结构化过滤条件，返回 Milvus filter 表达式"""
+        conditions = []
+
+        # 难度过滤
+        for rule_key, rule in self._filter_rules.items():
+            if rule_key.startswith("difficulty_"):
+                for kw in rule["keywords"]:
+                    if kw in query:
+                        conditions.append(rule["expr"])
+                        logger.info(f"元数据过滤 - 难度: {rule['expr']} (匹配关键词: {kw})")
+                        break
+
+        # 菜系/分类/饮食偏好过滤
+        for group_key in ["cuisine", "category", "diet"]:
+            rules = self._filter_rules.get(group_key, {})
+            for label, keywords in rules.items():
+                for kw in keywords:
+                    if kw in query:
+                        if group_key == "cuisine":
+                            conditions.append(f'cuisine_type == "{label}"')
+                        elif group_key == "category":
+                            conditions.append(
+                                f'(category == "{label}" or cuisine_type == "{label}")'
+                            )
+                        elif group_key == "diet":
+                            if label == "减肥":
+                                conditions.append(
+                                    f'(category == "轻食" or category == "减肥餐" or difficulty <= 3)'
+                                )
+                            elif label == "高蛋白":
+                                conditions.append(f'(category == "高蛋白" or cuisine_type == "{label}")')
+                            elif label == "素食":
+                                conditions.append(f'(category == "素食" or category == "素菜")')
+                        logger.info(f"元数据过滤 - {group_key}: {label} (匹配关键词: {kw})")
+                        break
+
+        if conditions:
+            expr = " and ".join(conditions)
+            logger.info(f"Milvus 过滤表达式: {expr}")
+            return expr
+        return None
+
     def initialize(self, chunks: List[Document]):
         """初始化检索系统"""
         logger.info("初始化混合检索模块...")
@@ -500,13 +651,15 @@ class HybridRetrievalModule:
         logger.info(f"双层检索完成，返回 {len(documents)} 个文档")
         return documents
     
-    def vector_search_enhanced(self, query: str, top_k: int = 5) -> List[Document]:
+    def vector_search_enhanced(self, query: str, top_k: int = 5, filter_expr: Optional[str] = None) -> List[Document]:
         """
-        增强的向量检索：结合图信息
+        增强的向量检索：结合图信息，支持元数据过滤
         """
         try:
             # 使用Milvus进行向量检索
-            vector_docs = self.milvus_module.similarity_search(query, k=top_k*2)
+            vector_docs = self.milvus_module.similarity_search(
+                query, k=top_k * 2, filter_expr=filter_expr
+            )
             
             # 用图信息增强结果并转换为Document对象
             enhanced_docs = []
@@ -566,20 +719,34 @@ class HybridRetrievalModule:
     
     def hybrid_search(self, query: str, top_k: int = 5) -> List[Document]:
         """
-        混合检索：并行执行多种检索策略
+        混合检索：并行执行多种检索策略（双重检索 + 向量检索 + BM25）
         """
         import concurrent.futures
 
         logger.info(f"开始并行混合检索: {query}")
 
-        # 🚀 并行执行不同检索策略
+        # 提取元数据过滤条件
+        meta_filter_expr = self._extract_metadata_filters(query)
+
+        # HyDE 查询改写：模糊查询生成假设答案用于检索
+        search_query = query
+        if self._should_hyde(query):
+            hyde_text = self._hyde_rewrite(query)
+            if hyde_text:
+                search_query = hyde_text
+                logger.info(f"HyDE 改写: {query[:40]}... → {search_query[:80]}...")
+
+        # 粗召回：top_k * 4 为后续 rerank 留足候选
+        coarse_k = max(top_k * 4, 20)
         dual_docs = []
         vector_docs = []
+        bm25_docs = []
 
         def dual_search():
             nonlocal dual_docs
             try:
-                dual_docs = self.dual_level_retrieval(query, top_k)
+                # dual_level 用原始 query（它自己做关键词提取）
+                dual_docs = self.dual_level_retrieval(query, coarse_k)
                 logger.info(f"双层检索完成: {len(dual_docs)} 个结果")
             except Exception as e:
                 logger.error(f"双层检索失败: {e}")
@@ -588,68 +755,156 @@ class HybridRetrievalModule:
         def vector_search():
             nonlocal vector_docs
             try:
-                vector_docs = self.vector_search_enhanced(query, top_k)
+                # 向量检索用 HyDE 改写后的 query（语义更丰富）
+                vector_docs = self.vector_search_enhanced(
+                    search_query, coarse_k, filter_expr=meta_filter_expr
+                )
                 logger.info(f"向量检索完成: {len(vector_docs)} 个结果")
             except Exception as e:
                 logger.error(f"向量检索失败: {e}")
                 vector_docs = []
 
-        # 使用线程池并行执行
-        with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
+        def bm25_search():
+            nonlocal bm25_docs
+            try:
+                if self.bm25_retriever:
+                    # BM25 用 HyDE 改写后的 query（包含更多关键词）
+                    raw_docs = self.bm25_retriever.invoke(search_query)
+                    for doc in raw_docs:
+                        doc.metadata["search_method"] = "bm25"
+                        doc.metadata.setdefault("retrieval_level", "bm25")
+                    bm25_docs = raw_docs[:coarse_k]
+                    logger.info(f"BM25检索完成: {len(bm25_docs)} 个结果")
+                else:
+                    logger.warning("BM25检索器未初始化，跳过")
+            except Exception as e:
+                logger.error(f"BM25检索失败: {e}")
+                bm25_docs = []
+
+        # 使用线程池并行执行三种检索
+        with concurrent.futures.ThreadPoolExecutor(max_workers=3) as executor:
             future_dual = executor.submit(dual_search)
             future_vector = executor.submit(vector_search)
+            future_bm25 = executor.submit(bm25_search)
 
-            # 等待检索完成
-            concurrent.futures.wait([future_dual, future_vector], timeout=20)
+            concurrent.futures.wait(
+                [future_dual, future_vector, future_bm25], timeout=30
+            )
 
-        # 3. Round-robin轮询合并
-        # 注意：dedup key 用 page_content 的 hash，而不是 node_id。
-        # 实体卡片（dual_level，"菜品名称: x\n分类: y..."）和真菜谱 chunk
-        # （vector_enhanced，含步骤）虽属同一菜谱（node_id 相同），但内容互补，
-        # 应共存。原来用 node_id 去重会把 vector 检索到的真菜谱 chunk 全部误杀。
+        # Round-robin 轮询合并三种检索结果
         merged_docs = []
         seen_content_hashes = set()
-        max_len = max(len(dual_docs), len(vector_docs))
-        origin_len = len(dual_docs) + len(vector_docs)
+        all_doc_lists = [dual_docs, vector_docs, bm25_docs]
+        max_len = max(len(dl) for dl in all_doc_lists)
+        origin_len = sum(len(dl) for dl in all_doc_lists)
 
         for i in range(max_len):
-            # 先添加双层检索结果
-            if i < len(dual_docs):
-                doc = dual_docs[i]
-                content_hash = hash(doc.page_content)
-                if content_hash not in seen_content_hashes:
-                    seen_content_hashes.add(content_hash)
-                    doc.metadata["search_method"] = "dual_level"
-                    doc.metadata["round_robin_order"] = len(merged_docs)
-                    # 设置统一的final_score字段
-                    doc.metadata["final_score"] = doc.metadata.get("relevance_score", 0.0)
-                    merged_docs.append(doc)
+            for doc_list in all_doc_lists:
+                if i < len(doc_list):
+                    doc = doc_list[i]
+                    content_hash = hash(doc.page_content)
+                    if content_hash not in seen_content_hashes:
+                        seen_content_hashes.add(content_hash)
+                        doc.metadata.setdefault("search_method", "unknown")
+                        doc.metadata["round_robin_order"] = len(merged_docs)
+                        merged_docs.append(doc)
 
-            # 再添加向量检索结果
-            if i < len(vector_docs):
-                doc = vector_docs[i]
-                content_hash = hash(doc.page_content)
-                if content_hash not in seen_content_hashes:
-                    seen_content_hashes.add(content_hash)
-                    doc.metadata["search_method"] = "vector_enhanced"
-                    # 给 vector 检索的真菜谱 chunk 标上 retrieval_level，
-                    # 让下游（如评估）能区分内容来源
-                    doc.metadata.setdefault("retrieval_level", "chunk")
-                    doc.metadata["round_robin_order"] = len(merged_docs)
-                    # 设置统一的final_score字段（向量得分需要转换）
-                    vector_score = doc.metadata.get("score", 0.0)
-                    # COSINE距离转换为相似度：distance越小，相似度越高
-                    similarity_score = max(0.0, 1.0 - vector_score) if vector_score <= 1.0 else 0.0
-                    doc.metadata["final_score"] = similarity_score
-                    merged_docs.append(doc)
+        logger.info(
+            f"Round-robin合并：从总共{origin_len}个结果合并为{len(merged_docs)}个文档"
+        )
+
+        # 父子块解析：将 child chunk 映射回完整菜谱父文档
+        merged_docs = self._resolve_parents(merged_docs)
+
+        # Reranker 重排序
+        if len(merged_docs) > top_k:
+            merged_docs = self._rerank(query, merged_docs, top_k)
+
+        logger.info(f"混合检索完成，返回 {len(merged_docs)} 个文档")
+        return merged_docs
         
-        # 取前top_k个结果
-        final_docs = merged_docs[:top_k]
-        
-        logger.info(f"Round-robin合并：从总共{origin_len}个结果合并为{len(final_docs)}个文档")
-        logger.info(f"混合检索完成，返回 {len(final_docs)} 个文档")
-        return final_docs
-        
+    def _resolve_parents(self, documents: List[Document]) -> List[Document]:
+        """
+        父子块解析：将 child chunk 映射回完整菜谱父文档，按 parent_id 去重。
+
+        - vector_enhanced/BM25 检索到的 child chunk（doc_type=meta/ingredients/step）
+          通过 parent_id 还原为完整菜谱
+        - dual_level 检索到的是图实体卡片（无 doc_type / 非 child），直接保留
+        """
+        resolved = []
+        seen_parents = set()
+
+        for doc in documents:
+            parent_id = doc.metadata.get("parent_id")
+            doc_type = doc.metadata.get("doc_type", "")
+
+            # 判断是否为 child chunk：有 parent_id 且 doc_type 是已知的子类型
+            is_child = parent_id and doc_type in ("meta", "ingredients", "step", "content", "chunk")
+
+            if is_child:
+                if parent_id in seen_parents:
+                    continue
+                seen_parents.add(parent_id)
+
+                parent_doc = self.data_module.get_parent_document(parent_id)
+                if parent_doc:
+                    # 复制父文档，合并子文档的检索元信息
+                    merged_meta = dict(parent_doc.metadata)
+                    merged_meta["search_method"] = doc.metadata.get("search_method", "child_resolved")
+                    merged_meta["rerank_score"] = doc.metadata.get("rerank_score", 0)
+                    merged_meta["resolved_from_child"] = doc_type
+                    resolved.append(Document(
+                        page_content=parent_doc.page_content,
+                        metadata=merged_meta,
+                    ))
+                else:
+                    # 父文档不可用，保留 child 本身
+                    resolved.append(doc)
+            else:
+                # 非 child chunk（dual_level 实体卡片等），直接保留
+                resolved.append(doc)
+
+        logger.info(
+            f"父子块解析: {len(documents)} → {len(resolved)} "
+            f"(唯一父文档: {len(seen_parents)})"
+        )
+        return resolved
+
+    def _get_reranker(self):
+        """延迟加载 Cross-encoder reranker"""
+        if self._reranker is None:
+            from sentence_transformers import CrossEncoder
+
+            model_name = "BAAI/bge-reranker-v2-m3"
+            logger.info(f"加载 Reranker 模型: {model_name}")
+            self._reranker = CrossEncoder(model_name)
+        return self._reranker
+
+    def _rerank(
+        self, query: str, documents: List[Document], top_k: int
+    ) -> List[Document]:
+        """用 Cross-encoder 对候选文档重排序"""
+        if not documents or len(documents) <= top_k:
+            return documents
+
+        try:
+            reranker = self._get_reranker()
+            pairs = [(query, doc.page_content) for doc in documents]
+            scores = reranker.predict(pairs, show_progress_bar=False)
+
+            for doc, score in zip(documents, scores):
+                doc.metadata["rerank_score"] = float(score)
+
+            documents.sort(key=lambda d: d.metadata.get("rerank_score", 0), reverse=True)
+            logger.info(
+                f"Reranker 重排序完成: {len(documents)} → {top_k}, "
+                f"top3 scores: {[f'{s:.3f}' for s in scores[:3]]}"
+            )
+            return documents[:top_k]
+        except Exception as e:
+            logger.error(f"Reranker 失败，回退到 Round-robin 顺序: {e}")
+            return documents[:top_k]
+
     def close(self):
         """关闭资源连接"""
         if self.driver:

@@ -20,8 +20,8 @@ class MilvusIndexConstructionModule:
                  host: str = "localhost", 
                  port: int = 19530,
                  collection_name: str = "cooking_knowledge",
-                 dimension: int = 512,
-                 model_name: str = "BAAI/bge-small-zh-v1.5"):
+                 dimension: int = 1024,
+                 model_name: str = "BAAI/bge-large-zh-v1.5"):
         """
         初始化Milvus索引构建模块
 
@@ -322,28 +322,29 @@ class MilvusIndexConstructionModule:
             logger.error(f"添加新文档失败: {e}")
             return False
     
-    def similarity_search(self, query: str, k: int = 5, filters: Optional[Dict[str, Any]] = None) -> List[Dict[str, Any]]:
+    def similarity_search(self, query: str, k: int = 5, filters: Optional[Dict[str, Any]] = None, filter_expr: Optional[str] = None) -> List[Dict[str, Any]]:
         """
         相似度搜索
-        
+
         Args:
             query: 查询文本
             k: 返回结果数量
-            filters: 过滤条件
-            
+            filters: 过滤条件字典 {key: value} → key == "value"
+            filter_expr: 原始 Milvus 过滤表达式字符串，优先级高于 filters
+
         Returns:
             搜索结果列表
         """
         if not self.collection_created:
             raise ValueError("请先构建或加载向量索引")
-        
+
         try:
             # 生成查询向量
             query_vector = self.embeddings.embed_query(query)
-            
+
             # 构建过滤表达式
-            filter_expr = ""
-            if filters:
+            final_filter_expr = filter_expr or ""
+            if not final_filter_expr and filters:
                 filter_conditions = []
                 for key, value in filters.items():
                     if isinstance(value, str):
@@ -351,16 +352,15 @@ class MilvusIndexConstructionModule:
                     elif isinstance(value, (int, float)):
                         filter_conditions.append(f'{key} == {value}')
                     elif isinstance(value, list):
-                        # 支持IN操作
                         if all(isinstance(v, str) for v in value):
                             value_str = '", "'.join(value)
                             filter_conditions.append(f'{key} in ["{value_str}"]')
                         else:
                             value_str = ', '.join(map(str, value))
                             filter_conditions.append(f'{key} in [{value_str}]')
-                
+
                 if filter_conditions:
-                    filter_expr = " and ".join(filter_conditions)
+                    final_filter_expr = " and ".join(filter_conditions)
             
             # 执行搜索 - 修复参数传递
             search_params = {
@@ -381,8 +381,8 @@ class MilvusIndexConstructionModule:
             }
             
             # 只在有过滤条件时添加filter参数
-            if filter_expr:
-                search_kwargs["filter"] = filter_expr
+            if final_filter_expr:
+                search_kwargs["filter"] = final_filter_expr
                 
             results = self.client.search(**search_kwargs)
             
@@ -473,21 +473,33 @@ class MilvusIndexConstructionModule:
     
     def load_collection(self) -> bool:
         """
-        加载集合到内存
-        
-        Returns:
-            是否加载成功
+        加载集合到内存，同时校验向量维度是否与当前 embedding 模型匹配
         """
         try:
             if not self.client.has_collection(self.collection_name):
                 logger.error(f"集合 {self.collection_name} 不存在")
                 return False
-            
+
+            # 校验向量维度是否匹配当前 embedding 模型
+            desc = self.client.describe_collection(self.collection_name)
+            for field in desc.get("fields", []):
+                if field.get("name") == "vector":
+                    existing_dim = field.get("params", {}).get("dim")
+                    if existing_dim and existing_dim != self.dimension:
+                        logger.warning(
+                            f"集合向量维度({existing_dim})与当前模型({self.dimension})不匹配，"
+                            f"删除旧集合并重建..."
+                        )
+                        self.client.drop_collection(self.collection_name)
+                        self.collection_created = False
+                        return False
+                    break
+
             self.client.load_collection(self.collection_name)
             self.collection_created = True
             logger.info(f"集合 {self.collection_name} 已加载到内存")
             return True
-            
+
         except Exception as e:
             logger.error(f"加载集合失败: {e}")
             return False
