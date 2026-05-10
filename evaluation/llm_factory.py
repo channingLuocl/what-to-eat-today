@@ -45,7 +45,7 @@ def build_ragas_llm(
             "需要安装依赖: pip install langchain-openai ragas"
         ) from e
 
-    model = model or os.getenv("LLM_MODEL", "MiniMax-M2.7")
+    model = model or os.getenv("RAGAS_JUDGE_MODEL") or os.getenv("LLM_MODEL", "gpt-5.4-mini")
     base_url = base_url or os.getenv(
         "OPENAI_BASE_URL", "https://api.minimaxi.com/v1"
     )
@@ -74,36 +74,48 @@ def build_ragas_llm(
 
 def build_ragas_embeddings(
     model: Optional[str] = None,
-    device: str = "cpu",
+    base_url: Optional[str] = None,
+    api_key: Optional[str] = None,
 ):
     """
-    构造一个供 RAGAS 评估使用的 Embedding 包装器。
+    构造一个供 RAGAS 评估使用的 Embedding 包装器（OpenAI 兼容接口，例如 text-embedding-v4）。
 
     参数缺省时从环境变量读取：
-        EMBEDDING_MODEL    (默认 "BAAI/bge-small-zh-v1.5")
+        EMBEDDING_MODEL    (默认 "text-embedding-v4")
+        OPENAI_BASE_URL
+        OPENAI_API_KEY     (必填)
 
     返回:
         LangchainEmbeddingsWrapper 实例
     """
     try:
-        from langchain_huggingface import HuggingFaceEmbeddings
+        from langchain_openai import OpenAIEmbeddings
         from ragas.embeddings import LangchainEmbeddingsWrapper
     except ImportError as e:
         raise ImportError(
-            "需要安装依赖: pip install langchain-huggingface ragas sentence-transformers"
+            "需要安装依赖: pip install langchain-openai ragas"
         ) from e
 
-    model = model or os.getenv("EMBEDDING_MODEL", "BAAI/bge-large-zh-v1.5")
+    model = model or os.getenv("EMBEDDING_MODEL", "text-embedding-v4")
+    base_url = base_url or os.getenv("OPENAI_BASE_URL")
+    api_key = api_key or os.getenv("OPENAI_API_KEY")
 
-    logger.info(f"Building RAGAS Embeddings: model={model}")
+    if not api_key:
+        raise RuntimeError(
+            "OPENAI_API_KEY 未设置。请在 .env 中配置或通过环境变量传入。"
+        )
 
-    hf_emb = HuggingFaceEmbeddings(
-        model_name=model,
-        model_kwargs={"device": device},
-        encode_kwargs={"normalize_embeddings": True},
+    logger.info(f"Building RAGAS Embeddings: model={model}, base_url={base_url}")
+
+    emb = OpenAIEmbeddings(
+        model=model,
+        base_url=base_url,
+        api_key=api_key,
+        check_embedding_ctx_length=False,
+        chunk_size=25,
     )
 
-    return LangchainEmbeddingsWrapper(hf_emb)
+    return LangchainEmbeddingsWrapper(emb)
 
 
 def inject_into_metrics(metrics: list, llm=None, embeddings=None) -> None:

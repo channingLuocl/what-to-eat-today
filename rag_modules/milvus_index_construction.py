@@ -3,11 +3,12 @@ Milvus索引构建模块
 """
 
 import logging
+import os
 import time
 from typing import List, Dict, Any, Optional
 
 from pymilvus import MilvusClient, DataType, CollectionSchema, FieldSchema
-from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_openai import OpenAIEmbeddings
 from langchain_core.documents import Document
 import numpy as np
 
@@ -21,7 +22,7 @@ class MilvusIndexConstructionModule:
                  port: int = 19530,
                  collection_name: str = "cooking_knowledge",
                  dimension: int = 1024,
-                 model_name: str = "BAAI/bge-large-zh-v1.5"):
+                 model_name: str = "text-embedding-v4"):
         """
         初始化Milvus索引构建模块
 
@@ -77,15 +78,24 @@ class MilvusIndexConstructionModule:
             raise
     
     def _setup_embeddings(self):
-        """初始化嵌入模型"""
-        logger.info(f"正在初始化嵌入模型: {self.model_name}")
-        
-        self.embeddings = HuggingFaceEmbeddings(
-            model_name=self.model_name,
-            model_kwargs={'device': 'cpu'},
-            encode_kwargs={'normalize_embeddings': True}
+        """初始化嵌入模型（走 OpenAI 兼容接口，例如 DashScope 的 text-embedding-v4）"""
+        base_url = os.getenv("OPENAI_BASE_URL")
+        api_key = os.getenv("OPENAI_API_KEY")
+        if not api_key:
+            raise RuntimeError("OPENAI_API_KEY 未设置，无法初始化 embedding 模型")
+
+        logger.info(f"正在初始化嵌入模型: {self.model_name} (base_url={base_url})")
+
+        self.embeddings = OpenAIEmbeddings(
+            model=self.model_name,
+            base_url=base_url,
+            api_key=api_key,
+            # 非官方 OpenAI 模型不能用 tiktoken 算 token 长度，必须关掉
+            check_embedding_ctx_length=False,
+            # DashScope 等服务对单次 batch 大小有限制，这里取保守值
+            chunk_size=25,
         )
-        
+
         logger.info("嵌入模型初始化完成")
     
     def _create_collection_schema(self) -> CollectionSchema:

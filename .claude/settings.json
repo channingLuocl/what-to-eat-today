@@ -1,8 +1,8 @@
 {
     "env": {
         "ANTHROPIC_BASE_URL": "https://ai.leihuo.netease.com/",
-        "ANTHROPIC_AUTH_TOKEN": "sk-wNipYVwmwaZBKIS8E8EaC4PxodpxHgxzOZ8RUPCgAn0rap3b",
-        "ANTHROPIC_MODEL": "claude-opus-4-7"
+        "ANTHROPIC_AUTH_TOKEN": "sk-67yfNLuBqVkirlE9O05WX0guGszDO4gO7N0bsp2tpQX1IOxO",
+        "ANTHROPIC_MODEL": "deepseek-v4-pro[1m]"
     },
     "skipDangerousModePermissionPrompt": true
 }

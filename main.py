@@ -339,10 +339,10 @@ class AdvancedGraphRAGSystem:
     def _get_query_embedding(self, query: str):
         """获取查询的向量表示（用于语义缓存）"""
         try:
-            if hasattr(self.index_module, 'embedding_model'):
-                # 使用现有的embedding模型
-                return self.index_module.embedding_model.embed_documents([query])[0]
-            return None
+            embedder = getattr(self.index_module, 'embeddings', None)
+            if embedder is None:
+                return None
+            return embedder.embed_query(query)
         except Exception as e:
             logger.warning(f"获取查询向量失败: {e}")
             return None

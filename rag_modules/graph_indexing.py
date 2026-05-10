@@ -282,7 +282,7 @@ class GraphIndexingModule:
                 model=self.config.llm_model,
                 messages=[{"role": "user", "content": prompt}],
                 temperature=0.1,
-                max_tokens=200
+                max_tokens=8192
             )
             
             result = json.loads(response.choices[0].message.content.strip())

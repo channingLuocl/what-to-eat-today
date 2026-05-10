@@ -20,10 +20,10 @@ class GraphRAGConfig:
     milvus_host: str = os.getenv("MILVUS_HOST", "localhost")
     milvus_port: int = int(os.getenv("MILVUS_PORT", "19530"))
     milvus_collection_name: str = "cooking_knowledge"
-    milvus_dimension: int = 1024  # BGE-large-zh-v1.5的向量维度
+    milvus_dimension: int = 1024  # text-embedding-v4 默认维度
 
     # 模型配置
-    embedding_model: str = os.getenv("EMBEDDING_MODEL", "BAAI/bge-large-zh-v1.5")
+    embedding_model: str = os.getenv("EMBEDDING_MODEL", "text-embedding-v4")
     llm_model: str = os.getenv("LLM_MODEL", "moonshot-v1-8k")
 
     # 检索配置（LightRAG Round-robin策略）
@@ -31,7 +31,7 @@ class GraphRAGConfig:
 
     # 生成配置
     temperature: float = 0.1
-    max_tokens: int = 2048
+    max_tokens: int = 8192
 
     # 图数据处理配置
     chunk_size: int = 500

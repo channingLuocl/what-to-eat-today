@@ -166,7 +166,7 @@ class HybridRetrievalModule:
                 model=self.config.llm_model,
                 messages=[{"role": "user", "content": prompt}],
                 temperature=0.3,
-                max_tokens=300,
+                max_tokens=8192,
             )
             hyde_text = response.choices[0].message.content.strip()
             if hyde_text and len(hyde_text) > 10:
@@ -336,7 +336,7 @@ class HybridRetrievalModule:
                 model=self.config.llm_model,
                 messages=[{"role": "user", "content": prompt}],
                 temperature=0.1,
-                max_tokens=2000
+                max_tokens=8192
             )
 
             raw_content = response.choices[0].message.content
@@ -877,7 +877,7 @@ class HybridRetrievalModule:
 
             model_name = "BAAI/bge-reranker-v2-m3"
             logger.info(f"加载 Reranker 模型: {model_name}")
-            self._reranker = CrossEncoder(model_name)
+            self._reranker = CrossEncoder(model_name, device='cpu')
         return self._reranker
 
     def _rerank(

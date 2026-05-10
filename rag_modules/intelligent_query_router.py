@@ -135,7 +135,7 @@ class IntelligentQueryRouter:
                 model=self.config.llm_model,
                 messages=[{"role": "user", "content": analysis_prompt}],
                 temperature=0.1,
-                max_tokens=2000
+                max_tokens=8192
             )
             
             result = json.loads(_extract_json(response.choices[0].message.content))
