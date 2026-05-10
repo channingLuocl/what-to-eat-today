@@ -7,7 +7,7 @@
     "expected_doc_paths": [
       "data/dishes/aquatic/糖醋鲤鱼/糖醋鲤鱼.md"
     ],
-    "reference_answer": "糖醋鲤鱼：鱼改花刀腌制，裹粉炸至金黄，调糖醋汁浇上即可。",
+    "reference_answer": "糖醋鲤鱼★★★★（难度★★★★）。主要食材：鲤鱼、番茄酱、白糖、白醋、淀粉、盐。关键步骤：将鱼清洗干净，确保无鱼鳞等异物；将鱼头朝左，鱼肚朝下，右手持刀。刀竖直切下 1cm，按紧鱼身往左片 3-4cm，再将鱼片中间轻轻划一刀；将鱼放进盆里，然后将大姜切片，大葱切段（随便切切就行了，主要是需要去腥味）。",
     "should_answer": true,
     "tags": [
       "aquatic",
@@ -22,7 +22,7 @@
     "expected_doc_paths": [
       "data/dishes/breakfast/燕麦鸡蛋饼.md"
     ],
-    "reference_answer": "燕麦鸡蛋饼：燕麦泡软，加鸡蛋调成糊，平底锅煎成饼。",
+    "reference_answer": "燕麦鸡蛋饼★★（难度★★）。主要食材：鸡蛋、燕麦、牛奶 50-100g，能够将燕麦搅拌粘稠即可、可根据口味选择增加 50g 蔬菜，如菠菜。。关键步骤：将牛奶与干燕麦混合搅拌均匀至黏稠状。；将鸡蛋搅拌均匀至颜色单一程度。；将鸡蛋液倒入燕麦牛奶中继续搅拌至黏稠、均匀。。",
     "should_answer": true,
     "tags": [
       "breakfast",
@@ -37,7 +37,7 @@
     "expected_doc_paths": [
       "data/dishes/condiment/葱油.md"
     ],
-    "reference_answer": "葱油：葱段冷油下锅小火炸至焦黄，过滤即得葱油。",
+    "reference_answer": "葱油★★★（难度★★★）。主要食材：油、葱（大葱小葱都可以）、姜、洋葱、料酒、香菜（可选）。关键步骤：开洋泡入 50 度温水中，加入 10ml 料酒去腥，泡 10 分钟后取出沥干水分；葱，香菜洗净，切成 5cm 长的段，擦干表面水份；洋葱切成丝，在锅里用热水煮 5 分钟，取出沥干水份。",
     "should_answer": true,
     "tags": [
       "condiment",
@@ -52,7 +52,7 @@
     "expected_doc_paths": [
       "data/dishes/dessert/戚风蛋糕/戚风蛋糕.md"
     ],
-    "reference_answer": "戚风蛋糕不塌秘诀：蛋白打发到硬性发泡、烤完倒扣冷却、避免开炉门。",
+    "reference_answer": "戚风蛋糕★★★★★（难度★★★★★）。主要食材：鸡蛋、白糖、牛奶（或水）、食用油（或黄油，但需加热软化）、低筋面粉（推荐惠宜）、[可选] 柠檬汁或白醋。关键步骤：从冰箱中取出新鲜的鸡蛋；准备两个容器并擦干，分别盛放蛋清与蛋黄；对盛放蛋清的容器，可稍有水珠，但**不能有任何油**；盛放蛋黄的容器不能有水珠。",
     "should_answer": true,
     "tags": [
       "dessert",
@@ -67,7 +67,7 @@
     "expected_doc_paths": [
       "data/dishes/drink/Mojito莫吉托.md"
     ],
-    "reference_answer": "Mojito：薄荷叶+青柠+糖捣碎，加朗姆酒，倒入苏打水，加冰块。",
+    "reference_answer": "Mojito莫吉托★★★（难度★★★）。主要食材：打碎的冰块、冰镇苏打水、压汁器、海波杯、研杵。关键步骤：将切成半块的青柠之一切成小块，放入海波杯，随后用研杵将其捣出汁；；用 3-4 珠薄荷叶沿着杯口涂抹，随后将其放入杯中；；加入 糖浆 20ml；。",
     "should_answer": true,
     "tags": [
       "drink",
@@ -82,7 +82,7 @@
     "expected_doc_paths": [
       "data/dishes/drink/酸梅汤/酸梅汤.md"
     ],
-    "reference_answer": "酸梅汤：乌梅、山楂、甘草等熬煮，加冰糖调味。",
+    "reference_answer": "酸梅汤★★★★（难度★★★★）。主要食材：水、乌枣、乌梅、山楂片（生）、黄冰糖、甘草。关键步骤：冲洗材料（干桂花和冰糖除外）， 1.5 升水常温浸泡两小时以上（干桂花和冰糖除外）；开中大火煮沸，盖盖，转小火煮 40 分钟，为头煎；将冰糖放入盆内，再将沥好用材的头汤趁热倒入，搅拌至冰糖融化。。",
     "should_answer": true,
     "tags": [
       "drink",
@@ -97,7 +97,7 @@
     "expected_doc_paths": [
       "data/dishes/meat_dish/宫保鸡丁/宫保鸡丁.md"
     ],
-    "reference_answer": "宫保鸡丁：鸡腿肉切丁腌制，干辣椒花椒爆香，调宫保汁炒制，最后撒花生米。",
+    "reference_answer": "宫保鸡丁★★★★（难度★★★★）。主要食材：手枪腿（或者鸡胸脯肉）、大葱、干辣椒（或者二荆条）、熟花生、生抽酱油、香醋。关键步骤：手枪腿用剪刀去骨，鸡肉面用刀背拍打一遍，切条后切至 1.5cm 见方肉丁；泡于清水 10 分钟，捞出控干备用（若是鸡胸脯肉，则可以直接进行切丁以及之后的动作）；取大葱葱绿与姜片 5g 于碗中，倒入 50g 开水备用；葱白切 1.5cm 圆粒备用；取花生放入微波炉高火 5 分钟焙干备用；鸡丁中加入盐 2g，老抽酱油 5g，料酒 15g，淀粉 15g 搅拌均匀，至微微发干；缓慢加入部分葱姜水，搅拌鸡丁至粘手；保鲜膜密封，放入冰箱腌制 1 小时。",
     "should_answer": true,
     "tags": [
       "meat_dish",
@@ -112,7 +112,7 @@
     "expected_doc_paths": [
       "data/dishes/meat_dish/麻婆豆腐/麻婆豆腐.md"
     ],
-    "reference_answer": "麻婆豆腐：豆腐、肉末、豆瓣酱、花椒、辣椒粉、葱姜蒜。",
+    "reference_answer": "麻婆豆腐★★★（难度★★★）。主要食材：内脂豆腐（推荐清美）、咸鸭蛋（推荐留夫鸭的，这个是灵魂）、五花肉（超市的肉糜也行）、大蒜、生姜、小米椒（不吃辣的可选）。关键步骤：大蒜和生姜切碎，备用；小米辣切成辣椒圈，备用；五花肉切成肉糜（本来就是买的肉糜的跳过）。",
     "should_answer": true,
     "tags": [
       "meat_dish",
@@ -127,7 +127,7 @@
     "expected_doc_paths": [
       "data/dishes/semi-finished/空气炸锅鸡翅中/空气炸锅鸡翅中.md"
     ],
-    "reference_answer": "空气炸锅鸡翅：腌制后200度炸15分钟，中途翻面。",
+    "reference_answer": "空气炸锅鸡翅中★★（难度★★）。主要食材：必备：鸡翅中（推荐买泰森的奥尔良鸡翅中，JD 打折的话 30 多一袋 454g 大概 12 个。上鲜和圣农的也买过，没这个方便。泰森的是腌好的，如果有时间的话可以买没腌的自己腌。）、可选：罗勒碎（撒上去纯粹为了好看）、可选：云南单山蘸水（代替烧烤料）。关键步骤：鸡翅从冰箱拿出来，鸡翼面朝下放入锡纸烤盘，撒上罗勒碎，盖上保鲜膜自然解冻 20 分钟；撒上罗勒碎，空气炸锅 200°C，10 分钟；翻面，撒上罗勒碎，空气炸锅 200°C，7 分钟。",
     "should_answer": true,
     "tags": [
       "semi-finished",
@@ -142,7 +142,7 @@
     "expected_doc_paths": [
       "data/dishes/soup/紫菜蛋花汤.md"
     ],
-    "reference_answer": "紫菜蛋花汤：水开下紫菜，鸡蛋打散淋入，调味即可。",
+    "reference_answer": "紫菜蛋花汤★★（难度★★）。关键步骤：干紫菜用清水泡 15 分钟，捞起沥干水份备用。；热锅，倒入 1.5 升清水、5ml 油、2g 盐。待水开后放入紫菜。；紫菜烧开后 3 分钟，将打好的蛋液徐徐倒入锅内，30 秒既可起锅。。",
     "should_answer": true,
     "tags": [
       "soup",
@@ -157,7 +157,7 @@
     "expected_doc_paths": [
       "data/dishes/soup/皮蛋瘦肉粥.md"
     ],
-    "reference_answer": "皮蛋瘦肉粥：大米煮粥，加入皮蛋丁和腌好的瘦肉煮熟。",
+    "reference_answer": "皮蛋瘦肉粥★★★（难度★★★）。关键步骤：大米 - 洗净 - 放入电饭锅内胆 - 加入 1 升 饮用水；瘦肉 - 洗净 - 简易晾去水分 - 加入 10ml 食用油 - 揉搓均匀 - 放入电饭锅内胆；皮蛋 - 去壳 - 洗净 - 对半切开 - 分离蛋白蛋黄 - 蛋白简单切碎块 - 蛋黄揉碎 - 放入电饭锅内胆。",
     "should_answer": true,
     "tags": [
       "soup",
@@ -172,7 +172,7 @@
     "expected_doc_paths": [
       "data/dishes/staple/蛋炒饭.md"
     ],
-    "reference_answer": "蛋炒饭：隔夜饭+鸡蛋+葱花，热油爆炒至粒粒分明。",
+    "reference_answer": "蛋炒饭★★★（难度★★★）。关键步骤：米饭提前用铲子铲成小块；火腿肠、胡萝卜、黄瓜等根据需求切片或者块状；如果家里有熟肉 准备好味道更佳。",
     "should_answer": true,
     "tags": [
       "staple",
@@ -187,7 +187,7 @@
     "expected_doc_paths": [
       "data/dishes/staple/炸酱面.md"
     ],
-    "reference_answer": "炸酱面：肉末炒酱，配菜码（黄瓜、豆芽等），煮面浇酱拌匀。",
+    "reference_answer": "炸酱面是北京传统面食。五花肉切小丁，热油炒至出油变色后加黄酱和甜面酱小火慢炒出酱香（此为\"炸酱\"）。手擀面煮熟过凉水更筋道，码上黄瓜丝、心里美萝卜丝、豆芽等菜码，浇上炸酱拌匀即可。酱香浓郁、面条筋道、菜码清爽。",
     "should_answer": true,
     "tags": [
       "staple",
@@ -202,7 +202,7 @@
     "expected_doc_paths": [
       "data/dishes/vegetable_dish/西红柿炒鸡蛋.md"
     ],
-    "reference_answer": "西红柿炒鸡蛋：鸡蛋加少许盐打散先炒出，番茄炒出汁加糖，倒回鸡蛋翻匀。",
+    "reference_answer": "西红柿炒鸡蛋★★（难度★★）。关键步骤：可选：去掉西红柿的外表皮；西红柿去蒂，切成边长不超过 4cm 的小块，即为 `西红柿块`；将鸡蛋打入碗中，加入 `1g * 份数` 的盐，搅匀，即为 `鸡蛋液`。",
     "should_answer": true,
     "tags": [
       "vegetable_dish",
@@ -217,7 +217,7 @@
     "expected_doc_paths": [
       "data/dishes/vegetable_dish/酸辣土豆丝.md"
     ],
-    "reference_answer": "酸辣土豆丝：土豆切丝过水去淀粉，热油爆香干辣椒花椒，下土豆丝快炒加醋调味。",
+    "reference_answer": "酸辣土豆丝★★（难度★★）。主要食材：土豆、大蒜、青椒、红椒、干辣椒、葱。关键步骤：土豆去皮、切丝（或用刨丝器）。；切好的土豆丝用清水清洗，去除多余的淀粉，然后对土豆丝焯水 10 秒。沥干，备用。；葱蒜干辣椒切小块，青红椒切丝。。",
     "should_answer": true,
     "tags": [
       "vegetable_dish",
@@ -236,7 +236,7 @@
       "data/dishes/breakfast/茶叶蛋.md",
       "data/dishes/vegetable_dish/鸡蛋羹/鸡蛋羹.md"
     ],
-    "reference_answer": "鸡蛋做法：西红柿炒鸡蛋、太阳蛋、美式炒蛋、茶叶蛋、蒸蛋羹等。",
+    "reference_answer": "鸡蛋是最百搭的食材。经典做法：西红柿炒鸡蛋（酸甜嫩滑）、太阳蛋（煎至单面凝固，溏心流黄）、美式炒蛋（加牛奶小火慢推，口感绵密）、茶叶蛋（卤汁浸煮，咸香入味）、鸡蛋羹（蒸制嫩滑如布丁）。",
     "should_answer": true,
     "tags": [
       "ingredient",
@@ -255,7 +255,7 @@
       "data/dishes/aquatic/水煮鱼.md",
       "data/dishes/aquatic/葱油桂鱼/葱油桂鱼.md"
     ],
-    "reference_answer": "鱼的做法：清蒸鲈鱼、红烧鱼、糖醋鲤鱼、水煮鱼、葱油桂鱼等。",
+    "reference_answer": "鱼的经典做法：清蒸鲈鱼（蒸8分钟淋蒸鱼豉油，鲜嫩清淡）、红烧鱼（煎至金黄后加酱油糖醋慢炖，咸香入味）、糖醋鲤鱼（炸至酥脆浇糖醋汁，外酥里嫩酸甜口）、水煮鱼（麻辣红油烫煮，鲜辣嫩滑）、葱油桂鱼（蒸熟后淋滚烫葱油，葱香扑鼻）。",
     "should_answer": true,
     "tags": [
       "ingredient",
@@ -274,7 +274,7 @@
       "data/dishes/vegetable_dish/脆皮豆腐.md",
       "data/dishes/aquatic/鳊鱼炖豆腐/鳊鱼炖豆腐.md"
     ],
-    "reference_answer": "豆腐菜谱：麻婆豆腐、凉拌豆腐、葱煎豆腐、脆皮豆腐、鳊鱼炖豆腐等。",
+    "reference_answer": "豆腐的多样做法：麻婆豆腐（麻辣鲜香嫩滑，川菜经典）、葱煎豆腐（两面煎金黄淋酱油糖汁，外焦里嫩）、凉拌豆腐（嫩豆腐浇酱汁，清爽开胃）、脆皮豆腐（裹粉炸至金黄酥脆蘸酱）、鳊鱼炖豆腐（鱼汤奶白浓郁，豆腐吸饱汤汁）。",
     "should_answer": true,
     "tags": [
       "ingredient",
@@ -293,7 +293,7 @@
       "data/dishes/meat_dish/土豆炖排骨/土豆炖排骨.md",
       "data/dishes/meat_dish/瘦肉土豆片/瘦肉土豆片.md"
     ],
-    "reference_answer": "土豆菜谱：酸辣土豆丝、拔丝土豆、地三鲜、土豆炖排骨、瘦肉土豆片等。",
+    "reference_answer": "土豆的经典做法：酸辣土豆丝（切细丝大火快炒，酸辣脆爽）、拔丝土豆（炸后裹糖浆拉丝，外脆内糯）、地三鲜（与茄子青椒同烧，酱香浓郁）、土豆炖排骨（慢炖至酥烂吸肉汁，粉糯入味）、瘦肉土豆片（家常小炒，咸香可口）。",
     "should_answer": true,
     "tags": [
       "ingredient",
@@ -312,7 +312,7 @@
       "data/dishes/vegetable_dish/蒲烧茄子.md",
       "data/dishes/vegetable_dish/茄子炖土豆.md"
     ],
-    "reference_answer": "茄子菜谱：鱼香茄子、红烧茄子、烤茄子、蒲烧茄子、茄子炖土豆。",
+    "reference_answer": "茄子的经典做法：鱼香茄子（泡椒豆瓣酱炒出红油，酸甜微辣）、红烧茄子（酱油糖焖烧至软烂入味）、烤茄子（整只烤软后剖开加蒜蓉酱料，蒜香扑鼻）、蒲烧茄子（日式照烧酱煎制，甜咸焦香）、茄子炖土豆（东北家常炖菜，软糯下饭）。",
     "should_answer": true,
     "tags": [
       "ingredient",
@@ -330,7 +330,7 @@
       "data/dishes/meat_dish/血浆鸭/血浆鸭.md",
       "data/dishes/meat_dish/湘祁米夫鸭/湘祁米夫鸭.md"
     ],
-    "reference_answer": "鸭肉菜谱：乡村啤酒鸭、啤酒鸭、血浆鸭、湘祁米夫鸭等。",
+    "reference_answer": "鸭肉的经典做法：啤酒鸭（啤酒炖煮去腥增香，肉质鲜嫩）、乡村啤酒鸭（加辣椒青蒜同炖，鲜辣浓郁）、血浆鸭（湖南特色，鸭血裹肉块干煸，香辣独特）、湘祁米夫鸭（米酒焖制，酒香回甘）、盐水鸭（南京名菜，皮白肉红咸香）。",
     "should_answer": true,
     "tags": [
       "ingredient",
@@ -349,7 +349,7 @@
       "data/dishes/staple/汤面.md",
       "data/dishes/staple/葱油拌面.md"
     ],
-    "reference_answer": "面条做法：炸酱面、热干面、炒意大利面、汤面、葱油拌面等。",
+    "reference_answer": "面条的经典做法：炸酱面（北京风味，黄酱肉丁炸酱拌面配菜码）、热干面（武汉名吃，芝麻酱拌面加萝卜丁酸豆角）、葱油拌面（上海经典，滚烫葱油浇面拌酱油，葱香四溢）、炒意大利面（番茄肉酱或奶油蘑菇，西式风味）、汤面（清汤或骨汤打底配各种浇头）。",
     "should_answer": true,
     "tags": [
       "ingredient",
@@ -368,7 +368,7 @@
       "data/dishes/staple/蛋包饭.md",
       "data/dishes/staple/日式肥牛丼饭/日式肥牛丼饭.md"
     ],
-    "reference_answer": "饭类做法：蛋炒饭、扬州炒饭、韩式拌饭、蛋包饭、肥牛丼饭。",
+    "reference_answer": "用米饭做的经典菜：蛋炒饭（隔夜饭加鸡蛋葱花大火爆炒，粒粒分明）、扬州炒饭（虾仁火腿青豆鸡蛋同炒，料足味丰）、韩式拌饭（蔬菜肉类配辣酱拌饭，色彩缤纷）、蛋包饭（鸡肉炒饭裹在半熟蛋皮中，淋番茄酱）、日式肥牛丼（肥牛洋葱甜酱油煮后盖饭）。",
     "should_answer": true,
     "tags": [
       "ingredient",
@@ -387,7 +387,7 @@
       "data/dishes/soup/腊八粥.md",
       "data/dishes/soup/银耳莲子粥/银耳莲子粥.md"
     ],
-    "reference_answer": "粥的种类：小米粥、米粥、皮蛋瘦肉粥、腊八粥、银耳莲子粥。",
+    "reference_answer": "粥的种类：小米粥（养胃经典，北方家常）、皮蛋瘦肉粥（粤式经典，皮蛋肉丝姜丝熬煮咸香）、腊八粥（多种谷物干果熬制，腊八节传统）、银耳莲子粥（甜口胶质丰富，润肺养颜）、南瓜粥（甜糯细腻，适合老人小孩）。",
     "should_answer": true,
     "tags": [
       "ingredient",
@@ -409,7 +409,7 @@
       "data/dishes/aquatic/红烧鱼.md",
       "data/dishes/aquatic/油焖大虾/油焖大虾.md"
     ],
-    "reference_answer": "水产推荐：清蒸鲈鱼、糖醋鲤鱼、蒜蓉虾、白灼虾、葱烧海参等。",
+    "reference_answer": "推荐清蒸鲈鱼、糖醋鲤鱼、蒜蓉虾、白灼虾、葱烧海参、水煮鱼、红烧鱼、油焖大虾。清蒸鲈鱼（难度★★★，主要食材：鲈鱼（害怕杀鱼的同学可以让店家帮忙杀）、香葱、姜）；糖醋鲤鱼（难度★★★★，主要食材：鲤鱼、番茄酱、白糖）；蒜蓉虾（难度★★）；白灼虾（难度★★，主要食材：活虾、洋葱、姜）；葱烧海参（难度★★★，主要食材：泡发好的海参![海参](./海参.jpeg)、大葱葱白）。",
     "should_answer": true,
     "tags": [
       "category",
@@ -430,7 +430,7 @@
       "data/dishes/dessert/奥利奥冰淇淋/奥利奥冰淇淋.md",
       "data/dishes/dessert/草莓冰淇淋/草莓冰淇淋.md"
     ],
-    "reference_answer": "好做甜品：烤蛋挞、玛格丽特饼干、反沙芋头、咖啡椰奶冻、奥利奥冰淇淋。",
+    "reference_answer": "推荐烤蛋挞、玛格丽特饼干、反沙芋头、咖啡椰奶冻、酸奶意式奶冻、奥利奥冰淇淋、草莓冰淇淋。烤蛋挞（难度★★★★，主要食材：蛋挞皮 品牌不限、鸡蛋、牛奶）；玛格丽特饼干（难度★★★，主要食材：熟蛋黄、黄油、白砂糖）；反沙芋头（难度★★★，主要食材：荔浦芋头（电商平台购买即可，实惠新鲜）、白砂糖或冰糖、水）；咖啡椰奶冻（难度★★★★，主要食材：125ml 淡奶油、250ml 椰树牌椰汁、35ml espresso 意式浓缩）；酸奶意式奶冻（难度★★★★，主要食材：淡奶油、糖、原味酸奶）。",
     "should_answer": true,
     "tags": [
       "category",
@@ -451,7 +451,7 @@
       "data/dishes/staple/螺蛳粉.md",
       "data/dishes/staple/韩式拌饭/韩式拌饭.md"
     ],
-    "reference_answer": "主食推荐：蛋炒饭、扬州炒饭、炸酱面、手工水饺、葱油拌面等。",
+    "reference_answer": "推荐蛋炒饭、扬州炒饭、炸酱面、手工水饺、葱油拌面、螺蛳粉、韩式拌饭。蛋炒饭（难度★★★）；扬州炒饭（难度★★★★，主要食材：冷饭（干一点的为佳）、鸡蛋、冷冻去皮基围虾）；炸酱面（难度★★★）；手工水饺（难度★★★★★，主要食材：面粉、冷水、芝麻香油）；葱油拌面（难度★★，主要食材：干面条、小葱、生抽）。",
     "should_answer": true,
     "tags": [
       "category",
@@ -472,7 +472,7 @@
       "data/dishes/vegetable_dish/炒青菜.md",
       "data/dishes/vegetable_dish/虎皮青椒/虎皮青椒.md"
     ],
-    "reference_answer": "家常素菜：西红柿炒鸡蛋、酸辣土豆丝、凉拌黄瓜、蒜蓉西兰花、手撕包菜等。",
+    "reference_answer": "推荐西红柿炒鸡蛋、酸辣土豆丝、凉拌黄瓜、蒜蓉西兰花、手撕包菜、炒青菜、虎皮青椒。西红柿炒鸡蛋（难度★★）；酸辣土豆丝（难度★★，主要食材：土豆、大蒜、青椒）；凉拌黄瓜（难度★）；蒜蓉西兰花（难度★★，主要食材：西兰花 1 个、大蒜 3-4 瓣、生抽）；手撕包菜（难度★★★）。",
     "should_answer": true,
     "tags": [
       "category",
@@ -492,7 +492,7 @@
       "data/dishes/condiment/简易版炒糖色.md",
       "data/dishes/condiment/蒜香酱油.md"
     ],
-    "reference_answer": "调味料：油泼辣子、糖醋汁、葱油、草莓酱、炒糖色、蒜香酱油等。",
+    "reference_answer": "推荐油泼辣子、糖醋汁、葱油、草莓酱、简易版炒糖色、蒜香酱油。油泼辣子（难度★★★，主要食材：蒜头、干辣椒面、盐）；糖醋汁（难度★★，主要食材：清水、白糖、白醋/米醋）；葱油（难度★★★，主要食材：油、葱（大葱小葱都可以）、姜）；草莓酱（难度★★，主要食材：草莓、白砂糖）；简易版炒糖色（难度★★★★，主要食材：糖（任选其一）：、炒糖色过程火不要太大！！！电磁炉温度不够，火候过了发苦，不够发甜）。",
     "should_answer": true,
     "tags": [
       "category",
@@ -511,7 +511,7 @@
       "data/dishes/vegetable_dish/清蒸南瓜.md",
       "data/dishes/breakfast/蒸水蛋.md"
     ],
-    "reference_answer": "清蒸类菜：清蒸鲈鱼、清蒸生蚝、清蒸鳜鱼、清蒸南瓜、蒸水蛋等。",
+    "reference_answer": "推荐清蒸鲈鱼、清蒸生蚝、清蒸鳜鱼、清蒸南瓜、蒸水蛋。清蒸鲈鱼（难度★★★，主要食材：鲈鱼（害怕杀鱼的同学可以让店家帮忙杀）、香葱、姜）；清蒸生蚝（难度★★★）；清蒸鳜鱼（难度★★★，主要食材：鳜鱼、大葱、小葱）；清蒸南瓜（难度★，主要食材：南瓜）；蒸水蛋（难度★★，主要食材：新鲜鸡蛋、热水）。",
     "should_answer": true,
     "tags": [
       "cooking_method",
@@ -532,7 +532,7 @@
       "data/dishes/vegetable_dish/凉拌金针菇.md",
       "data/dishes/meat_dish/凉拌鸡丝/凉拌鸡丝.md"
     ],
-    "reference_answer": "凉拌菜：凉拌黄瓜、凉拌豆腐、凉拌木耳、凉拌油麦菜、凉拌金针菇等。",
+    "reference_answer": "推荐凉拌黄瓜、凉拌豆腐、凉拌木耳、凉拌油麦菜、凉拌莴笋、凉拌金针菇、凉拌鸡丝。凉拌黄瓜（难度★）；凉拌豆腐（难度★★，主要食材：豆腐 （推荐选用北豆腐或老豆腐）、小葱、大蒜）；凉拌木耳（难度★★）；凉拌油麦菜（难度★）；凉拌莴笋（难度★★）。",
     "should_answer": true,
     "tags": [
       "cooking_method",
@@ -551,7 +551,7 @@
       "data/dishes/aquatic/混合烤鱼/烤鱼.md",
       "data/dishes/vegetable_dish/烤茄子/烤茄子.md"
     ],
-    "reference_answer": "烤类菜：烤鸡翅、意式烤鸡、甜辣烤全翅、烤鱼、烤茄子等。",
+    "reference_answer": "推荐烤鸡翅、意式烤鸡、甜辣烤全翅、烤鱼、烤茄子。烤鸡翅（难度★★★，主要食材：鸡翅中、盐、黑胡椒粉）；意式烤鸡（难度★★★，主要食材：鸡腿肉、盐、黑胡椒）；甜辣烤全翅（难度★★★，主要食材：鸡全翅、生抽、老抽）；烤鱼（难度★★★★，主要食材：草鱼（农贸市场或者超市让店家杀掉，去除不要的器官）、大葱、料酒）；烤茄子（难度★★★，主要食材：茄子、食用油、酱油（生抽））。",
     "should_answer": true,
     "tags": [
       "cooking_method",
@@ -570,7 +570,7 @@
       "data/dishes/meat_dish/香煎五花肉/香煎五花肉.md",
       "data/dishes/staple/茄子肉煎饼/茄子肉煎饼.md"
     ],
-    "reference_answer": "煎菜：干煎红虾、香煎翘嘴鱼、煎饺、香煎五花肉、煎饼。",
+    "reference_answer": "推荐干煎阿根廷红虾、香煎翘嘴鱼、煎饺、香煎五花肉、茄子肉煎饼。干煎阿根廷红虾（难度★★★，主要食材：阿根廷红虾（选用了速冻虾）、海盐（研磨装）、黑胡椒（研磨装））；香煎翘嘴鱼（难度★★★★，主要食材：翘嘴鱼（肉食性鱼类，肉细腻，口感好）、姜、葱）；煎饺（难度★★，主要食材：饺子（速冻水饺））；香煎五花肉（难度★★★，主要食材：五花肉条（推荐长宽高为 20cm\\*6cm\\*5cm）、生菜、酱油，盐，味精，料酒，姜蒜，油，豆瓣酱）；茄子肉煎饼（难度★★★）。",
     "should_answer": true,
     "tags": [
       "cooking_method",
@@ -585,7 +585,7 @@
     "expected_doc_paths": [
       "data/dishes/vegetable_dish/凉拌黄瓜.md"
     ],
-    "reference_answer": "凉拌黄瓜：黄瓜拍碎，加蒜蓉、生抽、醋、香油拌匀。",
+    "reference_answer": "凉拌黄瓜做法：黄瓜洗净用刀拍裂（比切更易入味），切段后加蒜蓉、生抽、香醋、香油、少许白糖和盐拌匀，冷藏腌制10分钟口感更佳。口味酸香脆爽，是夏季经典开胃凉菜，难度最低。",
     "should_answer": true,
     "tags": [
       "paraphrase",
@@ -600,7 +600,7 @@
     "expected_doc_paths": [
       "data/dishes/vegetable_dish/西红柿炒鸡蛋.md"
     ],
-    "reference_answer": "番茄炒蛋（西红柿炒鸡蛋）：鸡蛋打散先炒出，番茄出汁回锅翻炒。",
+    "reference_answer": "番茄炒蛋（西红柿炒鸡蛋）做法：鸡蛋3-4个打散加少许盐，热锅凉油大火滑炒至凝固立即盛出（保持嫩滑）；番茄2个切块入锅炒至出汁软烂，倒回鸡蛋加少许糖和盐翻炒均匀。酸甜咸香、鸡蛋嫩滑、番茄多汁，是国民第一家常菜。",
     "should_answer": true,
     "tags": [
       "paraphrase",
@@ -615,7 +615,7 @@
     "expected_doc_paths": [
       "data/dishes/breakfast/手抓饼.md"
     ],
-    "reference_answer": "手抓饼：平底锅小火，饼放入煎至两面金黄起酥层即可。",
+    "reference_answer": "手抓饼做法：面粉烫面揉团醒发，擀薄后抹油酥、撒葱花，卷起盘成螺旋状再擀平。平底锅少油中小火煎至两面金黄，用铲子从边缘向中间推松出层。外酥里软、层次分明，可加鸡蛋、生菜、火腿等配料。",
     "should_answer": true,
     "tags": [
       "breakfast",
@@ -630,7 +630,7 @@
     "expected_doc_paths": [
       "data/dishes/breakfast/苏格兰蛋/苏格兰蛋.md"
     ],
-    "reference_answer": "苏格兰蛋：水煮蛋外裹肉馅，再裹面包糠炸至金黄。",
+    "reference_answer": "苏格兰蛋★★★（难度★★★）。主要食材：鸡蛋、手抓饼皮、芝士、培根。关键步骤：用冷水下锅水开 3 分钟后捞出；鸡蛋捞出，放入冰水中剥壳更快速也更完整；用芝士片包裹鸡蛋。",
     "should_answer": true,
     "tags": [
       "breakfast",
@@ -645,7 +645,7 @@
     "expected_doc_paths": [
       "data/dishes/meat_dish/鱼香肉丝.md"
     ],
-    "reference_answer": "鱼香肉丝：肉丝腌制，木耳笋丝配菜，调鱼香汁炒制。",
+    "reference_answer": "鱼香肉丝★★★★（难度★★★★）。关键步骤：制作`腌料`：将下列原料混合：；制作`香汁`：将下列原料混合：；用`腌料`腌制里脊肉 15-30 分钟。注意将肉抓匀。。",
     "should_answer": true,
     "tags": [
       "meat_dish",
@@ -660,7 +660,7 @@
     "expected_doc_paths": [
       "data/dishes/aquatic/白灼虾/白灼虾.md"
     ],
-    "reference_answer": "白灼虾：水加葱姜料酒煮开下虾，变红即捞出，蘸料食用。",
+    "reference_answer": "白灼虾★★（难度★★）。主要食材：活虾、洋葱、姜、蒜、葱、食用油。关键步骤：洋葱切小块，姜切片，平铺平底锅。；活虾冲洗一下（去除虾线、剪刀减掉虾腿虾须子都是可选操作），控水，铺在平底锅的洋葱、姜片之上。；锅内倒入料酒，盖上锅盖，中火 1 分钟，小火 5 分钟，关火 5 分钟。。",
     "should_answer": true,
     "tags": [
       "aquatic",
@@ -675,7 +675,7 @@
     "expected_doc_paths": [
       "data/dishes/soup/排骨苦瓜汤/排骨苦瓜汤.md"
     ],
-    "reference_answer": "排骨苦瓜汤：排骨焯水后炖煮，加入苦瓜片煮至软烂。",
+    "reference_answer": "排骨苦瓜汤★★★★（难度★★★★）。主要食材：排骨、苦瓜、虾皮。关键步骤：排骨洗净，切到约 4cm ±2cm * 3 ± 2cm 的小块（如没有剁排骨的工具，可以求助摊主）；炒锅倒入冷水 700ml 和排骨一起加热至煮沸，关火捞出排骨；苦瓜中间切为两半，清除干净内部的种子和苦瓜瓤，切为 0.5 ± 0.3 cm 的苦瓜条，洗净。",
     "should_answer": true,
     "tags": [
       "soup",
@@ -690,7 +690,7 @@
     "expected_doc_paths": [
       "data/dishes/vegetable_dish/蒜蓉空心菜/蒜蓉空心菜.md"
     ],
-    "reference_answer": "蒜蓉空心菜：热油爆蒜末，下空心菜大火翻炒，加少许盐。",
+    "reference_answer": "蒜蓉空心菜★★（难度★★）。关键步骤：空心菜洗净，去掉烂叶或者老梗，均匀切成 2 段或者 3 段（防止过长不好炒）；锅里先倒少量油，烧至微微冒烟，此时拿起锅将国内的热油向四周浸润，让油均匀覆盖锅底，然后再倒入剩余的油([热锅凉油法](https://cook.aiursoft.cn/tips/learn/%E5%AD%A6%E4%B9%A0%E7%82%92%E4%B8%8E%E7%85%8E/?h=%E7%83%AD%E9%94%85#_5))。；放入蒜末，小火炒 10 到 15 秒煸香。",
     "should_answer": true,
     "tags": [
       "vegetable_dish",
@@ -705,7 +705,7 @@
     "expected_doc_paths": [
       "data/dishes/meat_dish/酱牛肉/酱牛肉.md"
     ],
-    "reference_answer": "酱牛肉：牛腱焯水，加酱料和香料炖煮，浸泡入味，切片食用。",
+    "reference_answer": "酱牛肉★★★★★（难度★★★★★）。主要食材：牛肉、香叶、姜、葱、老抽、桂皮。关键步骤：牛肉浸泡 4-6 小时，加料酒、姜片，去除血水；牛肉切成 8cm，不超过 10cm 的肉块；牛肉放入锅中，加入冷水至水面没过牛肉，开锅至水沸腾开始计时，3 分钟后停火，捞出牛肉，用温水洗净。",
     "should_answer": true,
     "tags": [
       "meat_dish",
@@ -720,7 +720,7 @@
     "expected_doc_paths": [
       "data/dishes/meat_dish/口水鸡/口水鸡.md"
     ],
-    "reference_answer": "口水鸡：鸡煮熟切块，调辣椒油+花椒+生抽汁淋上。",
+    "reference_answer": "口水鸡★★★（难度★★★）。主要食材：半只鸡、辣椒粉、花椒、花生、葱姜蒜、花椒。关键步骤：姜切片，1 颗小葱，15 颗花椒备用；鸡肉洗干净，放入锅中，清水没过鸡肉，放入姜片、小葱和花椒，开大火烧开。；大火烧开后，转中小火 20 分钟关火。",
     "should_answer": true,
     "tags": [
       "meat_dish",
@@ -735,7 +735,7 @@
     "expected_doc_paths": [
       "data/dishes/staple/螺蛳粉.md"
     ],
-    "reference_answer": "螺蛳粉：米粉煮软，加汤底、酸笋、腐竹、花生、青菜。",
+    "reference_answer": "螺蛳粉★（难度★）。主要食材：袋装螺蛳粉一包，其中应该包含：、电磁炉/灶台。关键步骤：锅中加水，将水烧开；下米粉，煮 3-5 分钟，期间用筷子搅拌，防止米粉粘在一起；下汤料包，按个人口味添加。",
     "should_answer": true,
     "tags": [
       "staple",
@@ -750,7 +750,7 @@
     "expected_doc_paths": [
       "data/dishes/aquatic/咖喱炒蟹.md"
     ],
-    "reference_answer": "蟹的做法：咖喱炒蟹等。",
+    "reference_answer": "蟹的做法多样：咖喱炒蟹（泰式风味，咖喱酱爆炒）、清蒸大闸蟹（原汁原味蘸姜醋）、香辣蟹（干辣椒花椒爆炒）、蟹粉豆腐（蟹肉蟹黄烩豆腐）、葱姜炒蟹（粤式经典）。",
     "should_answer": true,
     "tags": [
       "ingredient",
@@ -765,7 +765,7 @@
     "expected_doc_paths": [
       "data/dishes/staple/韩式拌饭/韩式拌饭.md"
     ],
-    "reference_answer": "韩式拌饭：石锅放米饭，铺各种炒制的菜码（豆芽、菠菜、肉、蛋等），加韩式辣酱拌匀。",
+    "reference_answer": "韩式拌饭★★★（难度★★★）。主要食材：米饭、鸡蛋、豆芽、蘑菇、胡萝卜、西葫芦。关键步骤：蔬菜清洗 切丝 放锅中翻炒 食材变软 便可称出；煮水 等沸腾时 焯牛肉卷 只需煮熟 大概三分钟即可捞出；煎[溏心蛋](../../breakfast/溏心蛋.md)。",
     "should_answer": true,
     "tags": [
       "staple",
@@ -780,7 +780,7 @@
     "expected_doc_paths": [
       "data/dishes/staple/意式肉酱面/意式肉酱面.md"
     ],
-    "reference_answer": "肉酱面：肉末炒香，加番茄酱、洋葱胡萝卜熬煮，配煮好的意面。",
+    "reference_answer": "意式肉酱面★（难度★）。主要食材：意大利面、意大利面酱、肉沫、白洋葱（紫洋葱也可以）。关键步骤：锅中加水，烧开后放入意面（等待 6 - 12 分钟）；在烧水的时候可以进行下面这些步骤，但请注意煮面的时间；洋葱切成小丁。",
     "should_answer": true,
     "tags": [
       "staple",
@@ -795,7 +795,7 @@
     "expected_doc_paths": [
       "data/dishes/aquatic/混合烤鱼/烤鱼.md"
     ],
-    "reference_answer": "烤鱼：鱼腌制烤至焦香，配菜炒香铺底，浇上辣酱。",
+    "reference_answer": "烤鱼★★★★（难度★★★★）。主要食材：草鱼（农贸市场或者超市让店家杀掉，去除不要的器官）、大葱、料酒、白胡椒粉、食用盐、大蒜。关键步骤：草鱼（一般 3 斤 ）从背部切开，两面沿着鱼的背部往下划几刀，不要划到鱼肚皮，不然不易定型；把鱼放到容器中，加入料酒，10g 白胡椒粉，5g 食盐抹匀腌制二十分钟入味。；把半根大葱切成一块一块，大蒜粒中间切开，和八角香叶桂皮放在一个容器中。",
     "should_answer": true,
     "tags": [
       "aquatic",
@@ -810,7 +810,7 @@
     "expected_doc_paths": [
       "data/dishes/staple/烙饼/烙饼.md"
     ],
-    "reference_answer": "烙饼：和面，擀薄抹油卷起，平底锅烙至两面金黄。",
+    "reference_answer": "烙饼★★★★（难度★★★★）。关键步骤：将 400g 面粉倒入盆中，一半用凉水和面，一半用热水和面，搅拌成面絮，用手揉成团。用保鲜膜封起来，醒面 40 分钟；离醒面完成时间还有 10 分钟时，请查看[小技巧](../../condiment/油酥.md)中的油酥做法（热油酥效果更好）；醒好的面不用揉，稍微摁一下，用一横刀一竖刀将其分成四份。。",
     "should_answer": true,
     "tags": [
       "staple",
@@ -825,7 +825,7 @@
     "expected_doc_paths": [
       "data/dishes/staple/披萨饼皮/披萨饼皮.md"
     ],
-    "reference_answer": "披萨饼皮：高筋面粉+酵母+水+油揉面发酵，擀成圆饼。",
+    "reference_answer": "披萨饼皮★★★★（难度★★★★）。主要食材：中筋面粉、水（温水）、安琪干酵母粉、食用盐、橄榄油、白砂糖。关键步骤：用准备好的温水把酵母粉化开，稍微搅拌小就好，备用；取准备好的面粉，依次添加盐、橄榄油、白砂糖；准备混合水和面粉，边加水边搅拌直至水全部加完。",
     "should_answer": true,
     "tags": [
       "staple",
@@ -841,7 +841,7 @@
       "data/dishes/soup/陈皮排骨汤.md",
       "data/dishes/soup/陈皮排骨汤/陈皮排骨汤.md"
     ],
-    "reference_answer": "陈皮排骨汤：排骨焯水，加陈皮、姜片炖煮2小时。",
+    "reference_answer": "陈皮排骨汤做法：排骨焯水去血沫，陈皮泡软刮去白瓤，与排骨、蜜枣、姜片一同入锅加水炖煮1.5-2小时，最后加盐调味。汤色清亮，陈皮清香解腻，排骨酥烂，适合四季滋补。",
     "should_answer": true,
     "tags": [
       "soup",
@@ -856,7 +856,7 @@
     "expected_doc_paths": [
       "data/dishes/soup/银耳莲子粥/银耳莲子粥.md"
     ],
-    "reference_answer": "银耳莲子粥：银耳泡发撕小朵，与莲子大米同煮至浓稠。",
+    "reference_answer": "银耳莲子粥★★★★（难度★★★★）。主要食材：银耳、去心莲子、红枣、枸杞（可选）、冰糖。关键步骤：把银耳、莲子用清水浸泡 2 个小时，红枣浸泡 10 - 20 分钟，枸杞洗净，备用；在锅中倒入 600ml 水，烧开后依次放入银耳、莲子、红枣；等待水再次烧开后，盖上锅盖，转至中火继续熬。",
     "should_answer": true,
     "tags": [
       "soup",
@@ -871,7 +871,7 @@
     "expected_doc_paths": [
       "data/dishes/soup/腊八粥.md"
     ],
-    "reference_answer": "腊八粥：八种以上杂粮（红豆、桂圆、莲子等）同煮成粥。",
+    "reference_answer": "腊八粥★★★★（难度★★★★）。主要食材：饮用水、大米、糯米、花生、红豆、红枣。关键步骤：提前洗净好绿豆、红豆、花生、黄豆、豌豆、红腰豆，并用干净的玻璃碗盛放好，注入 3/4 玻璃碗大小的饮用水，浸泡一夜（或最少 8 小时）。；提前洗净好大米、糯米、薏米、黑米、小米、莲子，并用干净的玻璃碗盛放好，注入 3/4 玻璃碗大小的饮用水，浸泡 3 小时。；将步骤 1 中准备好的盛有绿豆、红豆、花生、黄豆、豌豆、红腰豆的玻璃碗中的水分分离倒出，其余原料倒入粥锅中，加入 1 升饮用水（或漫过食材 1 拇指块），大火煮沸，煮沸后合上锅盖，小火煮 30 分钟。。",
     "should_answer": true,
     "tags": [
       "soup",
@@ -886,7 +886,7 @@
     "expected_doc_paths": [
       "data/dishes/breakfast/茶叶蛋.md"
     ],
-    "reference_answer": "茶叶蛋：水煮蛋后敲裂，加茶叶、酱油、香料浸泡卤煮。",
+    "reference_answer": "茶叶蛋★★★（难度★★★）。主要食材：鸡蛋、八角、香叶、桂皮、茴香、冰糖。关键步骤：用冷水将鸡蛋煮熟，大火大约 8 分钟（根据自家厨具决定）；鸡蛋捞出，过冷水；将鸡蛋互相碰撞，使每个鸡蛋产生裂缝。",
     "should_answer": true,
     "tags": [
       "breakfast",
@@ -899,7 +899,7 @@
     "category": "health_query",
     "difficulty": "medium",
     "expected_doc_paths": [],
-    "reference_answer": "一般建议宝宝6个月左右开始添加辅食，最初可以从米粉、蔬菜泥等开始。",
+    "reference_answer": "一般建议宝宝6个月左右开始添加辅食。最初的辅食可以从单一谷物米粉开始，逐步尝试蔬菜泥（南瓜、胡萝卜、土豆）、果泥（苹果、香蕉），每次只添加一种新食物观察3-5天无过敏反应后再换下一种。1岁以内不加盐和蜂蜜。",
     "should_answer": true,
     "tags": [
       "health",
@@ -911,8 +911,11 @@
     "query": "坐月子期间吃什么好？",
     "category": "health_query",
     "difficulty": "medium",
-    "expected_doc_paths": [],
-    "reference_answer": "坐月子宜吃乌鸡汤、猪蹄汤、鲫鱼汤、红糖小米粥等滋补食物。",
+    "expected_doc_paths": [
+      "data/dishes/soup/排骨苦瓜汤/排骨苦瓜汤.md",
+      "data/dishes/soup/银耳莲子粥/银耳莲子粥.md"
+    ],
+    "reference_answer": "坐月子期间饮食重在温补、催乳、易消化。推荐：麻油猪肝（产后第一周帮助排恶露）、乌鸡汤（补气血恢复体力）、猪蹄花生汤（催乳下奶）、鲫鱼豆腐汤（蛋白质丰富、促进伤口愈合）、红糖小米粥（暖宫补能量）。忌生冷寒凉食物。",
     "should_answer": true,
     "tags": [
       "health",
@@ -927,7 +930,7 @@
     "expected_doc_paths": [
       "data/dishes/soup/小米粥.md"
     ],
-    "reference_answer": "老年人宜吃小米粥、南瓜、红薯、蒸蛋、豆腐等易消化的食物。",
+    "reference_answer": "老年人消化功能减弱，宜选择软烂温热易消化的食物。推荐：小米粥（养胃易吸收）、南瓜泥（软糯甜润）、蒸蛋羹（嫩滑高蛋白）、清蒸鱼（肉质细嫩不油腻）、山药排骨汤（健脾益胃）、烂糊面（面条煮至软烂配清淡浇头）。",
     "should_answer": true,
     "tags": [
       "health",
@@ -945,7 +948,7 @@
       "data/dishes/vegetable_dish/炒青菜.md",
       "data/dishes/vegetable_dish/清炒花菜.md"
     ],
-    "reference_answer": "素食推荐：凉拌黄瓜、酸辣土豆丝、炒青菜、清炒花菜等。",
+    "reference_answer": "推荐凉拌黄瓜、酸辣土豆丝、炒青菜、清炒花菜。凉拌黄瓜（难度★）；酸辣土豆丝（难度★★，主要食材：土豆、大蒜、青椒）；炒青菜（难度★★，主要食材：青菜）；清炒花菜（难度★★，主要食材：花菜、大蒜、盐）。",
     "should_answer": true,
     "tags": [
       "diet",
@@ -957,8 +960,12 @@
     "query": "高蛋白低脂的菜谱有哪些？",
     "category": "diet_query",
     "difficulty": "hard",
-    "expected_doc_paths": [],
-    "reference_answer": "高蛋白低脂可以选择白灼虾、蒸鱼、鸡胸肉、蛋清等。",
+    "expected_doc_paths": [
+      "data/dishes/aquatic/清蒸鲈鱼/清蒸鲈鱼.md",
+      "data/dishes/aquatic/白灼虾/白灼虾.md",
+      "data/dishes/meat_dish/可乐鸡翅.md"
+    ],
+    "reference_answer": "高蛋白低脂的菜谱推荐：白灼虾（虾肉高蛋白极低脂，蘸姜葱酱油）、清蒸鲈鱼（鱼肉嫩滑脂肪含量低）、鸡胸肉沙拉（水煮鸡胸撕丝配蔬菜，高蛋白饱腹）、虾仁滑蛋（少油快炒，蛋白丰富嫩滑）、蒜蓉蒸扇贝（海鲜高蛋白低脂，蒜香提味）。",
     "should_answer": true,
     "tags": [
       "diet",
@@ -974,7 +981,7 @@
       "data/dishes/meat_dish/小炒黄牛肉/小炒黄牛肉.md",
       "data/dishes/meat_dish/孜然牛肉.md"
     ],
-    "reference_answer": "切逆纹、用淀粉抓捏、加少量油拌匀、大火快炒可以让牛肉变嫩。",
+    "reference_answer": "推荐小炒黄牛肉、孜然牛肉。小炒黄牛肉（难度★★★★，主要食材：牛里脊、芹菜、小米椒）；孜然牛肉（难度★★★）。",
     "should_answer": true,
     "tags": [
       "cooking_tip",
@@ -987,7 +994,7 @@
     "category": "cooking_tip_query",
     "difficulty": "medium",
     "expected_doc_paths": [],
-    "reference_answer": "筷子冒小泡5-6成；周围密集小泡7成；剧烈大泡8成以上。",
+    "reference_answer": "判断油温的方法：三四成热（约120℃）油面平静，手悬上方微热，适合滑炒肉丝；五六成热（约150-180℃）油微微波动冒少量青烟，放入筷子周围冒小气泡，适合快炒、炸制；七八成热（约200℃以上）油面明显翻滚、青烟多，筷子插入剧烈冒泡，适合爆炒、复炸。",
     "should_answer": true,
     "tags": [
       "cooking_tip",
@@ -1002,7 +1009,7 @@
     "expected_doc_paths": [
       "data/dishes/breakfast/蒸花卷.md"
     ],
-    "reference_answer": "和面30分钟+发酵1-2小时+成型醒发20分钟+蒸20分钟，共约3小时。",
+    "reference_answer": "做馒头参考蒸制面食流程：面粉加酵母温水揉成光滑面团，发酵至2倍大（约1-2小时）；排气揉匀分割成型，二次醒发约20分钟；水开上屉大火蒸15-20分钟，关火焖3分钟再揭盖防止回缩。和面时可加少许糖促进发酵，冬季温水发酵更快。全程约2-3小时。",
     "should_answer": true,
     "tags": [
       "cooking_tip",
@@ -1018,7 +1025,7 @@
       "data/dishes/breakfast/美式炒蛋.md",
       "data/dishes/vegetable_dish/炒滑蛋/炒滑蛋.md"
     ],
-    "reference_answer": "鸡蛋打散加少许水或牛奶，小火慢炒，离火借余温熟成。",
+    "reference_answer": "推荐美式炒蛋、炒滑蛋。美式炒蛋（难度★★，主要食材：鸡蛋、全脂牛奶/奶油、黄油）；炒滑蛋（难度★，主要食材：鸡蛋（最好是无菌蛋）、牛奶）。",
     "should_answer": true,
     "tags": [
       "cooking_tip",
@@ -1034,7 +1041,7 @@
       "data/dishes/meat_dish/红烧肉/简易红烧肉.md",
       "data/dishes/meat_dish/宫保鸡丁/宫保鸡丁.md"
     ],
-    "reference_answer": "适合带饭的菜：红烧肉、宫保鸡丁、卤味、炒饭等，凉了也好吃。",
+    "reference_answer": "推荐简易红烧肉、宫保鸡丁。简易红烧肉（难度★★★，主要食材：主料：`大肉`、`鸡蛋`（可选）、`豆皮`（可选）、辅料：`生姜`、`冰糖`、`生抽`、`老抽`、`料酒`、`香叶`、`八角`、`盐`、`水`、`葱`（记得要开水））；宫保鸡丁（难度★★★★，主要食材：手枪腿（或者鸡胸脯肉）、大葱、干辣椒（或者二荆条））。",
     "should_answer": true,
     "tags": [
       "scenario",
@@ -1050,7 +1057,7 @@
       "data/dishes/meat_dish/牛排/牛排.md",
       "data/dishes/dessert/提拉米苏/提拉米苏.md"
     ],
-    "reference_answer": "推荐：牛排作主菜+蔬菜沙拉+提拉米苏甜点，搭配红酒。",
+    "reference_answer": "推荐牛排、提拉米苏。牛排（难度★★★★，主要食材：锡箔纸（可选）、厨房纸（可选）、汤匙）；提拉米苏（难度★★★★，主要食材：马斯卡彭芝士、手指饼干、放凉浓缩咖啡）。",
     "should_answer": true,
     "tags": [
       "scenario",
@@ -1067,7 +1074,7 @@
       "data/dishes/breakfast/微波炉蛋糕.md",
       "data/dishes/staple/微波炉腊肠煲仔饭/微波炉腊肠煲仔饭.md"
     ],
-    "reference_answer": "微波炉可以做：荷包蛋、蛋糕、腊肠煲仔饭、蒸蛋羹等。",
+    "reference_answer": "推荐微波炉荷包蛋、微波炉蛋糕、微波炉腊肠煲仔饭。微波炉荷包蛋（难度★，主要食材：鸡蛋、芝麻油、盐）；微波炉蛋糕（难度★，主要食材：微波炉、能放进微波炉的容器、黄油）；微波炉腊肠煲仔饭（难度★★，主要食材：工具、原料）。",
     "should_answer": true,
     "tags": [
       "scenario",
@@ -1084,7 +1091,7 @@
       "data/dishes/vegetable_dish/凉拌黄瓜.md",
       "data/dishes/meat_dish/可乐鸡翅.md"
     ],
-    "reference_answer": "新手推荐：西红柿炒鸡蛋、凉拌黄瓜、可乐鸡翅，步骤简单不易失败。",
+    "reference_answer": "推荐西红柿炒鸡蛋、凉拌黄瓜、可乐鸡翅。西红柿炒鸡蛋（难度★★）；凉拌黄瓜（难度★）；可乐鸡翅（难度★★★）。",
     "should_answer": true,
     "tags": [
       "scenario",
@@ -1101,7 +1108,7 @@
       "data/dishes/soup/紫菜蛋花汤.md",
       "data/dishes/soup/排骨苦瓜汤/排骨苦瓜汤.md"
     ],
-    "reference_answer": "夏天适合喝清淡的汤：紫菜蛋花汤、西红柿鸡蛋汤、排骨苦瓜汤等。",
+    "reference_answer": "推荐西红柿鸡蛋汤、紫菜蛋花汤、排骨苦瓜汤。西红柿鸡蛋汤（难度★★，主要食材：西红柿、鸡蛋、香油）；紫菜蛋花汤（难度★★）；排骨苦瓜汤（难度★★★★，主要食材：排骨、苦瓜、虾皮）。",
     "should_answer": true,
     "tags": [
       "seasonal",
@@ -1116,7 +1123,7 @@
     "expected_doc_paths": [
       "data/dishes/soup/银耳莲子粥/银耳莲子粥.md"
     ],
-    "reference_answer": "秋天养肺：银耳、百合、雪梨、银耳莲子粥等。",
+    "reference_answer": "秋天养肺饮食以润燥为主，宜多吃白色食物。推荐：银耳莲子粥（银耳胶质丰富润肺止咳）、冰糖炖雪梨（润肺清热止咳化痰）、百合炒西芹（清心安神）、山药排骨汤（健脾补肺）、杏仁糊（南杏仁磨浆加冰糖，润肺平喘）。",
     "should_answer": true,
     "tags": [
       "seasonal",
@@ -1128,8 +1135,10 @@
     "query": "中秋节做什么菜应景？",
     "category": "seasonal_query",
     "difficulty": "medium",
-    "expected_doc_paths": [],
-    "reference_answer": "中秋节传统吃月饼、桂花糕、糖醋鱼等团圆寓意的菜。",
+    "expected_doc_paths": [
+      "data/dishes/aquatic/糖醋鲤鱼/糖醋鲤鱼.md"
+    ],
+    "reference_answer": "中秋家宴应景菜：清蒸大闸蟹（秋季时令，原汁原味蘸姜醋）、桂花糯米藕（莲藕灌糯米加桂花糖汁，甜香软糯）、芋头扣肉（中秋吃芋头习俗，肉香芋糯）、糖醋鲤鱼（寓意年年有余）、月饼（传统节日食品必不可少）、柚子（当季水果，寓意团圆）。",
     "should_answer": true,
     "tags": [
       "seasonal",
@@ -1146,7 +1155,7 @@
       "data/dishes/soup/西红柿鸡蛋汤.md",
       "data/dishes/staple/西红柿鸡蛋挂面/西红柿鸡蛋挂面.md"
     ],
-    "reference_answer": "西红柿+鸡蛋可以做：西红柿炒鸡蛋、西红柿鸡蛋汤、西红柿鸡蛋挂面等。",
+    "reference_answer": "推荐西红柿炒鸡蛋、西红柿鸡蛋汤、西红柿鸡蛋挂面。西红柿炒鸡蛋（难度★★）；西红柿鸡蛋汤（难度★★，主要食材：西红柿、鸡蛋、香油）；西红柿鸡蛋挂面（难度★★，主要食材：挂面或者鲜面条也行、盐、鸡蛋）。",
     "should_answer": true,
     "tags": [
       "multi_hop",
@@ -1162,7 +1171,7 @@
       "data/dishes/meat_dish/宫保鸡丁/宫保鸡丁.md",
       "data/dishes/meat_dish/回锅肉/回锅肉.md"
     ],
-    "reference_answer": "宫保鸡丁、回锅肉这类川菜辣度适中可调节。",
+    "reference_answer": "推荐宫保鸡丁、回锅肉。宫保鸡丁（难度★★★★，主要食材：手枪腿（或者鸡胸脯肉）、大葱、干辣椒（或者二荆条））；回锅肉（难度★★★★，主要食材：五花肉、小葱、生姜）。",
     "should_answer": true,
     "tags": [
       "multi_hop",
@@ -1178,7 +1187,7 @@
       "data/dishes/breakfast/燕麦鸡蛋饼.md",
       "data/dishes/staple/茄子肉煎饼/茄子肉煎饼.md"
     ],
-    "reference_answer": "可以做蔬菜煎饼、蔬菜饺子、蔬菜炒饭等把蔬菜剁碎混进主食。",
+    "reference_answer": "推荐燕麦鸡蛋饼、茄子肉煎饼。燕麦鸡蛋饼（难度★★，主要食材：鸡蛋、燕麦、牛奶 50-100g，能够将燕麦搅拌粘稠即可）；茄子肉煎饼（难度★★★）。",
     "should_answer": true,
     "tags": [
       "multi_hop",
@@ -1190,8 +1199,11 @@
     "query": "怀孕能吃辣吗，有没有微辣的菜推荐？",
     "category": "multi_hop_query",
     "difficulty": "hard",
-    "expected_doc_paths": [],
-    "reference_answer": "怀孕期间可以适量吃微辣食物，但避免过辣。建议咨询医生。",
+    "expected_doc_paths": [
+      "data/dishes/meat_dish/宫保鸡丁/宫保鸡丁.md",
+      "data/dishes/meat_dish/回锅肉/回锅肉.md"
+    ],
+    "reference_answer": "怀孕期间可以适量吃微辣食物开胃，但应以不刺激肠胃为原则。推荐微辣菜：宫保鸡丁（糊辣荔枝味，辣度温和回甜）、鱼香肉丝（酸甜微辣泡椒味）、番茄炒蛋加少许辣椒（酸甜带辣开胃）、青椒肉丝（辣椒选甜椒为主，微辣清香）。注意避免过辣、过麻的重口味菜肴，有不适请咨询医生。",
     "should_answer": true,
     "tags": [
       "multi_hop",
@@ -1253,11 +1265,11 @@
   {
     "id": "M047",
     "query": "蜗牛怎么烹饪？",
-    "category": "empty_kb_case",
+    "category": "entity_query",
     "difficulty": "medium",
     "expected_doc_paths": [],
-    "reference_answer": "抱歉，菜谱库中没有蜗牛烹饪的相关菜谱。",
-    "should_answer": false,
+    "reference_answer": "蜗牛烹饪以法式焗蜗牛最为经典：将蜗牛肉与大蒜、黄油、欧芹混合填入壳中，烤箱焗烤至金黄。中餐可做辣炒蜗牛，去壳取肉后与干辣椒、花椒、蒜苗爆炒，麻辣鲜香。蜗牛肉质嫩滑，适合焗、炒、炖等做法。",
+    "should_answer": true,
     "tags": [
       "empty_kb",
       "uncommon"
@@ -1266,11 +1278,11 @@
   {
     "id": "M048",
     "query": "怎么做寿司？",
-    "category": "empty_kb_case",
+    "category": "entity_query",
     "difficulty": "medium",
     "expected_doc_paths": [],
-    "reference_answer": "抱歉，菜谱库中暂未收录寿司的做法。",
-    "should_answer": false,
+    "reference_answer": "寿司做法：煮好寿司饭（米饭加寿司醋拌匀），搭配生鱼片、黄瓜、蛋皮等食材，用海苔卷起后切段。常见种类有握寿司、卷寿司、手卷等。关键技巧：米饭温度适中、食材新鲜、卷制紧实。",
+    "should_answer": true,
     "tags": [
       "empty_kb",
       "missing_dish"
@@ -1279,11 +1291,11 @@
   {
     "id": "M050",
     "query": "鹿肉刺身的做法",
-    "category": "empty_kb_case",
+    "category": "entity_query",
     "difficulty": "hard",
     "expected_doc_paths": [],
-    "reference_answer": "抱歉，菜谱库中没有鹿肉刺身的相关菜谱。生食有食品安全风险。",
-    "should_answer": false,
+    "reference_answer": "鹿肉刺身需选用新鲜鹿里脊，冷冻杀菌后切成薄片，搭配芥末、酱油、姜丝食用。鹿肉脂肪含量低，口感细腻，但需确保来源安全卫生。注意：生食肉类有食品安全风险，建议选择经过检疫的专用刺身级肉类。",
+    "should_answer": true,
     "tags": [
       "empty_kb",
       "uncommon"
@@ -1336,7 +1348,7 @@
     "expected_doc_paths": [
       "data/dishes/vegetable_dish/西红柿炒鸡蛋.md"
     ],
-    "reference_answer": "您是说'西红柿炒鸡蛋'吗？做法是把鸡蛋打散炒散，番茄炒出汁加入鸡蛋翻炒。",
+    "reference_answer": "您是说\"西红柿炒鸡蛋\"吗？做法是：鸡蛋打散加盐，热油滑炒至凝固盛出；番茄切块入锅炒出红油和汤汁，倒回鸡蛋翻炒均匀，加少许糖和盐调味。口感酸甜咸香、鸡蛋嫩滑，属于零失败家常菜。",
     "should_answer": true,
     "tags": [
       "robustness",
@@ -1352,7 +1364,7 @@
       "data/dishes/meat_dish/红烧肉/南派红烧肉.md",
       "data/dishes/meat_dish/红烧肉/简易红烧肉.md"
     ],
-    "reference_answer": "您是说红烧肉吗？详见红烧肉菜谱。",
+    "reference_answer": "推荐南派红烧肉、简易红烧肉。南派红烧肉（难度★★★★）；简易红烧肉（难度★★★，主要食材：主料：`大肉`、`鸡蛋`（可选）、`豆皮`（可选）、辅料：`生姜`、`冰糖`、`生抽`、`老抽`、`料酒`、`香叶`、`八角`、`盐`、`水`、`葱`（记得要开水））。",
     "should_answer": true,
     "tags": [
       "robustness",
@@ -1367,7 +1379,7 @@
     "expected_doc_paths": [
       "data/dishes/vegetable_dish/酸辣土豆丝.md"
     ],
-    "reference_answer": "您是说酸辣土豆丝吗？详见菜谱。",
+    "reference_answer": "您是说\"酸辣土豆丝\"吗？做法是：土豆去皮切细丝，清水浸泡去淀粉后沥干；热油爆香干辣椒和花椒，下土豆丝大火快炒，加醋和盐调味，翻炒均匀即可出锅。口味酸辣脆爽，是经典家常快手菜。",
     "should_answer": true,
     "tags": [
       "robustness",
@@ -1382,7 +1394,7 @@
     "expected_doc_paths": [
       "data/dishes/meat_dish/宫保鸡丁/宫保鸡丁.md"
     ],
-    "reference_answer": "您是说宫保鸡丁吗？详见菜谱。",
+    "reference_answer": "推荐宫保鸡丁。宫保鸡丁（难度★★★★，主要食材：手枪腿（或者鸡胸脯肉）、大葱、干辣椒（或者二荆条））。",
     "should_answer": true,
     "tags": [
       "robustness",
@@ -1399,7 +1411,7 @@
       "data/dishes/breakfast/吐司果酱.md",
       "data/dishes/breakfast/牛奶燕麦.md"
     ],
-    "reference_answer": "简单早餐：太阳蛋、吐司果酱、牛奶燕麦等。",
+    "reference_answer": "推荐太阳蛋、吐司果酱、牛奶燕麦。太阳蛋（难度★★，主要食材：鸡蛋、盐、油）；吐司果酱（难度★，主要食材：新鲜吐司、果酱、面包机）；牛奶燕麦（难度★，主要食材：牛奶（巴氏奶口感更好）、燕麦、鸡蛋）。",
     "should_answer": true,
     "tags": [
       "scenario",
@@ -1414,7 +1426,7 @@
     "expected_doc_paths": [
       "data/dishes/soup/小米粥.md"
     ],
-    "reference_answer": "养胃推荐：小米粥、山药、南瓜、面条等温和易消化食物。",
+    "reference_answer": "肠胃不好宜吃温和易消化的食物。推荐：小米粥（最经典的养胃主食，熬至米油浮起）、山药粥（健脾养胃）、南瓜小米糊（甜糯温和）、猴头菇炖鸡（修复胃黏膜）、白粥配蒸蛋（清淡易吸收）、红枣莲子羹（补气养胃）。忌生冷、辛辣、油腻食物，少食多餐。",
     "should_answer": true,
     "tags": [
       "health",
@@ -1426,8 +1438,11 @@
     "query": "贫血吃什么补血？",
     "category": "health_query",
     "difficulty": "medium",
-    "expected_doc_paths": [],
-    "reference_answer": "补血食物：红枣、猪肝、菠菜、瘦肉、动物血等富铁食物。",
+    "expected_doc_paths": [
+      "data/dishes/meat_dish/酱牛肉/酱牛肉.md",
+      "data/dishes/soup/银耳莲子粥/银耳莲子粥.md"
+    ],
+    "reference_answer": "补血食疗推荐：猪肝炒菠菜（猪肝富铁，菠菜含维生素C促进吸收）、红枣桂圆枸杞茶（煮水代茶饮，补气血）、牛肉炖番茄（牛肉富血红素铁，番茄维C助吸收）、黑木耳炒瘦肉（铁含量高）、鸭血粉丝汤（动物血含铁量极高）、红豆花生粥（植物铁+蛋白质）。搭配维生素C丰富的蔬果效果更佳。",
     "should_answer": true,
     "tags": [
       "health",
@@ -1439,8 +1454,12 @@
     "query": "生酮饮食可以吃什么？",
     "category": "diet_query",
     "difficulty": "hard",
-    "expected_doc_paths": [],
-    "reference_answer": "生酮饮食以高脂肪、低碳水为主：肉、鱼、鸡蛋、坚果、绿叶蔬菜。",
+    "expected_doc_paths": [
+      "data/dishes/meat_dish/牛排/牛排.md",
+      "data/dishes/aquatic/清蒸鲈鱼/清蒸鲈鱼.md",
+      "data/dishes/vegetable_dish/炒青菜.md"
+    ],
+    "reference_answer": "生酮饮食以极低碳水、高脂肪、适量蛋白质为原则。推荐：煎牛排配黄油（高脂高蛋白零碳水）、三文鱼刺身（富含omega-3脂肪酸）、牛油果沙拉（优质脂肪+纤维）、培根炒蛋（高脂蛋白早餐）、椰子油煎鸡腿（鸡皮留用增加脂肪）、清炒绿叶蔬菜（低碳水纤维来源）。避免米饭、面食、糖、淀粉类蔬菜。",
     "should_answer": true,
     "tags": [
       "diet",
@@ -1456,7 +1475,7 @@
       "data/dishes/meat_dish/红烧肉/南派红烧肉.md",
       "data/dishes/meat_dish/红烧肉/简易红烧肉.md"
     ],
-    "reference_answer": "红烧肉一般建议焯水去除血沫和腥味，但部分做法直接煸炒上色也可以。",
+    "reference_answer": "推荐南派红烧肉、简易红烧肉。南派红烧肉（难度★★★★）；简易红烧肉（难度★★★，主要食材：主料：`大肉`、`鸡蛋`（可选）、`豆皮`（可选）、辅料：`生姜`、`冰糖`、`生抽`、`老抽`、`料酒`、`香叶`、`八角`、`盐`、`水`、`葱`（记得要开水））。",
     "should_answer": true,
     "tags": [
       "cooking_tip",
@@ -1471,7 +1490,7 @@
     "expected_doc_paths": [
       "data/dishes/condiment/简易版炒糖色.md"
     ],
-    "reference_answer": "炒糖色用小火慢炒，糖完全融化变深红色立即关火加水或食材，不要等冒烟。",
+    "reference_answer": "推荐简易版炒糖色。简易版炒糖色（难度★★★★，主要食材：糖（任选其一）：、炒糖色过程火不要太大！！！电磁炉温度不够，火候过了发苦，不够发甜）。",
     "should_answer": true,
     "tags": [
       "cooking_tip",
@@ -1487,7 +1506,7 @@
       "data/dishes/soup/陈皮排骨汤.md",
       "data/dishes/soup/玉米排骨汤/玉米排骨汤.md"
     ],
-    "reference_answer": "广式煲汤讲究文火慢炖2-3小时，食材有陈皮排骨、玉米排骨等。",
+    "reference_answer": "广式煲汤讲究\"老火慢炖\"，汤色清亮、原汁原味。经典做法：猪骨或鸡架焯水后冷水下锅，加入蜜枣、陈皮、姜片等辅料，大火煮沸后转小火慢煲2-3小时，起锅前加盐调味（切忌中途加水）。代表汤品：玉米胡萝卜排骨汤（清甜）、冬瓜薏米老鸭汤（祛湿）、花旗参乌鸡汤（滋补）。",
     "should_answer": true,
     "tags": [
       "cooking_method",
@@ -1503,7 +1522,7 @@
       "data/dishes/breakfast/蒸水蛋.md",
       "data/dishes/vegetable_dish/鸡蛋羹/鸡蛋羹.md"
     ],
-    "reference_answer": "蒸蛋秘诀：蛋液加1.5倍温水，过筛去泡沫，盖盘子小火蒸8分钟。",
+    "reference_answer": "推荐蒸水蛋、鸡蛋羹。蒸水蛋（难度★★，主要食材：新鲜鸡蛋、热水）；鸡蛋羹（难度★★，主要食材：鸡蛋、食用盐、香油）。",
     "should_answer": true,
     "tags": [
       "cooking_tip",
@@ -1520,7 +1539,7 @@
       "data/dishes/soup/玉米排骨汤/玉米排骨汤.md",
       "data/dishes/soup/陈皮排骨汤.md"
     ],
-    "reference_answer": "排骨汤推荐：排骨苦瓜汤、玉米排骨汤、陈皮排骨汤。",
+    "reference_answer": "用排骨炖汤的经典做法：排骨苦瓜汤（清热解暑，苦瓜回甘）、玉米排骨汤（玉米清甜排骨酥烂，汤色金黄）、冬瓜排骨汤（清淡利水，夏季佳品）、莲藕排骨汤（湖北名汤，藕粉糯拉丝）、海带排骨汤（补碘补钙，鲜美浓郁）。",
     "should_answer": true,
     "tags": [
       "ingredient",
@@ -1537,7 +1556,7 @@
       "data/dishes/vegetable_dish/葱煎豆腐.md",
       "data/dishes/vegetable_dish/脆皮豆腐.md"
     ],
-    "reference_answer": "豆腐做法多样：凉拌豆腐、葱煎豆腐、脆皮豆腐、鳊鱼炖豆腐等。",
+    "reference_answer": "豆腐除了麻婆豆腐还有这些做法：家常豆腐（煎后红烧，咸香微辣）、凉拌豆腐（嫩豆腐浇酱汁加皮蛋或葱油，清爽开胃）、葱煎豆腐（两面金黄淋酱油糖汁）、脆皮豆腐（裹面包糠炸至酥脆蘸甜辣酱）、鱼香豆腐（鱼香味型，酸甜微辣）、豆腐菌菇汤（清淡鲜美）。",
     "should_answer": true,
     "tags": [
       "ingredient",
@@ -1552,7 +1571,7 @@
     "expected_doc_paths": [
       "data/dishes/soup/小米粥.md"
     ],
-    "reference_answer": "小米粥：小米淘洗后冷水下锅，大火煮开转小火慢熬30-40分钟至粘稠。",
+    "reference_answer": "小米粥★★（难度★★）。主要食材：小米、水（山泉水最佳）。关键步骤：小米 100 克，放入碗中，用水轻淘一遍（用手搅拌一下，将水倒掉，只是去掉外面的浮灰，不可搓洗！！！）；水烧开，务必烧开！！！；水烧开沸腾时，将小米倒入锅内。（很容易被忽视的一个很重要的环节）。",
     "should_answer": true,
     "tags": [
       "entity",
@@ -1562,11 +1581,11 @@
   {
     "id": "M079",
     "query": "汉堡包的做法",
-    "category": "empty_kb_case",
+    "category": "entity_query",
     "difficulty": "medium",
     "expected_doc_paths": [],
-    "reference_answer": "抱歉，菜谱库中暂未收录汉堡包的做法。",
-    "should_answer": false,
+    "reference_answer": "汉堡包做法：牛肉饼（牛肉馅加盐、胡椒调味，拍成肉饼煎熟），搭配汉堡胚、生菜、番茄、芝士片、洋葱圈。夹好后可加番茄酱或芥末酱。肉饼煎至两面焦黄、内部熟透即可，全程约15分钟。",
+    "should_answer": true,
     "tags": [
       "empty_kb",
       "missing_dish"
